@@ -1,0 +1,77 @@
+{
+    "GENERAL":{
+        "TITLE": "trial",
+        "PROJECT": "trial_project",
+        "EXPERIMENT": "trial_experiment",
+        "GENOME": "hg38",
+        "WORKDIR": "/data/RTB/Amir/ATAC_Seq/Projects",
+        "DATADIR": "/data/RTB/Amir/ATAC_Seq/DATA/small_subset", 
+    },
+
+    "CONDA":{
+        "CONDA_INIT": "source /data/shamsaddinisha/conda/etc/profile.d/conda.sh",
+        "ATAC_Seq_py2": "/data/shamsaddinisha/conda/envs/ATAC_Seq_py2",
+        "ATAC_Seq_py3": "/data/shamsaddinisha/conda/envs/ATAC_Seq_py3",
+        "ACTIVATE_PY2": "conda activate ATAC_Seq_py2",
+        "ACTIVATE_PY3": "conda activate ATAC_Seq_py3",
+    },
+
+    "METADATA":{
+        "METADATA_FILE": "/data/RTB/Amir/ATAC_Seq/Metadata/subsample_metadata.txt"
+    },
+
+    "PRE_PROCESS":{
+        "CUTADAPT_PE": "--format=fastq --cores=1 --minimum-length=5 --quality-base=33 --error-rate=0.1 -a 'CTGTCTCTTATA' -A 'CTGTCTCTTATA'",
+    },
+
+    "ALIGNMENT":{
+        "BOWTIE2_PE": "--sensitive-local -X2000",
+    },
+
+    "POST_ALIGNMENT":{
+        "PICARD": "VALIDATION_STRINGENCY=LENIENT ASSUME_SORT_ORDER=coordinate REMOVE_SEQUENCING_DUPLICATES=false REMOVE_DUPLICATES=false",
+        "QUALIMAP": "--genome-gc-distr HUMAN - hg38 -hm 3 --collect-overlap-pairs -nr 100 -nw 400 -outformat HTML --skip-dup-mode 1",
+        "CHROMOSOME_FILTER": "BEGIN{OFS=FS}{if ($1 != \"chrM\" && $1 != \"chrUn\" && $1 !~ /chrUn/ && $1 !~ /random/) print $0}",
+        "TN5_PROCESS": "BEGIN{OFS=FS}{if ($6 == \"+\") {$2 = $2 + 4} else if ($6 == \"-\") {$3 = $3 - 5} print $0}",
+        "SAMTOOLS_FILTER": "-F 1804 -f 2 -q 30",
+        "SAMTOOLS_DUPLICATE": "-F 780 -f 1026 -q 30",
+        "SAMTOOLS_DISCARDED": "-F 2",
+        "BEDTOOLS_OVERLAPPING": "-f 0.9 -r"
+    },
+
+    "PEAK_CALLING":{
+        "hg38":{
+            "MACS2_NARROW": "--format BED --gsize hs --shift -75 --extsize 150 --nomodel --nolambda -B --SPMR --keep-dup all -p 0.05 --verbose 3",
+            "MACS2_BROAD": "--broad --format BED --gsize hs --extsize 200 --nomodel --nolambda -B --SPMR --keep-dup all -p 0.05 --verbose 3",
+        },
+        "mm10":{
+            "MACS2_NARROW": "--gsize mm -B --SPMR --keep-dup all --call-summits --verbose 3",
+            "MACS_BROAD": "--gsize mm --nomodel --extsize 200 --broad -B --SPMR --keep-dup all --verbose 3",
+            "PVALUE": "0.05",
+        } 
+    },
+
+    "REFERENCE":{
+        "hg38":{
+            "WG_FASTA": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa",
+            "CHROM_SIZE": "/fdb/atac_dnase_pipelines/hg38/hg38.chrom.sizes",
+            "BWA_INDEX": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/BWAIndex/genome",
+            "BOWTIE_INDEX": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/BowtieIndex/genome",
+            "BOWTIE2_INDEX": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/Bowtie2Index/genome",
+            "BLACK_LIST": "/fdb/atac_dnase_pipelines/hg38/hg38.blacklist.bed.gz", 
+        },
+    },
+    "TRACK_HUB":{
+        "DATA_SHARE_LINK": "https://hpc.nih.gov/~RTB"
+    },
+
+    "EXECUTION_REPORT":{
+        "overview": ["provenance"],
+        "preprocess": ["fastqc", "cutadapt"],
+        "alignment": ["bowtie2", "fastqc"],
+        "post_alignment": ["picard", "qualimap", "samtools", "bedtools", "pooling", "overlapping"],
+        "peak_calling": ["narrow_peak", "broad_peak", "nucleoatac"],
+    },
+
+
+}

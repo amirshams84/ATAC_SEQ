@@ -1,0 +1,11 @@
+Name	Design	Type	Format	Layout	Extension
+AB3606-L1	CD4_Naive	CASE	fastq	paired	_001.fastq.gz
+AB3607-L1	CD4_CCR6neg	CASE	fastq	paired	_001.fastq.gz
+AB3608-L1	CD4_CCR6low	CASE	fastq	paired	_001.fastq.gz
+AB3609-L1	CD4_CCR6high	CASE	fastq	paired	_001.fastq.gz
+AB3610-L1	CD4_CCR6plus_CCR2plus	CASE	fastq	paired	_001.fastq.gz
+AB3611-L1	CD4_Naive	CASE	fastq	paired	_001.fastq.gz
+AB3612-L1	CD4_CCR6neg	CASE	fastq	paired	_001.fastq.gz
+AB3613-L1	CD4_CCR6low	CASE	fastq	paired	_001.fastq.gz
+AB3614-L1	CD4_CCR6high	CASE	fastq	paired	_001.fastq.gz
+AB3615-L1	CD4_CCR6plus_CCR2plus	CASE	fastq	paired	_001.fastq.gz

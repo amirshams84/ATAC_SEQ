@@ -1,0 +1,22 @@
+{
+    "GENERAL":{
+        "PROJECT": "trial_project",
+        "EXPERIMENT": "trial_experiment",
+        "GENOME": "hg38",
+        "WORKDIR": "/data/RTB/Amir/ATAC_Seq/Projects",
+        "DATADIR": "/data/RTB/Amir/ATAC_Seq/DATA/subsample",
+    },
+    
+    "CONDA":{
+        "CONDA_INIT": "source /data/shamsaddinisha/conda/etc/profile.d/conda.sh",
+        "ATAC_Seq_py2": "/data/shamsaddinisha/conda/envs/ATAC_Seq_py2",
+        "ATAC_Seq_py3": "/data/shamsaddinisha/conda/envs/ATAC_Seq_py3",
+        "ACTIVATE_PY2": "conda activate ATAC_Seq_py2",
+        "ACTIVATE_PY3": "conda activate ATAC_Seq_py3",
+    },
+    
+    "METADATA":{
+        "METADATA_FILE": "/data/RTB/Amir/ATAC_Seq/Metadata/sample_metadata.txt",
+    },
+
+}

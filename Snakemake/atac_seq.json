@@ -1,0 +1,80 @@
+{
+    "GENERAL":{
+        "PROJECT": "trial-project",
+        "EXPERIMENT": "trial-experiment",
+        "INFOLINK": "https://myrtb.nih.gov/Microarray/Lists/Experiments/DispForm.aspx?ID=639",
+        "TITLE": "trial",
+        "GENOME": "hg38",
+        "FASTQ_DELIMITER": ".",
+        "WORKDIR": "/data/RTB/datashare/Amir",
+        "DATADIR": "/data/RTB/Amir/ATAC_Seq/DATA/subsample",
+    },
+    
+    "CONDA":{
+        "CONDA_INIT": "source /data/shamsaddinisha/conda/etc/profile.d/conda.sh",
+        "ATAC_Seq_py2": "/data/shamsaddinisha/conda/envs/ATAC_Seq_py2",
+        "ATAC_Seq_py3": "/data/shamsaddinisha/conda/envs/ATAC_Seq_py3",
+        "ACTIVATE_PY2": "conda activate ATAC_Seq_py2",
+        "ACTIVATE_PY3": "conda activate ATAC_Seq_py3",
+    },
+
+    "METADATA":{
+        "METADATA_FILE": "/data/RTB/Amir/ATAC_Seq/Metadata/subsample_metadata.txt"
+    },
+
+    "REFERENCE":{
+        "hg38":{
+            "WG_FASTA": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa",
+            "CHROM_SIZE": "/fdb/atac_dnase_pipelines/hg38/hg38.chrom.sizes",
+            "BWA_INDEX": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/BWAIndex/genome",
+            "BOWTIE_INDEX": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/BowtieIndex/genome",
+            "BOWTIE2_INDEX": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/Bowtie2Index/genome",
+            "BLACK_LIST": "/fdb/atac_dnase_pipelines/hg38/hg38.blacklist.bed.gz",
+        },
+    },
+
+    "PRE_PROCESS":{
+        "CUTADAPT": "--format=fastq --minimum-length=3 --quality-base=33 --error-rate=0.0 --trim-n -a CTGTCTCTTATA",
+        "USEARCH": "-fastq_eeout -fastq_ascii 33 -fastq_qmin 0 -fastq_qmax 47",
+    },
+
+    "SUBSAMPLE":{
+        "SUBSAMPLE_PCT": "25",
+        "USE_SUBSAMPLE": "TRUE"
+    },
+
+    "ALIGNMENT":{
+        "BOWTIE2": "-k1 --very-sensitive-local",
+        "PICARD": "VALIDATION_STRINGENCY=LENIENT ASSUME_SORT_ORDER=coordinate REMOVE_DUPLICATES=true",
+        "QUALIMAP": "--genome-gc-distr HUMAN - hg38 -hm 3 -nr 100 -nw 400 -outformat HTML --skip-dup-mode 1 --java-mem-size=10G",
+    },
+    
+    "POST_ALIGNMENT":{
+        "FILTER_MAPQ": "-F 3844 -q 10",
+        "FILTER_CHROMOSOME": "BEGIN{OFS=FS}{if ( $3 != \"chrM\" && $3 != \"chrUn\" && $3 !~ /chrUn/ && $3 !~ /random/ ) print $0}",
+    },
+
+    "PEAK_CALLING":{
+        "hg38":{
+            "MACS2_NARROWPEAK": "--format BAM --gsize hs --shift -75 --extsize 150 --call-summits --nomodel -B --SPMR --keep-dup all -q 0.05 --verbose 3",
+            "MACS2_FE_SIGNAL": "--method FE --scaling-factor 1.0 --pseudocount 0.0",
+
+            
+        },
+        "mm10":{
+            "MACS2_NARROW": "--gsize mm -B --SPMR --keep-dup all --call-summits --verbose 3",
+        } 
+    },
+
+    "PEAK_ANALYSIS":{
+        "NAIVE_OVERLAP": "-f 0.9 -r",
+        "IDR": "--rank p.value --soft-idr-threshold 0.1 --plot --use-best-multisummit-IDR --input-file-type narrowPeak --peak-merge-method sum",
+        "PVALUE": "0.05",
+    },
+
+    "TRACK_HUB":{
+        "HPC_DATASHARE": "https://hpc.nih.gov/~RTB"
+    },
+
+
+}

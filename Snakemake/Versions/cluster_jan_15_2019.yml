@@ -1,0 +1,4 @@
+__default__:
+    partition: quick
+    time: 2:00:00
+    extra: "--gres=lscratch:10"

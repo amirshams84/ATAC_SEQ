@@ -1,0 +1,5 @@
+Name	Design	Type	Format	Layout
+AB3606-L1	CD4-Naive	CASE	fastq	paired
+AB3610-L1	CD4-Naive	CASE	fastq	paired
+AB3607-L1	CD4-CCR6low	CASE	fastq	paired
+AB3611-L1	CD4-CCR6low	CASE	fastq	paired

@@ -1,0 +1,9 @@
+__default__:
+    partition: norm
+    time: 4:00
+    extra: "--gres=lscratch:100"
+
+Macs2_NarrowPeak:
+    partition: norm
+    time: 4:00
+    extra: "--gres=lscratch:100"

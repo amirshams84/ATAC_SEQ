@@ -1,0 +1,70 @@
+{
+    "GENERAL":{
+        "TITLE": "TRIAL1",
+        "GENOME": "hg38",
+        "WORKDIR": "/data/RTB/Amir/ATAC_Seq/WORK",
+        "DATADIR": "/data/RTB/Amir/ATAC_Seq/DATA",
+        "EXECDIR": "/data/RTB/Amir/ATAC_Seq/EXEC",
+        "TEMPDIR": "/data/RTB/Amir/ATAC_Seq/TEMP",
+    },
+
+    "CONDA":{
+        "CONDA_INIT": "source /data/shamsaddinisha/CHIP_Seq/EXECDIR/.conda_env",
+        "CHIP_Seq_py2": "/data/shamsaddinisha/CHIP_Seq/EXECDIR/Miniconda3/envs/CHIP_Seq_py2",
+        "CHIP_Seq_py3": "/data/shamsaddinisha/CHIP_Seq/EXECDIR/Miniconda3/envs/CHIP_Seq_py3",
+        "ACTIVATE_PY2": "source activate CHIP_Seq_py2",
+        "ACTIVATE_PY3": "source activate CHIP_Seq_py3",
+    },
+
+    "METADATA": "/data/RTB/Amir/ATAC_Seq/Metadata/sample_metadata.txt",
+
+    "PRE_PROCESSING":{
+        "CUTADAPT": "--format=fastq --cores=1 --minimum-length=5 --quality-base=33 --error-rate=0.1 -a 'CTGTCTCTTATA' -A 'CTGTCTCTTATA'",
+    },
+
+    "ALIGNMENT":{
+        "ALIGNER": "bowtie2",
+        "BOWTIE2": "-k1 -X2000 --mm --local",
+    },
+
+    "POST_ALIGNMENT":{
+        "PICARD": "VALIDATION_STRINGENCY=LENIENT ASSUME_SORT_ORDER=coordinate REMOVE_SEQUENCING_DUPLICATES=false REMOVE_DUPLICATES=false",
+        "QUALIMAP": "--genome-gc-distr HUMAN - hg38 -hm 3 --collect-overlap-pairs -nr 100 -nw 400 -outformat HTML --skip-dup-mode 1",
+        "FILTER": "$3 !~ /chrUn/ && $3 !~ /random/",
+        "SAMTOOLS": "-F 1804 -f 2 -q 30",
+        "OVERLAPPING": "-f 0.9 -r"
+    },
+
+    "PEAK_CALLING":{
+        "hg38":{
+            "MACS2_NARROW": "--gsize hs -B --SPMR --keep-dup all --call-summits --verbose 3",
+            "MACS_BROAD": "--gsize hs --nomodel --extsize 200 --broad -B --SPMR --keep-dup all --verbose 3",
+            "PVALUE": "0.05",
+        },
+        "mm10":{
+            "MACS2_NARROW": "--gsize mm -B --SPMR --keep-dup all --call-summits --verbose 3",
+            "MACS_BROAD": "--gsize mm --nomodel --extsize 200 --broad -B --SPMR --keep-dup all --verbose 3",
+            "PVALUE": "0.05",
+        } 
+    },
+
+    "REFERENCE":{
+        "hg38":{
+            "WG_FASTA": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa",
+            "CHROM_SIZE": "/fdb/atac_dnase_pipelines/hg38/hg38.chrom.sizes",
+            "BWAIndex": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/BWAIndex/genome",
+            "BowtieIndex": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/BowtieIndex/genome",
+            "Bowtie2Index": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/Bowtie2Index/genome",
+            "BLACK_LIST": "/fdb/atac_dnase_pipelines/hg38/hg38.blacklist.bed.gz", 
+        },
+    },
+    
+    "REPORT":{
+        "overview": ["provenance"],
+        "preprocess": ["fastqc", "cutadapt"],
+        "alignment": ["bowtie2", "fastqc"],
+        "post_alignment": ["picard", "qualimap", "samtools", "pooling", "overlapping"],
+        "peak_calling": ["narrow_peak", "signal_p-value"],
+        "post_peak_calling": ["black_list_filtering", "pvalue_filtering"],
+    },
+}
