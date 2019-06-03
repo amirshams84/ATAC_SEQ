@@ -1,0 +1,195 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 30
+Rules claiming more threads will be scaled down.
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	NarrowPeak_IDR
+	1
+
+[Sat May 25 14:06:56 2019]
+Job 0: NarrowPeak_IDR: Ccl20-_UT|AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1
+
+[+] Loading macs  2.1.2 
+[-] Unloading samtools 1.9  ... 
+[+] Loading samtools 1.9  ... 
+[+] Loading bedtools  2.27.1 
+[+] Loading deeptools  3.1.3 
+[+] Loading ucsc 373 on cn3404 
+[-] Unloading idr, version 2.0.3... 
+[+] Loading idr, version 2.0.3... 
+###################################- COMMANDLINE -############################
+module load macs/2.1.2 || exit 1
+module load samtools/1.9 || exit 1
+module load bedtools/2.27.1 || exit 1
+module load deeptools/3.1.3 || exit 1
+module load ucsc/373 || exit 1
+module load idr/2.0.3
+#
+Description:
+Peak IDR Narrow
+#
+INPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1.narrowPeak.gz
+INPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3824-L1.narrowPeak.gz
+INPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.narrowPeak.gz
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.tbi
+OUTPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bb
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bigwig
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+idr --samples /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1.narrowPeak.gz /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3824-L1.narrowPeak.gz --peak-list /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.narrowPeak.gz --input-file-type narrowPeak --output-file-type narrowPeak --rank signal.value --soft-idr-threshold 0.1 --plot --use-best-multisummit-IDR --input-file-type narrowPeak --peak-merge-method sum --output-file /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.tmp --max-iter 10000 --verbose
+#
+mv /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.tmp.png /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/report/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1_IDR.png
+#
+awk 'BEGIN{OFS="\t"} {$4="AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.macs2_narrowPeak_"NR} {if ($2<0) $2=0; print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.tmp | sort | uniq | LC_COLLATE=C sort -k1,1 -k2,2n > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.edited
+#
+bgzip -c /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.edited > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz
+#
+tabix -f -p bed /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz
+#
+awk 'BEGIN{FS="\t";OFS="\t"} {if ($5>1000) $5=1000; print $0}' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.edited > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.fix
+#
+bedToBigBed -as=./Script/bigNarrowPeak.as -type=bed6+4 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.fix /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bb
+#
+awk 'BEGIN{OFS="\t"} {printf "%s\t%d\t%d\t%2.3f\n", $1,$2,$3,$5}' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.edited > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg.tmp
+#
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg.tmp | sort -u -k1,1 -k2,2 -k3,3 -s > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg.uniq
+#
+slopBed -i /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg.uniq -g /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes -b 0 | bedClip stdin /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg.edited
+#
+LC_COLLATE=C sort -k1,1 -k2,2n /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg.edited > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg
+#
+bedGraphToBigWig /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bigwig
+if [ -f /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bigwig ]; then
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.tmp
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.edited
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.gz.fix
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg.tmp
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg.uniq
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_calling/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.bdg.edited
+fi
+#
+EXECUTING....
+#
+Loading the peak files
+Merging peaks
+Ranking peaks
+Initial parameter values: [0.10 1.00 0.20 0.50]
+Fitting the model parameters
+Iter 0       9.61e-01 1.07e-01 [0.13981263 0.99196587 0.8720773  0.74065418]
+Iter 1       9.72e-02 1.01e-01 [0.21152213 0.98350258 0.87700759 0.72851344]
+Iter 2       9.08e-02 9.37e-02 [0.28004842 0.97611048 0.88091883 0.71751684]
+Iter 3       8.19e-02 8.54e-02 [0.34393716 0.97005122 0.88371334 0.7083446 ]
+Iter 4       7.29e-02 7.69e-02 [0.40259759 0.96543232 0.88566087 0.70063786]
+Iter 5       6.44e-02 6.87e-02 [0.45593254 0.96224199 0.88699738 0.69405739]
+Iter 6       5.67e-02 6.11e-02 [0.50412337 0.96038981 0.88790333 0.68834605]
+Iter 7       4.96e-02 5.42e-02 [0.54748256 0.95974539 0.8885094  0.68332565]
+Iter 8       4.42e-02 4.79e-02 [0.58636966 0.96016512 0.88890854 0.67887627]
+Iter 9       4.03e-02 4.23e-02 [0.62114891 0.96150737 0.88916672 0.67491621]
+Iter 10      3.68e-02 3.73e-02 [0.6521704  0.96363966 0.88933105 0.67138712]
+Iter 11      3.36e-02 3.28e-02 [0.67976325 0.96644091 0.88943523 0.66824429]
+Iter 12      3.07e-02 2.88e-02 [0.70423455 0.96980115 0.88950334 0.66545066]
+Iter 13      2.80e-02 2.52e-02 [0.72587056 0.97362025 0.8895524  0.66297333]
+Iter 14      2.55e-02 2.20e-02 [0.74493845 0.97780646 0.88959415 0.6607818 ]
+Iter 15      2.32e-02 1.92e-02 [0.761688   0.98227518 0.88963629 0.6588471 ]
+Iter 16      2.11e-02 1.68e-02 [0.77635277 0.98694812 0.8896836  0.65714162]
+Iter 17      1.92e-02 1.47e-02 [0.78915069 0.99175319 0.88973864 0.65563922]
+Iter 18      1.74e-02 1.28e-02 [0.8002844  0.99662444 0.88980232 0.65431552]
+Iter 19      1.58e-02 1.12e-02 [0.80994128 1.00150232 0.88987447 0.65314817]
+Iter 20      1.43e-02 9.91e-03 [0.81829281 1.00633419 0.88995407 0.65211754]
+Iter 21      1.29e-02 8.78e-03 [0.82549668 1.01107402 0.89003991 0.65120527]
+Iter 22      1.17e-02 7.81e-03 [0.83169552 1.01568302 0.89013046 0.65039551]
+Iter 23      1.06e-02 6.99e-03 [0.83701917 1.02012905 0.89022462 0.64967327]
+Iter 24      9.56e-03 6.28e-03 [0.84157989 1.02438768 0.89032    0.64902899]
+Iter 25      8.62e-03 5.66e-03 [0.84547728 1.02844066 0.89041539 0.64845422]
+Iter 26      7.77e-03 5.11e-03 [0.84880288 1.03227435 0.89050975 0.64793919]
+Iter 27      6.99e-03 4.63e-03 [0.8516351  1.03588104 0.890602   0.64747717]
+Iter 28      6.29e-03 4.20e-03 [0.85404339 1.03925706 0.89069137 0.6470618 ]
+Iter 29      5.65e-03 3.81e-03 [0.85608738 1.04240298 0.89077719 0.6466883 ]
+Iter 30      5.07e-03 3.46e-03 [0.85781924 1.04532218 0.89085896 0.64635228]
+Iter 31      4.54e-03 3.14e-03 [0.8592841  1.0480207  0.89093637 0.64604993]
+Iter 32      4.07e-03 2.85e-03 [0.86052098 1.05050642 0.89100922 0.64577788]
+Iter 33      3.64e-03 2.58e-03 [0.86156343 1.05278877 0.89107742 0.64553322]
+Iter 34      3.25e-03 2.34e-03 [0.86244036 1.05487818 0.89114098 0.64531328]
+Iter 35      2.90e-03 2.12e-03 [0.86317698 1.05678561 0.89120002 0.64511539]
+Iter 36      2.59e-03 1.91e-03 [0.86379372 1.05852273 0.89125454 0.64493805]
+Iter 37      2.30e-03 1.73e-03 [0.86430914 1.06010099 0.89130478 0.64477902]
+Iter 38      2.05e-03 1.56e-03 [0.8647392  1.06153165 0.89135098 0.64463624]
+Iter 39      1.82e-03 1.41e-03 [0.86509639 1.06282615 0.89139326 0.64450869]
+Iter 40      1.62e-03 1.26e-03 [0.86539269 1.06399515 0.89143195 0.64439439]
+Iter 41      1.44e-03 1.14e-03 [0.86563708 1.06504908 0.89146716 0.64429251]
+Iter 42      1.27e-03 1.02e-03 [0.86583846 1.06599753 0.89149924 0.64420132]
+Iter 43      1.13e-03 9.16e-04 [0.86600296 1.06685002 0.89152831 0.64412032]
+Iter 44      9.98e-04 8.20e-04 [0.86613731 1.06761501 0.89155473 0.64404788]
+Iter 45      8.82e-04 7.34e-04 [0.86624574 1.06830064 0.89157855 0.6439837 ]
+Iter 46      7.79e-04 6.57e-04 [0.86633283 1.06891432 0.89160008 0.64392667]
+Iter 47      6.89e-04 5.87e-04 [0.86640258 1.06946287 0.89161955 0.64387574]
+Iter 48      6.07e-04 5.24e-04 [0.86645726 1.0699528  0.89163703 0.64383082]
+Iter 49      5.36e-04 4.67e-04 [0.8665001  1.07038982 0.8916528  0.64379076]
+Iter 50      4.72e-04 4.16e-04 [0.86653304 1.07077919 0.89166698 0.64375519]
+Iter 51      4.15e-04 3.71e-04 [0.8665573  1.07112598 0.89167966 0.64372403]
+Iter 52      3.66e-04 3.30e-04 [0.8665753  1.07143431 0.89169107 0.64369617]
+Iter 53      3.21e-04 2.93e-04 [0.86658744 1.0717084  0.89170123 0.64367186]
+Iter 54      2.82e-04 2.60e-04 [0.86659561 1.07195167 0.89171037 0.64365012]
+Iter 55      2.47e-04 2.31e-04 [0.8665999  1.07216758 0.8917185  0.64363121]
+Iter 56      2.17e-04 2.05e-04 [0.86660183 1.07235885 0.8917258  0.64361426]
+Iter 57      1.91e-04 1.82e-04 [0.8666012  1.07252836 0.89173226 0.64359962]
+Iter 58      1.71e-04 1.61e-04 [0.86659932 1.0726783  0.89173808 0.64358644]
+Iter 59      1.53e-04 1.43e-04 [0.86659578 1.07281099 0.89174319 0.64357515]
+Iter 60      1.36e-04 1.26e-04 [0.86659173 1.07292816 0.89174781 0.64356494]
+Iter 61      1.21e-04 1.11e-04 [0.86658669 1.07303166 0.89175186 0.64355623]
+Iter 62      1.08e-04 9.85e-05 [0.86658157 1.07312292 0.8917555  0.64354835]
+Iter 63      9.61e-05 8.70e-05 [0.86657586 1.07320348 0.89175868 0.64354169]
+Iter 64      8.53e-05 7.68e-05 [0.8665704  1.07327439 0.89176156 0.64353559]
+Iter 65      7.59e-05 6.77e-05 [0.8665646  1.0733369  0.89176406 0.6435305 ]
+Iter 66      6.72e-05 5.97e-05 [0.86655925 1.07339183 0.89176632 0.64352581]
+Iter 67      5.97e-05 5.25e-05 [0.86655371 1.0734402  0.89176828 0.64352193]
+Iter 68      5.29e-05 4.63e-05 [0.86654869 1.07348266 0.89177006 0.64351832]
+Iter 69      4.69e-05 4.07e-05 [0.86654358 1.07352002 0.89177158 0.64351539]
+Iter 70      4.14e-05 3.58e-05 [0.86653905 1.07355273 0.89177298 0.6435126 ]
+Iter 71      3.67e-05 3.15e-05 [0.86653448 1.07358151 0.89177417 0.64351038]
+Iter 72      3.24e-05 2.77e-05 [0.8665305  1.07360667 0.89177526 0.64350823]
+Iter 73      2.87e-05 2.43e-05 [0.86652651 1.07362875 0.89177618 0.64350656]
+Iter 74      2.52e-05 2.13e-05 [0.8665231  1.07364801 0.89177705 0.64350488]
+Iter 75      2.23e-05 1.87e-05 [0.86651967 1.07366491 0.89177777 0.64350362]
+Iter 76      1.97e-05 1.64e-05 [0.8665164  1.07367972 0.89177838 0.64350261]
+Iter 77      1.73e-05 1.43e-05 [0.86651369 1.07369257 0.89177898 0.6435015 ]
+Iter 78      1.53e-05 1.26e-05 [0.86651101 1.07370386 0.89177947 0.64350068]
+Iter 79      1.34e-05 1.10e-05 [0.86650845 1.07371371 0.89177987 0.64350005]
+Iter 80      1.18e-05 9.57e-06 [0.86650608 1.07372227 0.89178022 0.64349954]
+Iter 81      1.02e-05 8.30e-06 [0.86650421 1.07372961 0.89178059 0.64349891]
+Iter 82      8.99e-06 7.24e-06 [0.86650238 1.07373603 0.89178087 0.64349845]
+Iter 83      7.91e-06 6.33e-06 [0.86650064 1.07374163 0.8917811  0.64349812]
+Iter 84      6.96e-06 5.53e-06 [0.866499   1.07374651 0.8917813  0.64349787]
+Iter 85      6.14e-06 4.83e-06 [0.86649749 1.07375077 0.89178147 0.64349767]
+Iter 86      5.06e-06 4.03e-06 [0.8664964  1.07375427 0.89178166 0.64349738]
+Iter 87      4.47e-06 3.53e-06 [0.86649536 1.07375733 0.8917818  0.64349716]
+Iter 88      3.93e-06 3.09e-06 [0.86649435 1.07376    0.89178191 0.64349701]
+Iter 89      3.51e-06 2.72e-06 [0.86649339 1.07376236 0.89178201 0.64349691]
+Iter 90      3.09e-06 2.37e-06 [0.86649249 1.0737644  0.89178209 0.64349685]
+Iter 91      2.71e-06 2.07e-06 [0.86649165 1.07376616 0.89178215 0.6434968 ]
+Iter 92      2.38e-06 1.79e-06 [0.86649088 1.07376769 0.89178221 0.64349678]
+Iter 93      2.08e-06 1.56e-06 [0.86649018 1.073769   0.89178225 0.64349677]
+Iter 94      1.82e-06 1.37e-06 [0.86648953 1.07377014 0.89178229 0.64349677]
+Iter 95      1.25e-06 9.50e-07 [0.86648917 1.07377092 0.89178234 0.64349672]
+Iter 96      1.12e-06 8.61e-07 [0.86648881 1.07377161 0.89178238 0.64349668]
+Iter 97      1.02e-06 7.82e-07 [0.86648847 1.07377223 0.89178241 0.64349665]
+Iter 98      9.19e-07 6.97e-07 [0.86648815 1.07377278 0.89178243 0.64349663]
+Finished running IDR on the datasets
+Final parameter values: [0.87 1.07 0.89 0.64]
+Writing results to file
+Number of reported peaks - 103957/103957 (100.0%)
+
+Number of peaks passing IDR cutoff of 0.1 - 75351/103957 (72.5%)
+
+pass1 - making usageList (22 chroms): 42 millis
+pass2 - checking and writing primary data (103957 records, 10 fields): 554 millis
+DONE!!!!
+ELAPSED TIME: 92 seconds
+----------------------------------------------------------------------------
+[Sat May 25 14:08:31 2019]
+Finished job 0.
+1 of 1 steps (100%) done

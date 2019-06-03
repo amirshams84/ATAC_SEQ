@@ -1,0 +1,157 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 30
+Rules claiming more threads will be scaled down.
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	Homer_NarrowPeak_Annotate
+	1
+
+[Sun May 26 00:02:29 2019]
+Job 0: Homer_NarrowPeak_Annotate: Ccl20-_T|AB3833-L1
+
+[+] Loading macs  2.1.2 
+[-] Unloading samtools 1.9  ... 
+[+] Loading samtools 1.9  ... 
+[+] Loading bedtools  2.27.1 
+[+] Loading deeptools  3.1.3 
+[+] Loading ucsc 373 on cn3129 
+[+] Loading gcc  7.3.0  ... 
+[+] Loading GSL 2.4 for GCC 7.2.0 ... 
+[-] Unloading gcc  7.3.0  ... 
+[+] Loading gcc  7.3.0  ... 
+[+] Loading openmpi 3.0.2  for GCC 7.3.0 
+[+] Loading ImageMagick  7.0.8  on cn3129 
+[+] Loading HDF5  1.10.4 
+[+] Loading pandoc  2.1.1  on cn3129 
+[+] Loading R 3.5.2 
+[-] Unloading samtools 1.9  ... 
+[+] Loading samtools 1.9  ... 
+[+] Loading homer  4.10.1 
+###################################- COMMANDLINE -############################
+module load macs/2.1.2 || exit 1
+module load samtools/1.9 || exit 1
+module load bedtools/2.27.1 || exit 1
+module load deeptools/3.1.3 || exit 1
+module load ucsc/373 || exit 1
+module load homer/4.10.1 || exit 1
+#
+Description:
+Peak Annotate Narrow
+#
+INPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3833-L1.narrowPeak.gz
+INPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3833-L1.narrowPeak.bdg
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/AB3833-L1.narrowPeak.homer_annotate.txt
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+gunzip < /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3833-L1.narrowPeak.gz > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/AB3833-L1.narrowPeak.bed
+#
+homer_annotate_file=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/annotate.txt
+#
+homer_annotate_statistics_file=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/annotate_statistics.txt
+#
+annotatePeaks.pl /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/AB3833-L1.narrowPeak.bed mm10 -bedGraph /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3833-L1.narrowPeak.bdg -gsize 2150570000 -go /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1 -annStats /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/annotate_statistics.txt -cpu 30 > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/annotate.txt
+#
+for file in /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/*.txt
+do
+	name=$file
+	name=AB3833-L1.narrowPeak.homer_$name
+	mv $file /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/$name
+done
+#
+EXECUTING....
+#
+
+	Peak file = /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/AB3833-L1.narrowPeak.bed
+	Genome = mm10
+	Organism = mouse
+	bedGraph Files:
+		/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3833-L1.narrowPeak.bdg
+	Effective Genome size set to 2150570000
+	Will perform Gene Ontology analysis - output to directory = /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1
+	Will use up to 30 CPUs in parts that can use them
+	Peak/BED file conversion summary:
+		BED/Header formatted lines: 193165
+		peakfile formatted lines: 0
+		Duplicated Peak IDs: 0
+
+	Peak File Statistics:
+		Total Peaks: 193165
+		Redundant Peak IDs: 0
+		Peaks lacking information: 0 (need at least 5 columns per peak)
+		Peaks with misformatted coordinates: 0 (should be integer)
+		Peaks with misformatted strand: 0 (should be either +/- or 0/1)
+
+	Peak file looks good!
+
+	Reading Positions...
+	-----------------------
+	Finding Closest TSS...
+	Annotating:.....................
+		Annotation	Number of peaks	Total size (bp)	Log2 Enrichment
+		3UTR	1543.0	19834990	0.132
+		miRNA	12.0	24854	2.766
+		ncRNA	598.0	2936051	1.521
+		TTS	2676.0	26405695	0.514
+		pseudo	40.0	502464	0.166
+		Exon	5564.0	33478124	1.228
+		Intron	76079.0	933720660	0.199
+		Intergenic	77025.0	1673583365	-0.625
+		Promoter	25779.0	28680226	3.663
+		5UTR	3820.0	2124691	4.663
+		snoRNA	0.0	19	-17.559
+		rRNA	2.0	5631	2.323
+	NOTE: If this part takes more than 2 minutes, there is a good chance
+		your machine ran out of memory: consider hitting ctrl+C and rerunning
+		the command with "-noann"
+	Annotating:......................
+		Annotation	Number of peaks	Total size (bp)	Log2 Enrichment
+		3UTR	1543.0	19834990	0.133
+		Other	327.0	7961937	-0.789
+		RC?	0.0	10979	-17.559
+		RNA	2.0	114021	-2.016
+		miRNA	12.0	24854	2.767
+		ncRNA	598.0	2936051	1.521
+		TTS	2676.0	26405695	0.514
+		LINE	5242.0	543766991	-2.880
+		LINE?	0.0	8168	-17.559
+		srpRNA	0.0	43388	-17.559
+		SINE	6637.0	196807247	-1.073
+		RC	4.0	65909	-0.225
+		tRNA	74.0	267060	1.965
+		DNA?	26.0	142459	1.363
+		pseudo	40.0	502464	0.166
+		DNA	2054.0	28719782	0.012
+		Exon	5560.0	33478124	1.227
+		Intron	61262.0	593180973	0.542
+		Intergenic	60681.0	835645217	0.033
+		Promoter	25776.0	28680226	3.663
+		5UTR	3818.0	2124691	4.663
+		snoRNA	0.0	19	-17.559
+		LTR?	30.0	193287	1.129
+		scRNA	13.0	604045	-1.721
+		CpG-Island	5703.0	3320125	4.598
+		Low_complexity	321.0	19418537	-2.102
+		LTR	9965.0	313292931	-1.157
+		Simple_repeat	570.0	57597764	-2.842
+		snRNA	33.0	237495	0.970
+		Unknown	55.0	2416409	-1.640
+		SINE?	12.0	29758	2.507
+		Satellite	81.0	4537622	-1.991
+		rRNA	50.0	166665	2.080
+	Performing Gene Ontology Analysis...
+	Counting Tags in Peaks from each directory...
+	Organism: mouse
+	Loading Gene Informaiton...
+	Outputing Annotation File...
+	Done annotating peaks file
+
+#
+DONE!!!!
+#
+ELAPSED TIME: 206 seconds
+----------------------------------------------------------------------------
+[Sun May 26 00:06:03 2019]
+Finished job 0.
+1 of 1 steps (100%) done

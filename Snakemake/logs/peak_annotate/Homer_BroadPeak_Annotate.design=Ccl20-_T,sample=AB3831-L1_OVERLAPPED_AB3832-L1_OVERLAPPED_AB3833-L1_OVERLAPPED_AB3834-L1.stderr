@@ -1,0 +1,157 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 30
+Rules claiming more threads will be scaled down.
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	Homer_BroadPeak_Annotate
+	1
+
+[Sun May 26 00:21:26 2019]
+Job 0: Homer_BroadPeak_Annotate: Ccl20-_T|AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1
+
+[+] Loading macs  2.1.2 
+[-] Unloading samtools 1.9  ... 
+[+] Loading samtools 1.9  ... 
+[+] Loading bedtools  2.27.1 
+[+] Loading deeptools  3.1.3 
+[+] Loading ucsc 373 on cn3118 
+[+] Loading gcc  7.3.0  ... 
+[+] Loading GSL 2.4 for GCC 7.2.0 ... 
+[-] Unloading gcc  7.3.0  ... 
+[+] Loading gcc  7.3.0  ... 
+[+] Loading openmpi 3.0.2  for GCC 7.3.0 
+[+] Loading ImageMagick  7.0.8  on cn3118 
+[+] Loading HDF5  1.10.4 
+[+] Loading pandoc  2.1.1  on cn3118 
+[+] Loading R 3.5.2 
+[-] Unloading samtools 1.9  ... 
+[+] Loading samtools 1.9  ... 
+[+] Loading homer  4.10.1 
+###################################- COMMANDLINE -############################
+module load macs/2.1.2 || exit 1
+module load samtools/1.9 || exit 1
+module load bedtools/2.27.1 || exit 1
+module load deeptools/3.1.3 || exit 1
+module load ucsc/373 || exit 1
+module load homer/4.10.1 || exit 1
+#
+Description:
+Peak Annotate Broad
+#
+INPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.gz
+INPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.bdg
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.homer_annotate.txt
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+gunzip < /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.gz > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.bed
+#
+homer_annotate_file=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/annotate.txt
+#
+homer_annotate_statistics_file=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/annotate_statistics.txt
+#
+annotatePeaks.pl /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.bed mm10 -bedGraph /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.bdg -gsize 2150570000 -go /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1 -annStats /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/annotate_statistics.txt -cpu 30 > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/annotate.txt
+#
+for file in /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/*.txt
+do
+	name=$file
+	name=AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.homer_$name
+	mv $file /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/$name
+done
+#
+EXECUTING....
+#
+
+	Peak file = /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.bed
+	Genome = mm10
+	Organism = mouse
+	bedGraph Files:
+		/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.bdg
+	Effective Genome size set to 2150570000
+	Will perform Gene Ontology analysis - output to directory = /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1
+	Will use up to 30 CPUs in parts that can use them
+	Peak/BED file conversion summary:
+		BED/Header formatted lines: 120545
+		peakfile formatted lines: 0
+		Duplicated Peak IDs: 0
+
+	Peak File Statistics:
+		Total Peaks: 120545
+		Redundant Peak IDs: 0
+		Peaks lacking information: 0 (need at least 5 columns per peak)
+		Peaks with misformatted coordinates: 0 (should be integer)
+		Peaks with misformatted strand: 0 (should be either +/- or 0/1)
+
+	Peak file looks good!
+
+	Reading Positions...
+	-----------------------
+	Finding Closest TSS...
+	Annotating:.....................
+		Annotation	Number of peaks	Total size (bp)	Log2 Enrichment
+		3UTR	1076.0	19834990	0.292
+		miRNA	3.0	24854	1.446
+		ncRNA	328.0	2936051	1.335
+		TTS	1662.0	26405695	0.507
+		pseudo	23.0	502464	0.047
+		Exon	2841.0	33478124	0.938
+		Intron	51136.0	933720660	0.306
+		Intergenic	52345.0	1673583365	-0.502
+		Promoter	9678.0	28680226	2.929
+		5UTR	1449.0	2124691	3.944
+		snoRNA	0.0	19	-16.879
+		rRNA	1.0	5631	2.003
+	NOTE: If this part takes more than 2 minutes, there is a good chance
+		your machine ran out of memory: consider hitting ctrl+C and rerunning
+		the command with "-noann"
+	Annotating:......................
+		Annotation	Number of peaks	Total size (bp)	Log2 Enrichment
+		3UTR	1076.0	19834990	0.293
+		Other	234.0	7961937	-0.591
+		RC?	0.0	10979	-16.879
+		RNA	2.0	114021	-1.336
+		miRNA	3.0	24854	1.447
+		ncRNA	327.0	2936051	1.331
+		TTS	1662.0	26405695	0.507
+		LINE	3668.0	543766991	-2.715
+		LINE?	0.0	8168	-16.879
+		srpRNA	1.0	43388	-0.942
+		SINE	4620.0	196807247	-0.915
+		RC	3.0	65909	0.040
+		tRNA	20.0	267060	0.758
+		DNA?	12.0	142459	0.928
+		pseudo	23.0	502464	0.048
+		DNA	1416.0	28719782	0.155
+		Exon	2841.0	33478124	0.939
+		Intron	41730.0	593180973	0.668
+		Intergenic	41326.0	835645217	0.160
+		Promoter	9677.0	28680226	2.930
+		5UTR	1448.0	2124691	3.944
+		snoRNA	0.0	19	-16.879
+		LTR?	20.0	193287	1.225
+		scRNA	17.0	604045	-0.654
+		CpG-Island	2288.0	3320125	3.960
+		Low_complexity	257.0	19418537	-1.742
+		LTR	7146.0	313292931	-0.957
+		Simple_repeat	585.0	57597764	-2.124
+		snRNA	17.0	237495	0.693
+		Unknown	46.0	2416409	-1.218
+		SINE?	5.0	29758	1.924
+		Satellite	46.0	4537622	-2.127
+		rRNA	29.0	166665	1.974
+	Performing Gene Ontology Analysis...
+	Counting Tags in Peaks from each directory...
+	Organism: mouse
+	Loading Gene Informaiton...
+	Outputing Annotation File...
+	Done annotating peaks file
+
+#
+DONE!!!!
+#
+ELAPSED TIME: 82 seconds
+----------------------------------------------------------------------------
+[Sun May 26 00:22:55 2019]
+Finished job 0.
+1 of 1 steps (100%) done

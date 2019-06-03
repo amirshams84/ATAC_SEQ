@@ -1,0 +1,242 @@
+#
+EXECUTING....
+#
+
+
+Sample label: AB3834-L1
+Sample size: 19968
+
+Fragment lengths:
+Min.: 26.0
+1st Qu.: 94.0
+Mean: 168.75170272435898
+Median: 164.0
+3rd Qu.: 217.0
+Max.: 930.0
+Std: 90.1252153073716
+MAD: 62.0
+Len. 10%: 70.0
+Len. 20%: 85.0
+Len. 30%: 105.0
+Len. 40%: 133.0
+Len. 60%: 183.0
+Len. 70%: 205.0
+Len. 80%: 230.0
+Len. 90%: 277.0
+Len. 99%: 444.0
+
+
+Read lengths:
+Sample size: 19968
+
+Min.: 26.0
+1st Qu.: 75.0
+Mean: 73.24679487179488
+Median: 76.0
+3rd Qu.: 76.0
+Max.: 76.0
+Std: 6.739455628094202
+MAD: 0.0
+Len. 10%: 68.0
+Len. 20%: 74.0
+Len. 30%: 75.0
+Len. 40%: 75.0
+Len. 60%: 76.0
+Len. 70%: 76.0
+Len. 80%: 76.0
+Len. 90%: 76.0
+Len. 99%: 76.0
+
+
+
+Sample label: AB3831-L1
+Sample size: 26828
+
+Fragment lengths:
+Min.: 25.0
+1st Qu.: 91.0
+Mean: 175.1731772774713
+Median: 164.0
+3rd Qu.: 226.0
+Max.: 1614.0
+Std: 103.99241569427623
+MAD: 69.0
+Len. 10%: 64.0
+Len. 20%: 80.0
+Len. 30%: 101.0
+Len. 40%: 130.0
+Len. 60%: 187.0
+Len. 70%: 213.0
+Len. 80%: 243.0
+Len. 90%: 316.0
+Len. 99%: 485.0
+
+
+Read lengths:
+Sample size: 26828
+
+Min.: 25.0
+1st Qu.: 74.0
+Mean: 72.42653198151186
+Median: 76.0
+3rd Qu.: 76.0
+Max.: 76.0
+Std: 8.11388346664997
+MAD: 0.0
+Len. 10%: 62.0
+Len. 20%: 73.0
+Len. 30%: 75.0
+Len. 40%: 75.0
+Len. 60%: 76.0
+Len. 70%: 76.0
+Len. 80%: 76.0
+Len. 90%: 76.0
+Len. 99%: 76.0
+
+
+
+Sample label: AB3833-L1
+Sample size: 40801
+
+Fragment lengths:
+Min.: 26.0
+1st Qu.: 93.0
+Mean: 170.69417416239799
+Median: 167.0
+3rd Qu.: 221.0
+Max.: 1738.0
+Std: 92.34920903840663
+MAD: 64.0
+Len. 10%: 67.0
+Len. 20%: 84.0
+Len. 30%: 105.0
+Len. 40%: 135.0
+Len. 60%: 186.0
+Len. 70%: 209.0
+Len. 80%: 234.0
+Len. 90%: 286.0
+Len. 99%: 445.0
+
+
+Read lengths:
+Sample size: 40801
+
+Min.: 26.0
+1st Qu.: 75.0
+Mean: 72.90956104017059
+Median: 76.0
+3rd Qu.: 76.0
+Max.: 76.0
+Std: 7.379688307818739
+MAD: 0.0
+Len. 10%: 65.0
+Len. 20%: 74.0
+Len. 30%: 75.0
+Len. 40%: 75.0
+Len. 60%: 76.0
+Len. 70%: 76.0
+Len. 80%: 76.0
+Len. 90%: 76.0
+Len. 99%: 76.0
+
+
+
+Sample label: AB3832-L1
+Sample size: 43134
+
+Fragment lengths:
+Min.: 26.0
+1st Qu.: 93.0
+Mean: 174.9139657810544
+Median: 168.0
+3rd Qu.: 225.0
+Max.: 1899.0
+Std: 99.69411948641176
+MAD: 68.0
+Len. 10%: 66.0
+Len. 20%: 83.0
+Len. 30%: 104.0
+Len. 40%: 135.0
+Len. 60%: 189.0
+Len. 70%: 212.0
+Len. 80%: 241.0
+Len. 90%: 304.0
+Len. 99%: 471.0
+
+
+Read lengths:
+Sample size: 43134
+
+Min.: 26.0
+1st Qu.: 74.0
+Mean: 72.75928501877868
+Median: 76.0
+3rd Qu.: 76.0
+Max.: 76.0
+Std: 7.5904029846890735
+MAD: 0.0
+Len. 10%: 64.0
+Len. 20%: 74.0
+Len. 30%: 75.0
+Len. 40%: 75.0
+Len. 60%: 76.0
+Len. 70%: 76.0
+Len. 80%: 76.0
+Len. 90%: 76.0
+Len. 99%: 76.0
+
+
+
+Sample label: AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1
+Sample size: 122535
+
+Fragment lengths:
+Min.: 25.0
+1st Qu.: 93.5
+Mean: 174.83537764720285
+Median: 168.0
+3rd Qu.: 224.0
+Max.: 1899.0
+Std: 98.02419173553527
+MAD: 66.0
+Len. 10%: 66.0
+Len. 20%: 83.0
+Len. 30%: 105.0
+Len. 40%: 137.0
+Len. 60%: 189.0
+Len. 70%: 212.0
+Len. 80%: 239.0
+Len. 90%: 300.0
+Len. 99%: 468.0
+
+
+Read lengths:
+Sample size: 122535
+
+Min.: 25.0
+1st Qu.: 74.0
+Mean: 72.80313379850655
+Median: 76.0
+3rd Qu.: 76.0
+Max.: 76.0
+Std: 7.564826806741743
+MAD: 0.0
+Len. 10%: 64.0
+Len. 20%: 74.0
+Len. 30%: 75.0
+Len. 40%: 75.0
+Len. 60%: 76.0
+Len. 70%: 76.0
+Len. 80%: 76.0
+Len. 90%: 76.0
+Len. 99%: 76.0
+
+sample	mean	std	min	25%	50%	75%	max
+AB3834-L1	1.11	16.66	0	0.0	0.0	1.0	11344	
+AB3831-L1	1.51	17.80	0	0.0	1.0	2.0	11745	
+AB3833-L1	2.31	23.33	0	0.0	1.0	2.0	14803	
+AB3832-L1	2.48	24.46	0	0.0	1.0	2.0	15485	
+AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1	7.19	38.66	0	2.0	4.0	6.0	21260	
+DONE!!!!
+ELAPSED TIME: 625 seconds
+----------------------------------------------------------------------------

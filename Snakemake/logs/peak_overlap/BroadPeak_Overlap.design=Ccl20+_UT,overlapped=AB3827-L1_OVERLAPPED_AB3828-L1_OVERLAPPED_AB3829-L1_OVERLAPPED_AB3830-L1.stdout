@@ -1,0 +1,61 @@
+###################################- COMMANDLINE -############################
+module load macs/2.1.2 || exit 1
+module load samtools/1.9 || exit 1
+module load bedtools/2.27.1 || exit 1
+module load deeptools/3.1.3 || exit 1
+module load ucsc/373 || exit 1
+#
+Description:
+Peak Overlap Broad
+#
+INPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1.broadPeak.gz
+INPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3828-L1.broadPeak.gz
+INPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3829-L1.broadPeak.gz
+INPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3830-L1.broadPeak.gz
+INPUT5: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.broadPeak.gz
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.tbi
+OUTPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bb
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bigwig
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+intersectBed -wo -f 1E-9 -a <(zcat -f /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.broadPeak.gz) -b <(zcat -f /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1.broadPeak.gz /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3828-L1.broadPeak.gz /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3829-L1.broadPeak.gz /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3830-L1.broadPeak.gz) | cut -f 1-9 | sort | uniq | LC_COLLATE=C sort -k1,1 -k2,2n > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.tmp
+#
+awk 'BEGIN{FS="\t";OFS="\t"} {$4="AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.macs2_broadPeak_"NR} {print $1,$2,$3,$4,$5,$6,$7,$8,$9}' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.tmp > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.edited
+#
+LC_COLLATE=C sort -k1,1 -k2,2n /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.edited > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.sorted
+#
+bgzip -c /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.sorted > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz
+#
+tabix -f -p bed /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz
+#
+awk 'BEGIN{FS="\t";OFS="\t"} {if ($5>1000) $5=1000; print $0}' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.sorted > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.fix
+#
+bedToBigBed -as=./Script/bigBroadPeak.as -type=bed6+3 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.fix /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bb
+#
+awk 'BEGIN{OFS="\t"} {printf "%s\t%d\t%d\t%2.3f\n", $1,$2,$3,$5}' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.sorted > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg.tmp
+#
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg.tmp | sort -u -k1,1 -k2,2 -k3,3 -s > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg.uniq
+#
+slopBed -i /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg.uniq -g /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes -b 0 | bedClip stdin /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg.edited
+#
+LC_COLLATE=C sort -k1,1 -k2,2n /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg.edited > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg
+#
+bedGraphToBigWig /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bigwig
+if [ -f /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bigwig ]; then
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.tmp
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.edited
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.sorted
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.gz.fix
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg.tmp
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg.uniq
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_calling/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.bdg.edited
+fi
+#
+EXECUTING....
+#
+DONE!!!!
+#
+ELAPSED TIME: 13 seconds
+----------------------------------------------------------------------------

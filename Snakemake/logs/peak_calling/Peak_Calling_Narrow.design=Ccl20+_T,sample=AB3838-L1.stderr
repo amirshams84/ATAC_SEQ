@@ -1,0 +1,193 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 30
+Rules claiming more threads will be scaled down.
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	Peak_Calling_Narrow
+	1
+
+[Fri May 24 22:46:52 2019]
+Job 0: Peak_Calling_Narrow: Ccl20+_T|AB3838-L1
+
+[-] Unloading samtools 1.9  ... 
+[+] Loading samtools 1.9  ... 
+[+] Loading macs  2.1.2 
+[+] Loading bedtools  2.27.1 
+[+] Loading deeptools  3.1.3 
+[+] Loading ucsc 373 on cn2171 
+###################################- COMMANDLINE -############################
+module load samtools/1.9 || exit 1
+module load macs/2.1.2 || exit 1
+module load bedtools/2.27.1 || exit 1
+module load deeptools/3.1.3 || exit 1
+module load ucsc/373 || exit 1
+#
+Description:
+Peak Calling Narrow
+#
+INPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bam
+INPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bam.bai
+INPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bed.gz
+INPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bed.gz.tbi
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz.tbi
+OUTPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bb
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg
+OUTPUT5: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bigwig
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+macs2 callpeak --treatment /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bed.gz --name AB3838-L1.macs2_narrow --format BED --gsize mm --call-summits --keep-dup all -q 5.00e-02 -B --SPMR --nomodel --shift -75 --extsize 150 --verbose 3 --outdir /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak
+#
+LC_COLLATE=C sort -k1,1 -k2,2n /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_peaks.narrowPeak > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz.sorted
+#
+bgzip -c /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz.sorted > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz
+#
+tabix -f -p bed /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz
+#
+awk 'BEGIN{OFS="\t"}{if ($5>1000) $5=1000; print $0}' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz.sorted > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz.tmp
+#
+bedToBigBed -as=./Script/bigNarrowPeak.as -type=bed6+4 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz.tmp /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bb
+#
+macs2 bdgcmp -t /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_treat_pileup.bdg -c /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_control_lambda.bdg --o-prefix AB3838-L1.macs2_narrow --outdir /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak --method FE --pseudocount 0.00001
+#
+slopBed -i /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_FE.bdg -g /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes -b 0 | bedClip stdin /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg.tmp
+#
+LC_COLLATE=C sort -k1,1 -k2,2n /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg.tmp > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg
+#
+cut -f1,2,3 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg | sort | uniq -d > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrow.duplicate.txt
+#
+cut -f1,2 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg | sort | uniq -d >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrow.duplicate.txt
+#
+cut -f1,3 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg | sort | uniq -d | sed 's/\t/\t.*\t/' >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrow.duplicate.txt
+#
+if [ -s /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrow.duplicate.txt ]; then
+	while IFS= read line; do grep -nr -m 1 --perl-regex '$line' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg | cut -d':' -f1 >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrow.duplicate_line.txt; done< /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrow.duplicate.txt
+	while IFS= read line; do sed '$lined' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg.tmp; done< /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrow.duplicate_line.txt
+fi
+#
+LC_COLLATE=C sort -k1,1 -k2,2n /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg.tmp > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg
+bedGraphToBigWig /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bigwig
+#
+if [ -f /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bigwig ]; then
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_peaks.narrowPeak
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_summits.bed
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_treat_pileup.bdg
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_control_lambda.bdg
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_FE.bdg
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz.tmp
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.gz.sorted
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrowPeak.bdg.tmp
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrow.duplicate.txt
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.narrow.duplicate_line.txt
+fi
+#
+EXECUTING....
+#
+INFO  @ Fri, 24 May 2019 22:46:56: 
+# Command line: callpeak --treatment /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bed.gz --name AB3838-L1.macs2_narrow --format BED --gsize mm --call-summits --keep-dup all -q 5.00e-02 -B --SPMR --nomodel --shift -75 --extsize 150 --verbose 3 --outdir /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak
+# ARGUMENTS LIST:
+# name = AB3838-L1.macs2_narrow
+# format = BED
+# ChIP-seq file = ['/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bed.gz']
+# control file = None
+# effective genome size = 1.87e+09
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 5.00e-02
+# The maximum gap between significant sites is assigned as the read length/tag size.
+# The minimum length of peaks is assigned as the predicted fragment length "d".
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 10000 bps
+# Broad region calling is off
+# Paired-End mode is off
+# Searching for subpeak summits is on
+# MACS will save fragment pileup signal per million reads
+ 
+INFO  @ Fri, 24 May 2019 22:46:56: #1 read tag files... 
+INFO  @ Fri, 24 May 2019 22:46:56: #1 read treatment tags... 
+INFO  @ Fri, 24 May 2019 22:46:59:  1000000 
+INFO  @ Fri, 24 May 2019 22:47:01:  2000000 
+INFO  @ Fri, 24 May 2019 22:47:03:  3000000 
+INFO  @ Fri, 24 May 2019 22:47:06:  4000000 
+INFO  @ Fri, 24 May 2019 22:47:08:  5000000 
+INFO  @ Fri, 24 May 2019 22:47:10:  6000000 
+INFO  @ Fri, 24 May 2019 22:47:13:  7000000 
+INFO  @ Fri, 24 May 2019 22:47:15:  8000000 
+INFO  @ Fri, 24 May 2019 22:47:17:  9000000 
+INFO  @ Fri, 24 May 2019 22:47:20:  10000000 
+INFO  @ Fri, 24 May 2019 22:47:22:  11000000 
+INFO  @ Fri, 24 May 2019 22:47:24:  12000000 
+INFO  @ Fri, 24 May 2019 22:47:27:  13000000 
+INFO  @ Fri, 24 May 2019 22:47:29:  14000000 
+INFO  @ Fri, 24 May 2019 22:47:31:  15000000 
+INFO  @ Fri, 24 May 2019 22:47:34:  16000000 
+INFO  @ Fri, 24 May 2019 22:47:36:  17000000 
+INFO  @ Fri, 24 May 2019 22:47:38:  18000000 
+INFO  @ Fri, 24 May 2019 22:47:41:  19000000 
+INFO  @ Fri, 24 May 2019 22:47:43:  20000000 
+INFO  @ Fri, 24 May 2019 22:47:45:  21000000 
+INFO  @ Fri, 24 May 2019 22:47:48:  22000000 
+INFO  @ Fri, 24 May 2019 22:47:50:  23000000 
+INFO  @ Fri, 24 May 2019 22:47:52:  24000000 
+INFO  @ Fri, 24 May 2019 22:47:55:  25000000 
+INFO  @ Fri, 24 May 2019 22:47:57:  26000000 
+INFO  @ Fri, 24 May 2019 22:47:59:  27000000 
+INFO  @ Fri, 24 May 2019 22:48:02:  28000000 
+INFO  @ Fri, 24 May 2019 22:48:04:  29000000 
+INFO  @ Fri, 24 May 2019 22:48:06:  30000000 
+INFO  @ Fri, 24 May 2019 22:48:09:  31000000 
+INFO  @ Fri, 24 May 2019 22:48:11:  32000000 
+INFO  @ Fri, 24 May 2019 22:48:13:  33000000 
+INFO  @ Fri, 24 May 2019 22:48:16:  34000000 
+INFO  @ Fri, 24 May 2019 22:48:18:  35000000 
+INFO  @ Fri, 24 May 2019 22:48:20:  36000000 
+INFO  @ Fri, 24 May 2019 22:48:23:  37000000 
+INFO  @ Fri, 24 May 2019 22:48:25:  38000000 
+INFO  @ Fri, 24 May 2019 22:48:27:  39000000 
+INFO  @ Fri, 24 May 2019 22:48:30:  40000000 
+INFO  @ Fri, 24 May 2019 22:48:32:  41000000 
+INFO  @ Fri, 24 May 2019 22:48:34:  42000000 
+INFO  @ Fri, 24 May 2019 22:48:37:  43000000 
+INFO  @ Fri, 24 May 2019 22:48:39:  44000000 
+INFO  @ Fri, 24 May 2019 22:48:41:  45000000 
+INFO  @ Fri, 24 May 2019 22:48:43:  46000000 
+INFO  @ Fri, 24 May 2019 22:48:45: #1 tag size is determined as 69 bps 
+INFO  @ Fri, 24 May 2019 22:48:45: #1 tag size = 69.0 
+INFO  @ Fri, 24 May 2019 22:48:45: #1  total tags in treatment: 46476065 
+INFO  @ Fri, 24 May 2019 22:48:45: #1 finished! 
+INFO  @ Fri, 24 May 2019 22:48:45: #2 Build Peak Model... 
+INFO  @ Fri, 24 May 2019 22:48:45: #2 Skipped... 
+INFO  @ Fri, 24 May 2019 22:48:45: #2 Use 150 as fragment length 
+INFO  @ Fri, 24 May 2019 22:48:45: #2 Sequencing ends will be shifted towards 5' by 75 bp(s) 
+INFO  @ Fri, 24 May 2019 22:48:45: #3 Call peaks... 
+INFO  @ Fri, 24 May 2019 22:48:45: #3 Going to call summits inside each peak ... 
+INFO  @ Fri, 24 May 2019 22:48:45: #3 Pre-compute pvalue-qvalue table... 
+DEBUG @ Fri, 24 May 2019 22:48:45: Start to calculate pvalue stat... 
+DEBUG @ Fri, 24 May 2019 22:51:34: access pq hash for 135829883 times 
+INFO  @ Fri, 24 May 2019 22:51:35: #3 In the peak calling step, the following will be performed simultaneously: 
+INFO  @ Fri, 24 May 2019 22:51:35: #3   Write bedGraph files for treatment pileup (after scaling if necessary)... AB3838-L1.macs2_narrow_treat_pileup.bdg 
+INFO  @ Fri, 24 May 2019 22:51:35: #3   Write bedGraph files for control lambda (after scaling if necessary)... AB3838-L1.macs2_narrow_control_lambda.bdg 
+INFO  @ Fri, 24 May 2019 22:51:35: #3   --SPMR is requested, so pileup will be normalized by sequencing depth in million reads. 
+INFO  @ Fri, 24 May 2019 22:51:35: #3 Call peaks for each chromosome... 
+INFO  @ Fri, 24 May 2019 22:57:46: #4 Write output xls file... /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_peaks.xls 
+INFO  @ Fri, 24 May 2019 22:57:47: #4 Write peak in narrowPeak format file... /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_peaks.narrowPeak 
+INFO  @ Fri, 24 May 2019 22:57:48: #4 Write summits bed file... /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_summits.bed 
+INFO  @ Fri, 24 May 2019 22:57:49: Done! 
+pass1 - making usageList (22 chroms): 44 millis
+pass2 - checking and writing primary data (169588 records, 10 fields): 867 millis
+INFO  @ Fri, 24 May 2019 22:57:53: Read and build treatment bedGraph... 
+INFO  @ Fri, 24 May 2019 22:59:22: Read and build control bedGraph... 
+INFO  @ Fri, 24 May 2019 22:59:57: Build scoreTrackII... 
+INFO  @ Fri, 24 May 2019 23:00:29: Calculate scores comparing treatment and control by 'FE'... 
+INFO  @ Fri, 24 May 2019 23:07:53: Write bedGraph of scores... 
+INFO  @ Fri, 24 May 2019 23:10:54: Finished 'FE'! Please check '/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_calling/narrowpeak/AB3838-L1.macs2_narrow_FE.bdg'! 
+#
+DONE!!!!
+#
+ELAPSED TIME: 4265 seconds
+------------------------------------------------------------------------------
+[Fri May 24 23:58:01 2019]
+Finished job 0.
+1 of 1 steps (100%) done

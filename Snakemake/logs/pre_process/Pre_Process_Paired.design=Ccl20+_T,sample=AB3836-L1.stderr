@@ -1,0 +1,220 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	Pre_Process_Paired
+	1
+
+[Wed May 22 12:52:00 2019]
+Job 0: Pre_Process_Paired: Ccl20+_T|AB3836-L1
+
+###################################- COMMANDLINE -############################
+cutadapt/2.1
+fastqc/0.11.8
+Removing low complexity, remnant adapter and short reads.
+#
+INPUT1: /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+INPUT2: /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq.tmp
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq.tmp
+OUTPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process/AB3836-L1_HTNM3BGX7_S14_R1_001.cutadapt.txt
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq
+OUTPUT5: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+cutadapt --minimum-length=3 --quality-base=33 --error-rate=0.0 --trim-n -a CTGTCTCTTATA -A CTGTCTCTTATA --cores=20 --output=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq.tmp --paired-output=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq.tmp /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process/AB3836-L1_HTNM3BGX7_S14_R1_001.cutadapt.txt
+#
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq.tmp >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq.tmp >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq
+rm /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq.tmp /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq.tmp
+#
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process -f fastq --threads 20 /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process -f fastq --threads 20 /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+#
+EXECUTING....
+#
+[+] Loading cutadapt  2.1 
+[+] Loading fastqc  0.11.8 
+Started analysis of AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 5% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 10% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 15% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 20% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 25% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 30% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 35% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 40% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 45% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 50% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 55% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 60% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 65% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 70% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 75% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 80% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 85% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 90% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Approx 95% complete for AB3836-L1_HTNM3BGX7_S14_R1_001.fastq.gz
+Started analysis of AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 5% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 10% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 15% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 20% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 25% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 30% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 35% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 40% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 45% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 50% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 55% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 60% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 65% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 70% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 75% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 80% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 85% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 90% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+Approx 95% complete for AB3836-L1_HTNM3BGX7_S14_R2_001.fastq.gz
+#
+DONE!!!!
+#
+ELAPSED TIME: 564 seconds
+------------------------------------------------------------------------------
+###################################- COMMANDLINE -############################
+cutadapt/2.1
+fastqc/0.11.8
+Removing low complexity, remnant adapter and short reads.
+#
+INPUT1: /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+INPUT2: /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq.tmp
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq.tmp
+OUTPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process/AB3836-L1_HMWKVBGX7_S14_R1_001.cutadapt.txt
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq
+OUTPUT5: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+cutadapt --minimum-length=3 --quality-base=33 --error-rate=0.0 --trim-n -a CTGTCTCTTATA -A CTGTCTCTTATA --cores=20 --output=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq.tmp --paired-output=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq.tmp /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process/AB3836-L1_HMWKVBGX7_S14_R1_001.cutadapt.txt
+#
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq.tmp >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq.tmp >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq
+rm /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq.tmp /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq.tmp
+#
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process -f fastq --threads 20 /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process -f fastq --threads 20 /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+#
+EXECUTING....
+#
+[+] Loading cutadapt  2.1 
+[+] Loading fastqc  0.11.8 
+Started analysis of AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 5% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 10% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 15% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 20% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 25% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 30% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 35% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 40% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 45% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 50% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 55% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 60% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 65% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 70% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 75% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 80% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 85% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 90% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Approx 95% complete for AB3836-L1_HMWKVBGX7_S14_R1_001.fastq.gz
+Started analysis of AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 5% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 10% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 15% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 20% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 25% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 30% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 35% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 40% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 45% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 50% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 55% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 60% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 65% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 70% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 75% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 80% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 85% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 90% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+Approx 95% complete for AB3836-L1_HMWKVBGX7_S14_R2_001.fastq.gz
+#
+DONE!!!!
+#
+ELAPSED TIME: 552 seconds
+------------------------------------------------------------------------------
+###################################- COMMANDLINE -############################
+fastqc/0.11.8
+#
+INPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq
+INPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process/AB3836-L1.R1_fastqc.html
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process/AB3836-L1.R2_fastqc.html
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process -f fastq --threads 20 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R1.processed.fastq
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/report/pre_process -f fastq --threads 20 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/pre_process/AB3836-L1.R2.processed.fastq
+#
+EXECUTING....
+#
+[+] Loading fastqc  0.11.8 
+Started analysis of AB3836-L1.R1.processed.fastq
+Approx 5% complete for AB3836-L1.R1.processed.fastq
+Approx 10% complete for AB3836-L1.R1.processed.fastq
+Approx 15% complete for AB3836-L1.R1.processed.fastq
+Approx 20% complete for AB3836-L1.R1.processed.fastq
+Approx 25% complete for AB3836-L1.R1.processed.fastq
+Approx 30% complete for AB3836-L1.R1.processed.fastq
+Approx 35% complete for AB3836-L1.R1.processed.fastq
+Approx 40% complete for AB3836-L1.R1.processed.fastq
+Approx 45% complete for AB3836-L1.R1.processed.fastq
+Approx 50% complete for AB3836-L1.R1.processed.fastq
+Approx 55% complete for AB3836-L1.R1.processed.fastq
+Approx 60% complete for AB3836-L1.R1.processed.fastq
+Approx 65% complete for AB3836-L1.R1.processed.fastq
+Approx 70% complete for AB3836-L1.R1.processed.fastq
+Approx 75% complete for AB3836-L1.R1.processed.fastq
+Approx 80% complete for AB3836-L1.R1.processed.fastq
+Approx 85% complete for AB3836-L1.R1.processed.fastq
+Approx 90% complete for AB3836-L1.R1.processed.fastq
+Approx 95% complete for AB3836-L1.R1.processed.fastq
+Started analysis of AB3836-L1.R2.processed.fastq
+Approx 5% complete for AB3836-L1.R2.processed.fastq
+Approx 10% complete for AB3836-L1.R2.processed.fastq
+Approx 15% complete for AB3836-L1.R2.processed.fastq
+Approx 20% complete for AB3836-L1.R2.processed.fastq
+Approx 25% complete for AB3836-L1.R2.processed.fastq
+Approx 30% complete for AB3836-L1.R2.processed.fastq
+Approx 35% complete for AB3836-L1.R2.processed.fastq
+Approx 40% complete for AB3836-L1.R2.processed.fastq
+Approx 45% complete for AB3836-L1.R2.processed.fastq
+Approx 50% complete for AB3836-L1.R2.processed.fastq
+Approx 55% complete for AB3836-L1.R2.processed.fastq
+Approx 60% complete for AB3836-L1.R2.processed.fastq
+Approx 65% complete for AB3836-L1.R2.processed.fastq
+Approx 70% complete for AB3836-L1.R2.processed.fastq
+Approx 75% complete for AB3836-L1.R2.processed.fastq
+Approx 80% complete for AB3836-L1.R2.processed.fastq
+Approx 85% complete for AB3836-L1.R2.processed.fastq
+Approx 90% complete for AB3836-L1.R2.processed.fastq
+Approx 95% complete for AB3836-L1.R2.processed.fastq
+#
+DONE!!!!
+#
+ELAPSED TIME: 629 seconds
+------------------------------------------------------------------------------
+[Wed May 22 13:21:06 2019]
+Finished job 0.
+1 of 1 steps (100%) done

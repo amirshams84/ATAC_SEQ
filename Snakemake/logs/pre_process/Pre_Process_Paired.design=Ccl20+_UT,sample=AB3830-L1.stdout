@@ -1,0 +1,85 @@
+###################################- COMMANDLINE -############################
+cutadapt/2.1
+fastqc/0.11.8
+Removing low complexity, remnant adapter and short reads.
+#
+INPUT1: /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3830-L1_HTNM3BGX7_S8_R1_001.fastq.gz
+INPUT2: /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3830-L1_HTNM3BGX7_S8_R2_001.fastq.gz
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq.tmp
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq.tmp
+OUTPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process/AB3830-L1_HTNM3BGX7_S8_R1_001.cutadapt.txt
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq
+OUTPUT5: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+cutadapt --minimum-length=3 --quality-base=33 --error-rate=0.0 --trim-n -a CTGTCTCTTATA -A CTGTCTCTTATA --cores=20 --output=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq.tmp --paired-output=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq.tmp /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3830-L1_HTNM3BGX7_S8_R1_001.fastq.gz /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3830-L1_HTNM3BGX7_S8_R2_001.fastq.gz > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process/AB3830-L1_HTNM3BGX7_S8_R1_001.cutadapt.txt
+#
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq.tmp >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq.tmp >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq
+rm /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq.tmp /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq.tmp
+#
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process -f fastq --threads 20 /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3830-L1_HTNM3BGX7_S8_R1_001.fastq.gz
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process -f fastq --threads 20 /data/RTB/GTS/Solexa/Bcl2fastq/190520_NS500189_0128_AHTNM3BGX7/spsingh-20190425-H1/AB3830-L1_HTNM3BGX7_S8_R2_001.fastq.gz
+#
+EXECUTING....
+#
+Analysis complete for AB3830-L1_HTNM3BGX7_S8_R1_001.fastq.gz
+Analysis complete for AB3830-L1_HTNM3BGX7_S8_R2_001.fastq.gz
+#
+DONE!!!!
+#
+ELAPSED TIME: 685 seconds
+------------------------------------------------------------------------------
+###################################- COMMANDLINE -############################
+cutadapt/2.1
+fastqc/0.11.8
+Removing low complexity, remnant adapter and short reads.
+#
+INPUT1: /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3830-L1_HMWKVBGX7_S8_R1_001.fastq.gz
+INPUT2: /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3830-L1_HMWKVBGX7_S8_R2_001.fastq.gz
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq.tmp
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq.tmp
+OUTPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process/AB3830-L1_HMWKVBGX7_S8_R1_001.cutadapt.txt
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq
+OUTPUT5: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+cutadapt --minimum-length=3 --quality-base=33 --error-rate=0.0 --trim-n -a CTGTCTCTTATA -A CTGTCTCTTATA --cores=20 --output=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq.tmp --paired-output=/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq.tmp /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3830-L1_HMWKVBGX7_S8_R1_001.fastq.gz /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3830-L1_HMWKVBGX7_S8_R2_001.fastq.gz > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process/AB3830-L1_HMWKVBGX7_S8_R1_001.cutadapt.txt
+#
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq.tmp >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq
+cat /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq.tmp >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq
+rm /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq.tmp /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq.tmp
+#
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process -f fastq --threads 20 /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3830-L1_HMWKVBGX7_S8_R1_001.fastq.gz
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process -f fastq --threads 20 /data/RTB/GTS/Solexa/Bcl2fastq/190510_NS500189_0127_AHMWKVBGX7/spsingh-20190425-H1/AB3830-L1_HMWKVBGX7_S8_R2_001.fastq.gz
+#
+EXECUTING....
+#
+Analysis complete for AB3830-L1_HMWKVBGX7_S8_R1_001.fastq.gz
+Analysis complete for AB3830-L1_HMWKVBGX7_S8_R2_001.fastq.gz
+#
+DONE!!!!
+#
+ELAPSED TIME: 683 seconds
+------------------------------------------------------------------------------
+###################################- COMMANDLINE -############################
+fastqc/0.11.8
+#
+INPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq
+INPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process/AB3830-L1.R1_fastqc.html
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process/AB3830-L1.R2_fastqc.html
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process -f fastq --threads 20 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R1.processed.fastq
+fastqc -o /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/report/pre_process -f fastq --threads 20 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/pre_process/AB3830-L1.R2.processed.fastq
+#
+EXECUTING....
+#
+Analysis complete for AB3830-L1.R1.processed.fastq
+Analysis complete for AB3830-L1.R2.processed.fastq
+#
+DONE!!!!
+#
+ELAPSED TIME: 763 seconds
+------------------------------------------------------------------------------

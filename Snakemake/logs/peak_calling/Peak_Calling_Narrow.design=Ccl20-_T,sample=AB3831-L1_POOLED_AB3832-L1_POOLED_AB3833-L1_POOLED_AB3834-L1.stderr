@@ -1,0 +1,367 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 30
+Rules claiming more threads will be scaled down.
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	Peak_Calling_Narrow
+	1
+
+[Fri May 24 20:00:02 2019]
+Job 0: Peak_Calling_Narrow: Ccl20-_T|AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1
+
+[-] Unloading samtools 1.9  ... 
+[+] Loading samtools 1.9  ... 
+[+] Loading macs  2.1.2 
+[+] Loading bedtools  2.27.1 
+[+] Loading deeptools  3.1.3 
+[+] Loading ucsc 373 on cn2048 
+###################################- COMMANDLINE -############################
+module load samtools/1.9 || exit 1
+module load macs/2.1.2 || exit 1
+module load bedtools/2.27.1 || exit 1
+module load deeptools/3.1.3 || exit 1
+module load ucsc/373 || exit 1
+#
+Description:
+Peak Calling Narrow
+#
+INPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bam
+INPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bam.bai
+INPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bed.gz
+INPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bed.gz.tbi
+#
+OUTPUT1: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz
+OUTPUT2: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz.tbi
+OUTPUT3: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bb
+OUTPUT4: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg
+OUTPUT5: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bigwig
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+macs2 callpeak --treatment /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bed.gz --name AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow --format BED --gsize mm --call-summits --keep-dup all -q 5.00e-02 -B --SPMR --nomodel --shift -75 --extsize 150 --verbose 3 --outdir /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak
+#
+LC_COLLATE=C sort -k1,1 -k2,2n /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_peaks.narrowPeak > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz.sorted
+#
+bgzip -c /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz.sorted > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz
+#
+tabix -f -p bed /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz
+#
+awk 'BEGIN{OFS="\t"}{if ($5>1000) $5=1000; print $0}' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz.sorted > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz.tmp
+#
+bedToBigBed -as=./Script/bigNarrowPeak.as -type=bed6+4 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz.tmp /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bb
+#
+macs2 bdgcmp -t /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_treat_pileup.bdg -c /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_control_lambda.bdg --o-prefix AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow --outdir /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak --method FE --pseudocount 0.00001
+#
+slopBed -i /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_FE.bdg -g /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes -b 0 | bedClip stdin /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg.tmp
+#
+LC_COLLATE=C sort -k1,1 -k2,2n /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg.tmp > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg
+#
+cut -f1,2,3 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg | sort | uniq -d > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrow.duplicate.txt
+#
+cut -f1,2 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg | sort | uniq -d >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrow.duplicate.txt
+#
+cut -f1,3 /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg | sort | uniq -d | sed 's/\t/\t.*\t/' >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrow.duplicate.txt
+#
+if [ -s /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrow.duplicate.txt ]; then
+	while IFS= read line; do grep -nr -m 1 --perl-regex '$line' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg | cut -d':' -f1 >> /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrow.duplicate_line.txt; done< /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrow.duplicate.txt
+	while IFS= read line; do sed '$lined' /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg.tmp; done< /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrow.duplicate_line.txt
+fi
+#
+LC_COLLATE=C sort -k1,1 -k2,2n /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg.tmp > /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg
+bedGraphToBigWig /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg /fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bigwig
+#
+if [ -f /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bigwig ]; then
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_peaks.narrowPeak
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_summits.bed
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_treat_pileup.bdg
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_control_lambda.bdg
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_FE.bdg
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz.tmp
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.gz.sorted
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.bdg.tmp
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrow.duplicate.txt
+	rm -rf /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrow.duplicate_line.txt
+fi
+#
+EXECUTING....
+#
+INFO  @ Fri, 24 May 2019 20:00:06: 
+# Command line: callpeak --treatment /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bed.gz --name AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow --format BED --gsize mm --call-summits --keep-dup all -q 5.00e-02 -B --SPMR --nomodel --shift -75 --extsize 150 --verbose 3 --outdir /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak
+# ARGUMENTS LIST:
+# name = AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow
+# format = BED
+# ChIP-seq file = ['/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bed.gz']
+# control file = None
+# effective genome size = 1.87e+09
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 5.00e-02
+# The maximum gap between significant sites is assigned as the read length/tag size.
+# The minimum length of peaks is assigned as the predicted fragment length "d".
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 10000 bps
+# Broad region calling is off
+# Paired-End mode is off
+# Searching for subpeak summits is on
+# MACS will save fragment pileup signal per million reads
+ 
+INFO  @ Fri, 24 May 2019 20:00:06: #1 read tag files... 
+INFO  @ Fri, 24 May 2019 20:00:06: #1 read treatment tags... 
+INFO  @ Fri, 24 May 2019 20:00:09:  1000000 
+INFO  @ Fri, 24 May 2019 20:00:11:  2000000 
+INFO  @ Fri, 24 May 2019 20:00:14:  3000000 
+INFO  @ Fri, 24 May 2019 20:00:16:  4000000 
+INFO  @ Fri, 24 May 2019 20:00:18:  5000000 
+INFO  @ Fri, 24 May 2019 20:00:21:  6000000 
+INFO  @ Fri, 24 May 2019 20:00:23:  7000000 
+INFO  @ Fri, 24 May 2019 20:00:26:  8000000 
+INFO  @ Fri, 24 May 2019 20:00:28:  9000000 
+INFO  @ Fri, 24 May 2019 20:00:31:  10000000 
+INFO  @ Fri, 24 May 2019 20:00:33:  11000000 
+INFO  @ Fri, 24 May 2019 20:00:36:  12000000 
+INFO  @ Fri, 24 May 2019 20:00:38:  13000000 
+INFO  @ Fri, 24 May 2019 20:00:40:  14000000 
+INFO  @ Fri, 24 May 2019 20:00:43:  15000000 
+INFO  @ Fri, 24 May 2019 20:00:45:  16000000 
+INFO  @ Fri, 24 May 2019 20:00:48:  17000000 
+INFO  @ Fri, 24 May 2019 20:00:50:  18000000 
+INFO  @ Fri, 24 May 2019 20:00:53:  19000000 
+INFO  @ Fri, 24 May 2019 20:00:55:  20000000 
+INFO  @ Fri, 24 May 2019 20:00:58:  21000000 
+INFO  @ Fri, 24 May 2019 20:01:00:  22000000 
+INFO  @ Fri, 24 May 2019 20:01:03:  23000000 
+INFO  @ Fri, 24 May 2019 20:01:05:  24000000 
+INFO  @ Fri, 24 May 2019 20:01:07:  25000000 
+INFO  @ Fri, 24 May 2019 20:01:10:  26000000 
+INFO  @ Fri, 24 May 2019 20:01:12:  27000000 
+INFO  @ Fri, 24 May 2019 20:01:15:  28000000 
+INFO  @ Fri, 24 May 2019 20:01:17:  29000000 
+INFO  @ Fri, 24 May 2019 20:01:20:  30000000 
+INFO  @ Fri, 24 May 2019 20:01:22:  31000000 
+INFO  @ Fri, 24 May 2019 20:01:25:  32000000 
+INFO  @ Fri, 24 May 2019 20:01:27:  33000000 
+INFO  @ Fri, 24 May 2019 20:01:29:  34000000 
+INFO  @ Fri, 24 May 2019 20:01:32:  35000000 
+INFO  @ Fri, 24 May 2019 20:01:34:  36000000 
+INFO  @ Fri, 24 May 2019 20:01:37:  37000000 
+INFO  @ Fri, 24 May 2019 20:01:39:  38000000 
+INFO  @ Fri, 24 May 2019 20:01:42:  39000000 
+INFO  @ Fri, 24 May 2019 20:01:44:  40000000 
+INFO  @ Fri, 24 May 2019 20:01:47:  41000000 
+INFO  @ Fri, 24 May 2019 20:01:49:  42000000 
+INFO  @ Fri, 24 May 2019 20:01:52:  43000000 
+INFO  @ Fri, 24 May 2019 20:01:54:  44000000 
+INFO  @ Fri, 24 May 2019 20:01:56:  45000000 
+INFO  @ Fri, 24 May 2019 20:01:59:  46000000 
+INFO  @ Fri, 24 May 2019 20:02:01:  47000000 
+INFO  @ Fri, 24 May 2019 20:02:04:  48000000 
+INFO  @ Fri, 24 May 2019 20:02:06:  49000000 
+INFO  @ Fri, 24 May 2019 20:02:09:  50000000 
+INFO  @ Fri, 24 May 2019 20:02:11:  51000000 
+INFO  @ Fri, 24 May 2019 20:02:14:  52000000 
+INFO  @ Fri, 24 May 2019 20:02:16:  53000000 
+INFO  @ Fri, 24 May 2019 20:02:18:  54000000 
+INFO  @ Fri, 24 May 2019 20:02:21:  55000000 
+INFO  @ Fri, 24 May 2019 20:02:23:  56000000 
+INFO  @ Fri, 24 May 2019 20:02:26:  57000000 
+INFO  @ Fri, 24 May 2019 20:02:28:  58000000 
+INFO  @ Fri, 24 May 2019 20:02:31:  59000000 
+INFO  @ Fri, 24 May 2019 20:02:33:  60000000 
+INFO  @ Fri, 24 May 2019 20:02:36:  61000000 
+INFO  @ Fri, 24 May 2019 20:02:38:  62000000 
+INFO  @ Fri, 24 May 2019 20:02:40:  63000000 
+INFO  @ Fri, 24 May 2019 20:02:43:  64000000 
+INFO  @ Fri, 24 May 2019 20:02:45:  65000000 
+INFO  @ Fri, 24 May 2019 20:02:48:  66000000 
+INFO  @ Fri, 24 May 2019 20:02:50:  67000000 
+INFO  @ Fri, 24 May 2019 20:02:53:  68000000 
+INFO  @ Fri, 24 May 2019 20:02:55:  69000000 
+INFO  @ Fri, 24 May 2019 20:02:58:  70000000 
+INFO  @ Fri, 24 May 2019 20:03:00:  71000000 
+INFO  @ Fri, 24 May 2019 20:03:03:  72000000 
+INFO  @ Fri, 24 May 2019 20:03:05:  73000000 
+INFO  @ Fri, 24 May 2019 20:03:07:  74000000 
+INFO  @ Fri, 24 May 2019 20:03:10:  75000000 
+INFO  @ Fri, 24 May 2019 20:03:12:  76000000 
+INFO  @ Fri, 24 May 2019 20:03:15:  77000000 
+INFO  @ Fri, 24 May 2019 20:03:17:  78000000 
+INFO  @ Fri, 24 May 2019 20:03:20:  79000000 
+INFO  @ Fri, 24 May 2019 20:03:22:  80000000 
+INFO  @ Fri, 24 May 2019 20:03:25:  81000000 
+INFO  @ Fri, 24 May 2019 20:03:27:  82000000 
+INFO  @ Fri, 24 May 2019 20:03:29:  83000000 
+INFO  @ Fri, 24 May 2019 20:03:32:  84000000 
+INFO  @ Fri, 24 May 2019 20:03:34:  85000000 
+INFO  @ Fri, 24 May 2019 20:03:37:  86000000 
+INFO  @ Fri, 24 May 2019 20:03:39:  87000000 
+INFO  @ Fri, 24 May 2019 20:03:42:  88000000 
+INFO  @ Fri, 24 May 2019 20:03:44:  89000000 
+INFO  @ Fri, 24 May 2019 20:03:47:  90000000 
+INFO  @ Fri, 24 May 2019 20:03:49:  91000000 
+INFO  @ Fri, 24 May 2019 20:03:51:  92000000 
+INFO  @ Fri, 24 May 2019 20:03:54:  93000000 
+INFO  @ Fri, 24 May 2019 20:03:56:  94000000 
+INFO  @ Fri, 24 May 2019 20:03:59:  95000000 
+INFO  @ Fri, 24 May 2019 20:04:01:  96000000 
+INFO  @ Fri, 24 May 2019 20:04:04:  97000000 
+INFO  @ Fri, 24 May 2019 20:04:06:  98000000 
+INFO  @ Fri, 24 May 2019 20:04:09:  99000000 
+INFO  @ Fri, 24 May 2019 20:04:11:  100000000 
+INFO  @ Fri, 24 May 2019 20:04:13:  101000000 
+INFO  @ Fri, 24 May 2019 20:04:16:  102000000 
+INFO  @ Fri, 24 May 2019 20:04:18:  103000000 
+INFO  @ Fri, 24 May 2019 20:04:21:  104000000 
+INFO  @ Fri, 24 May 2019 20:04:23:  105000000 
+INFO  @ Fri, 24 May 2019 20:04:26:  106000000 
+INFO  @ Fri, 24 May 2019 20:04:28:  107000000 
+INFO  @ Fri, 24 May 2019 20:04:31:  108000000 
+INFO  @ Fri, 24 May 2019 20:04:33:  109000000 
+INFO  @ Fri, 24 May 2019 20:04:35:  110000000 
+INFO  @ Fri, 24 May 2019 20:04:38:  111000000 
+INFO  @ Fri, 24 May 2019 20:04:40:  112000000 
+INFO  @ Fri, 24 May 2019 20:04:43:  113000000 
+INFO  @ Fri, 24 May 2019 20:04:45:  114000000 
+INFO  @ Fri, 24 May 2019 20:04:48:  115000000 
+INFO  @ Fri, 24 May 2019 20:04:50:  116000000 
+INFO  @ Fri, 24 May 2019 20:04:52:  117000000 
+INFO  @ Fri, 24 May 2019 20:04:55:  118000000 
+INFO  @ Fri, 24 May 2019 20:04:57:  119000000 
+INFO  @ Fri, 24 May 2019 20:05:00:  120000000 
+INFO  @ Fri, 24 May 2019 20:05:02:  121000000 
+INFO  @ Fri, 24 May 2019 20:05:05:  122000000 
+INFO  @ Fri, 24 May 2019 20:05:07:  123000000 
+INFO  @ Fri, 24 May 2019 20:05:10:  124000000 
+INFO  @ Fri, 24 May 2019 20:05:12:  125000000 
+INFO  @ Fri, 24 May 2019 20:05:14:  126000000 
+INFO  @ Fri, 24 May 2019 20:05:17:  127000000 
+INFO  @ Fri, 24 May 2019 20:05:19:  128000000 
+INFO  @ Fri, 24 May 2019 20:05:22:  129000000 
+INFO  @ Fri, 24 May 2019 20:05:24:  130000000 
+INFO  @ Fri, 24 May 2019 20:05:27:  131000000 
+INFO  @ Fri, 24 May 2019 20:05:29:  132000000 
+INFO  @ Fri, 24 May 2019 20:05:32:  133000000 
+INFO  @ Fri, 24 May 2019 20:05:34:  134000000 
+INFO  @ Fri, 24 May 2019 20:05:37:  135000000 
+INFO  @ Fri, 24 May 2019 20:05:39:  136000000 
+INFO  @ Fri, 24 May 2019 20:05:41:  137000000 
+INFO  @ Fri, 24 May 2019 20:05:44:  138000000 
+INFO  @ Fri, 24 May 2019 20:05:46:  139000000 
+INFO  @ Fri, 24 May 2019 20:05:49:  140000000 
+INFO  @ Fri, 24 May 2019 20:05:51:  141000000 
+INFO  @ Fri, 24 May 2019 20:05:54:  142000000 
+INFO  @ Fri, 24 May 2019 20:05:56:  143000000 
+INFO  @ Fri, 24 May 2019 20:05:59:  144000000 
+INFO  @ Fri, 24 May 2019 20:06:01:  145000000 
+INFO  @ Fri, 24 May 2019 20:06:03:  146000000 
+INFO  @ Fri, 24 May 2019 20:06:06:  147000000 
+INFO  @ Fri, 24 May 2019 20:06:08:  148000000 
+INFO  @ Fri, 24 May 2019 20:06:11:  149000000 
+INFO  @ Fri, 24 May 2019 20:06:13:  150000000 
+INFO  @ Fri, 24 May 2019 20:06:16:  151000000 
+INFO  @ Fri, 24 May 2019 20:06:18:  152000000 
+INFO  @ Fri, 24 May 2019 20:06:21:  153000000 
+INFO  @ Fri, 24 May 2019 20:06:23:  154000000 
+INFO  @ Fri, 24 May 2019 20:06:26:  155000000 
+INFO  @ Fri, 24 May 2019 20:06:28:  156000000 
+INFO  @ Fri, 24 May 2019 20:06:30:  157000000 
+INFO  @ Fri, 24 May 2019 20:06:33:  158000000 
+INFO  @ Fri, 24 May 2019 20:06:35:  159000000 
+INFO  @ Fri, 24 May 2019 20:06:38:  160000000 
+INFO  @ Fri, 24 May 2019 20:06:40:  161000000 
+INFO  @ Fri, 24 May 2019 20:06:43:  162000000 
+INFO  @ Fri, 24 May 2019 20:06:45:  163000000 
+INFO  @ Fri, 24 May 2019 20:06:48:  164000000 
+INFO  @ Fri, 24 May 2019 20:06:50:  165000000 
+INFO  @ Fri, 24 May 2019 20:06:52:  166000000 
+INFO  @ Fri, 24 May 2019 20:06:55:  167000000 
+INFO  @ Fri, 24 May 2019 20:06:57:  168000000 
+INFO  @ Fri, 24 May 2019 20:07:00:  169000000 
+INFO  @ Fri, 24 May 2019 20:07:02:  170000000 
+INFO  @ Fri, 24 May 2019 20:07:05:  171000000 
+INFO  @ Fri, 24 May 2019 20:07:07:  172000000 
+INFO  @ Fri, 24 May 2019 20:07:10:  173000000 
+INFO  @ Fri, 24 May 2019 20:07:12:  174000000 
+INFO  @ Fri, 24 May 2019 20:07:15:  175000000 
+INFO  @ Fri, 24 May 2019 20:07:17:  176000000 
+INFO  @ Fri, 24 May 2019 20:07:19:  177000000 
+INFO  @ Fri, 24 May 2019 20:07:22:  178000000 
+INFO  @ Fri, 24 May 2019 20:07:24:  179000000 
+INFO  @ Fri, 24 May 2019 20:07:27:  180000000 
+INFO  @ Fri, 24 May 2019 20:07:29:  181000000 
+INFO  @ Fri, 24 May 2019 20:07:32:  182000000 
+INFO  @ Fri, 24 May 2019 20:07:34:  183000000 
+INFO  @ Fri, 24 May 2019 20:07:37:  184000000 
+INFO  @ Fri, 24 May 2019 20:07:39:  185000000 
+INFO  @ Fri, 24 May 2019 20:07:42:  186000000 
+INFO  @ Fri, 24 May 2019 20:07:44:  187000000 
+INFO  @ Fri, 24 May 2019 20:07:46:  188000000 
+INFO  @ Fri, 24 May 2019 20:07:49:  189000000 
+INFO  @ Fri, 24 May 2019 20:07:51:  190000000 
+INFO  @ Fri, 24 May 2019 20:07:54:  191000000 
+INFO  @ Fri, 24 May 2019 20:07:56:  192000000 
+INFO  @ Fri, 24 May 2019 20:07:59:  193000000 
+INFO  @ Fri, 24 May 2019 20:08:01:  194000000 
+INFO  @ Fri, 24 May 2019 20:08:04:  195000000 
+INFO  @ Fri, 24 May 2019 20:08:06:  196000000 
+INFO  @ Fri, 24 May 2019 20:08:08:  197000000 
+INFO  @ Fri, 24 May 2019 20:08:11:  198000000 
+INFO  @ Fri, 24 May 2019 20:08:13:  199000000 
+INFO  @ Fri, 24 May 2019 20:08:16:  200000000 
+INFO  @ Fri, 24 May 2019 20:08:18:  201000000 
+INFO  @ Fri, 24 May 2019 20:08:20:  202000000 
+INFO  @ Fri, 24 May 2019 20:08:23:  203000000 
+INFO  @ Fri, 24 May 2019 20:08:25:  204000000 
+INFO  @ Fri, 24 May 2019 20:08:28:  205000000 
+INFO  @ Fri, 24 May 2019 20:08:30:  206000000 
+INFO  @ Fri, 24 May 2019 20:08:33:  207000000 
+INFO  @ Fri, 24 May 2019 20:08:35:  208000000 
+INFO  @ Fri, 24 May 2019 20:08:37:  209000000 
+INFO  @ Fri, 24 May 2019 20:08:40:  210000000 
+INFO  @ Fri, 24 May 2019 20:08:42:  211000000 
+INFO  @ Fri, 24 May 2019 20:08:44:  212000000 
+INFO  @ Fri, 24 May 2019 20:08:47:  213000000 
+INFO  @ Fri, 24 May 2019 20:08:49:  214000000 
+INFO  @ Fri, 24 May 2019 20:08:52:  215000000 
+INFO  @ Fri, 24 May 2019 20:08:54:  216000000 
+INFO  @ Fri, 24 May 2019 20:08:57:  217000000 
+INFO  @ Fri, 24 May 2019 20:08:59:  218000000 
+INFO  @ Fri, 24 May 2019 20:09:02:  219000000 
+INFO  @ Fri, 24 May 2019 20:09:04:  220000000 
+INFO  @ Fri, 24 May 2019 20:09:10: #1 tag size is determined as 61 bps 
+INFO  @ Fri, 24 May 2019 20:09:10: #1 tag size = 61.0 
+INFO  @ Fri, 24 May 2019 20:09:10: #1  total tags in treatment: 220349648 
+INFO  @ Fri, 24 May 2019 20:09:10: #1 finished! 
+INFO  @ Fri, 24 May 2019 20:09:10: #2 Build Peak Model... 
+INFO  @ Fri, 24 May 2019 20:09:10: #2 Skipped... 
+INFO  @ Fri, 24 May 2019 20:09:10: #2 Use 150 as fragment length 
+INFO  @ Fri, 24 May 2019 20:09:10: #2 Sequencing ends will be shifted towards 5' by 75 bp(s) 
+INFO  @ Fri, 24 May 2019 20:09:10: #3 Call peaks... 
+INFO  @ Fri, 24 May 2019 20:09:10: #3 Going to call summits inside each peak ... 
+INFO  @ Fri, 24 May 2019 20:09:10: #3 Pre-compute pvalue-qvalue table... 
+DEBUG @ Fri, 24 May 2019 20:09:10: Start to calculate pvalue stat... 
+DEBUG @ Fri, 24 May 2019 20:22:19: access pq hash for 505344747 times 
+INFO  @ Fri, 24 May 2019 20:22:20: #3 In the peak calling step, the following will be performed simultaneously: 
+INFO  @ Fri, 24 May 2019 20:22:20: #3   Write bedGraph files for treatment pileup (after scaling if necessary)... AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_treat_pileup.bdg 
+INFO  @ Fri, 24 May 2019 20:22:20: #3   Write bedGraph files for control lambda (after scaling if necessary)... AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_control_lambda.bdg 
+INFO  @ Fri, 24 May 2019 20:22:20: #3   --SPMR is requested, so pileup will be normalized by sequencing depth in million reads. 
+INFO  @ Fri, 24 May 2019 20:22:20: #3 Call peaks for each chromosome... 
+INFO  @ Fri, 24 May 2019 20:42:45: #4 Write output xls file... /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_peaks.xls 
+INFO  @ Fri, 24 May 2019 20:42:47: #4 Write peak in narrowPeak format file... /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_peaks.narrowPeak 
+INFO  @ Fri, 24 May 2019 20:42:48: #4 Write summits bed file... /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_summits.bed 
+INFO  @ Fri, 24 May 2019 20:42:49: Done! 
+pass1 - making usageList (22 chroms): 98 millis
+pass2 - checking and writing primary data (246703 records, 10 fields): 1417 millis
+INFO  @ Fri, 24 May 2019 20:42:58: Read and build treatment bedGraph... 
+INFO  @ Fri, 24 May 2019 20:49:06: Read and build control bedGraph... 
+INFO  @ Fri, 24 May 2019 20:50:49: Build scoreTrackII... 
+INFO  @ Fri, 24 May 2019 20:52:45: Calculate scores comparing treatment and control by 'FE'... 
+INFO  @ Fri, 24 May 2019 21:19:05: Write bedGraph of scores... 
+INFO  @ Fri, 24 May 2019 21:30:34: Finished 'FE'! Please check '/data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_calling/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.macs2_narrow_FE.bdg'! 
+#
+DONE!!!!
+#
+ELAPSED TIME: 16056 seconds
+------------------------------------------------------------------------------
+[Sat May 25 00:27:42 2019]
+Finished job 0.
+1 of 1 steps (100%) done
