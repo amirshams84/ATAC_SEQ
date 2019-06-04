@@ -253,7 +253,7 @@ rule Post_Alignment:
 			module load python/2.7
 			python ./Python_Script/bamQC.py --infile {output.processed_bam} --outfile $QC_PATH/{wildcards.sample}_processed_PBC.txt --cores {threads}
 			module unload python/2.7
-			Rscript ./R_Script/run_spp_nodups.R -c={output.processed_bam} -odir=$QC_PATH/ -savp > $QC_PATH/{wildcards.sample}_processed_SPP.txt
+			Rscript ./R_Script/run_spp_nodups.R -c={output.processed_bam} -odir=$QC_PATH/ -rf -savp > $QC_PATH/{wildcards.sample}_processed_SPP.txt
 			##
 			#
 			end_time="$(date -u +%s)"
