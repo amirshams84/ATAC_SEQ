@@ -68,10 +68,15 @@ def build_snakemake_awk(awk_String):
 	"""
 	snakemake_awk_String = ""
 	dupliucate_string_List = ['\\', '{', '}']
+	escape_character_List = ['$', '"']
 	for each_letter in list(awk_String):
 		if each_letter not in dupliucate_string_List:
 			#
 			snakemake_awk_String += each_letter
+		elif each_letter in escape_character_List:
+			#
+			snakemake_awk_String += '\\' + each_letter
+
 		else:
 			snakemake_awk_String += each_letter * 2
 	return snakemake_awk_String

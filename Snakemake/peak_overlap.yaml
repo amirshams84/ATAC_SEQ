@@ -1,7 +1,0 @@
-__default__:
-    partition: norm
-    time: 12:00
-    jobname: "Snake.{rule}.{wildcards}"
-    extra: "--gres=lscratch:100"
-    output: "./logs/peak_overlap/{rule}.{wildcards}.stdout"
-    error: "./logs/peak_overlap/{rule}.{wildcards}.stderr"

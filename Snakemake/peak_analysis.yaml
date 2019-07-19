@@ -1,7 +1,0 @@
-__default__:
-    partition: norm
-    time: 24:00
-    jobname: "Snake.{rule}.{wildcards}"
-    extra: "--gres=lscratch:100"
-    output: "./logs/peak_analysis/{rule}.{wildcards}.stdout"
-    error: "./logs/peak_analysis/{rule}.{wildcards}.stderr"
