@@ -1,0 +1,12 @@
+Name	Design	Type	Format	Layout
+AB2952-L1	CD8_Naive	CASE	fastq	paired
+AB2956-L1	CD8_Naive	CASE	fastq	paired
+AB2960-L1	CD8_Jurkat	CASE	fastq	paired
+AB2953-L1	CD8_CCR6-CCR2-	CASE	fastq	paired
+AB2957-L1	CD8_CCR6-CCR2-	CASE	fastq	paired
+AB2969-L1	CD8_VA2.7-CCR6+	CASE	fastq	paired
+AB2970-L1	CD8_VA2.7-CCR6+	CASE	fastq	paired
+AB2954-L1	CD8_VA2.7+CCR6+CCR2-	CASE	fastq	paired
+AB2958-L1	CD8_VA2.7+CCR6+CCR2-	CASE	fastq	paired
+AB2955-L1	CD8_VA2.7+CCR6+CCR2+	CASE	fastq	paired
+AB2959-L1	CD8_VA2.7+CCR6+CCR2+	CASE	fastq	paired
