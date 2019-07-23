@@ -201,7 +201,7 @@ rule Post_Alignment:
 			printf "%s\\n" "Rscript {R_Script_path}/run_spp_nodups.R -c={output.processed_bam} -odir=$QC_PATH/ -rf -savp > $QC_PATH/{wildcards.sample}_processed_SPP.txt" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
 			printf "%s\\n" "echo 'Pipeline execution successfully finished at: '$(date)" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
 			cd $QC_PATH
-			sbatch --mem=200G --cpus-per-task=52 --partition=largemem --time=3-00:00:00 ./$QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
+			sbatch --mem=300G --cpus-per-task=52 --partition=largemem --time=3-00:00:00 ./$QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
 			
 		""")
 

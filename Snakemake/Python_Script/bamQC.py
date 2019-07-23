@@ -67,8 +67,7 @@ class bamQC(pararead.ParaReadProcessor):
             return False
 
         def countFlags(chr):
-            dups, unmap, unmap_mate, prop_pair, \
-                qcfail, num_pairs, num_reads = (0, 0, 0, 0, 0, 0, 0)
+            dups, unmap, unmap_mate, prop_pair, qcfail, num_pairs, num_reads = (0, 0, 0, 0, 0, 0, 0)
             for read in chr:
                 num_reads += 1
                 if read.is_paired:
@@ -82,10 +81,8 @@ class bamQC(pararead.ParaReadProcessor):
                 if read.is_proper_pair:
                     prop_pair += 1
                 if read.is_qcfail:
-                    qcfail += 1   
-            return {'num_reads': num_reads, 'num_pairs': num_pairs / 2,
-                    'dups': dups, 'unmap': unmap, 'unmap_mate': unmap_mate,
-                    'prop_pair': prop_pair, 'qcfail': qcfail}
+                    qcfail += 1
+            return {'num_reads': num_reads, 'num_pairs': num_pairs / 2, 'dups': dups, 'unmap': unmap, 'unmap_mate': unmap_mate, 'prop_pair': prop_pair, 'qcfail': qcfail}
 
         def getRead(chr, paired):
             if not paired:
@@ -110,10 +107,14 @@ class bamQC(pararead.ParaReadProcessor):
                             read2['query_name'].append(read.query_name)
                             read2['query_pos'].append(read.pos)
                             read2['template_length'].append(read.template_length)
-                merge = _pd.merge(_pd.DataFrame(read1), _pd.DataFrame(read2),
-                                  on = 'query_name')
-                return merge 
-
+                merge = _pd.merge(_pd.DataFrame(read1), _pd.DataFrame(read2), on = 'query_name')
+                return merge
+        ##################
+        if "chrUn" in chrom:
+            return False
+        elif "random" in chrom:
+            return False
+               
         ##### MAIN #####
         _LOGGER.info("[Name: " + chrom + "; Size: " + str(chrom_size) + "]")
         if os.path.isfile(self.reads_filename):
@@ -121,8 +122,9 @@ class bamQC(pararead.ParaReadProcessor):
             readCount = []
             chrStats = {}
             mitoCount = 0
-            isPE = isPaired(self.fetch_chunk(chrom))   
+            isPE = isPaired(self.fetch_chunk(chrom))
             flags = countFlags(self.fetch_chunk(chrom))
+
             if ('chrM' or 'rCRSd') in chrom:
                 mitoCount = mitoCount + float(flags['num_pairs'])
                 chrStats = {'mitoReads':mitoCount}         

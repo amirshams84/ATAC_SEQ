@@ -179,7 +179,7 @@ if LAYOUT == "paired":
 				printf "%s\\n" "" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC.sh
 				printf "%s\\n" "echo 'Pipeline execution successfully finished at: '$(date)" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC.sh
 				cd $QC_PATH
-				sbatch --mem=200G --cpus-per-task=52 --partition=largemem --time=3-00:00:00 ./{wildcards.design}_{wildcards.sample}_PBC.sh
+				sbatch --mem=300G --cpus-per-task=52 --partition=largemem --time=3-00:00:00 ./{wildcards.design}_{wildcards.sample}_PBC.sh
 				
 			""")
 
@@ -287,18 +287,14 @@ rule Pooling_Case_Replicates:
 
 			fastqc -o $QC_PATH -f bam --threads {threads} {output.pooled_bam}
 
-			module load python/2.7
-			python {Python_Script_path}/bamQC.py --infile {output.pooled_bam} --outfile $QC_PATH/{wildcards.pooled_case}_PBC.txt --cores {threads}
-			module unload python/2.7
-
 			printf "%s\\n" "#!/bin/bash" > $QC_PATH/{wildcards.design}_{wildcards.pooled_case}_PBC.sh
 			printf "%s\\n" "" >> $QC_PATH/{wildcards.design}_{wildcards.pooled_case}_PBC.sh
 			printf "%s\\n" "module load python/2.7" >> $QC_PATH/{wildcards.design}_{wildcards.pooled_case}_PBC.sh
 			printf "%s\\n" "" >> $QC_PATH/{wildcards.design}_{wildcards.pooled_case}_PBC.sh
-			printf "%s\\n" "python {Python_Script_path}/bamQC.py --infile {output.bam} --outfile $QC_PATH/{wildcards.pooled_case}_PBC.txt --cores {threads}" >> $QC_PATH/{wildcards.design}_{wildcards.pooled_case}_PBC.sh
+			printf "%s\\n" "python {Python_Script_path}/bamQC.py --infile {output.pooled_bam} --outfile $QC_PATH/{wildcards.pooled_case}_PBC.txt --cores {threads}" >> $QC_PATH/{wildcards.design}_{wildcards.pooled_case}_PBC.sh
 			printf "%s\\n" "" >> $QC_PATH/{wildcards.design}_{wildcards.pooled_case}_PBC.sh
 			printf "%s\\n" "echo 'Pipeline execution successfully finished at: '$(date)" >> $QC_PATH/{wildcards.design}_{wildcards.pooled_case}_PBC.sh
 			cd $QC_PATH
-			sbatch --mem=200G --cpus-per-task=52 --partition=largemem --time=3-00:00:00 ./{wildcards.design}_{wildcards.pooled_case}_PBC.sh
+			sbatch --mem=300G --cpus-per-task=52 --partition=largemem --time=3-00:00:00 ./{wildcards.design}_{wildcards.pooled_case}_PBC.sh
 
 		""")
