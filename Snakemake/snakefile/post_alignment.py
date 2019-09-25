@@ -2,7 +2,8 @@
 # Author: Amir Shams
 # Date: Mar-29-2019
 # Email: amir.shams84@gmail.com
-# Aim: Snakemake workflow for POST post_alignment
+# Project: ENCODE ATAC_SEQ
+# Aim: Snakemake workflow for post_alignment
 # snakemake --snakefile post_alignment.py --configfile Encode.json --cores=50 -j 10 --local-cores=10
 # snakemake --snakefile post_alignment.py --configfile Encode.json --rulegraph | dot -Tsvg > post_alignment.svg
 # ################################### IMPORT ##################################### #
@@ -51,6 +52,7 @@ def build_design_Dict(metadata_Dict):
 
 # ++++++++++++++++++++++++++++++++++++
 #PATH
+Bash_Script = os.path.abspath(workflow.basedir + "/../Bash_Script")
 R_Script_path = os.path.abspath(workflow.basedir + "/../R_Script")
 Python_Script_path = os.path.abspath(workflow.basedir + "/../Python_Script")
 Script_Path = os.path.abspath(workflow.basedir + "/../Script")
@@ -129,8 +131,9 @@ rule End_Point:
 #+++++++++++++++++++++++++++++
 ##REALM3: POST-ALIGNMENT
 #+++++++++++++++++++++++++++++
-
-rule Post_Alignment:
+rule post_alignment:
+	"""
+	"""
 	input:
 		bam = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bam",
 		bam_index = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bam.bai",
@@ -143,65 +146,261 @@ rule Post_Alignment:
 		processed_bigwig = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{sample}.processed.bigwig",
 	priority: 993
 	threads: PROCESSORS
-	message: "Post_Alignment: {wildcards.design}|{wildcards.sample}"
+	message: "post_alignment: {EXPERIMENT}|{TITLE}|{GENOME}|{wildcards.design}|{wildcards.sample}"
 	resources:
 		mem_mb = MEMORY
 	run:
 		shell("""
 			#
-			module load samtools/1.9 || exit 1
-			module load bedtools/2.27.1 || exit 1
-			module load deeptools/3.1.3 || exit 1
-			module load fastqc/0.11.8 || exit 1
-			module load qualimap/2.2.1 || exit 1
-			module load ucsc/373 || exit 1
-			module load R/3.5 || exit 1
-			#
-			OUT_PATH={WORKDIR}/{PROJECT}/{EXPERIMENT}/{TITLE}/{GENOME}/{wildcards.design}/post_alignment
-			mkdir -p $OUT_PATH
-			QC_PATH={WORKDIR}/{PROJECT}/{EXPERIMENT}/{TITLE}/{GENOME}/{wildcards.design}/report/post_alignment
-			mkdir -p $QC_PATH
-			#
-			#
+			##
+			total_start_time="$(date -u +%s)"
+
+			RESULT_PATH={WORKDIR}/{PROJECT}/{EXPERIMENT}/{TITLE}/{GENOME}/{wildcards.design}/post_alignment
+			mkdir -p $RESULT_PATH
+			
+			REPORT_PATH={WORKDIR}/{PROJECT}/{EXPERIMENT}/{TITLE}/{GENOME}/{wildcards.design}/report/post_alignment
+			mkdir -p $REPORT_PATH
+			
+			SCRATCH_PATH=/lscratch/${{SLURM_JOB_ID}}
+			mkdir -p $SCRATCH_PATH
+
 			if [ ! -f {Script_Path}/{GENOME}.blacklist.bed.gz ]; then
 				wget {config_reference_Dict[BLACK_LIST]} -O {Script_Path}/{GENOME}.blacklist.bed.gz
 			fi
+
+			AWK_ALIGNMENT_FILTER="awk \'BEGIN{{OFS=FS}}{{if ( \$3 != \\\"chrM\\\" && \$3 != \\\"chrUn\\\" && \$3 !~ /chrUn/ && \$3 !~ /random/ ) print \$0}}\'"
+			AWK_ATAC_SEQ_FILTER="awk \'BEGIN {{FS=\\\"\\\\t\\\"; OFS=\\\"\\\\t\\\"}} {{if (\$6 == \\\"+\\\") {{\$2 = \$2 + 4}} else if (\$6 == \\\"-\\\") {{\$3 = \$3 - 5}} print \$0}}\'"
+
+			##
 			#
-			
+			printf "%s\\n" "###################################- JOB INFO -################################" | tee >(cat >&2)
+			printf "%s\\n" "post_alignment: {EXPERIMENT}|{TITLE}|{GENOME}|{wildcards.design}|{wildcards.sample}" | tee >(cat >&2)
+			printf "%s\\n" "###################################- INPUT/OUTPUT -############################" | tee >(cat >&2)
+			printf "INPUT1: %s\\n" "{input.bam}" | tee >(cat >&2)
+			printf "INPUT2: %s\\n" "{input.bam_index}" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
+			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
+			printf "OUTPUT1: %s\\n" "{output.processed_bam}" | tee >(cat >&2)
+			printf "OUTPUT2: %s\\n" "{output.processed_bam_index}" | tee >(cat >&2)
+			printf "OUTPUT3: %s\\n" "{output.processed_bed}" | tee >(cat >&2)
+			printf "OUTPUT4: %s\\n" "{output.processed_bed_index}" | tee >(cat >&2)
+			printf "OUTPUT5: %s\\n" "{output.processed_bigbed}" | tee >(cat >&2)
+			printf "OUTPUT6: %s\\n" "{output.processed_bigwig}" | tee >(cat >&2)
+			printf "OUTPUT7: %s\\n" "$REPORT_PATH/{wildcards.sample}.processed.samtools.flagstat.txt" | tee >(cat >&2)
+			printf "OUTPUT8: %s\\n" "$REPORT_PATH/{wildcards.sample}.processed.samtools.idxstats.txt" | tee >(cat >&2)
+			printf "OUTPUT9: %s\\n" "$REPORT_PATH/{wildcards.sample}.processed.PBC.txt" | tee >(cat >&2)
+			printf "OUTPUT10: %s\\n" "$REPORT_PATH/{wildcards.sample}.processed.SPP.txt" | tee >(cat >&2)
+			printf "OUTPUT11: %s\\n" "$REPORT_PATH/{wildcards.sample}.fragment_length_distribution.txt" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
 			printf "%s\\n" "###################################- COMMANDLINE -############################" | tee >(cat >&2)
-			
-			samtools view --threads {threads} -h -F 1804 -f 2 -q 30 {input.bam} | awk 'BEGIN{{OFS=FS}}{{if ( $3 != \"chrM\" && $3 != \"chrUn\" && $3 != \"chrEBV\" && $3 !~ /chrUn/ && $3 !~ /random/ ) print $0}}' | samtools view --threads {threads} -Shb - > $OUT_PATH/{wildcards.sample}.mapped.dupfilt.chrfilt.bam
-			bedtools intersect -v -abam $OUT_PATH/{wildcards.sample}.mapped.dupfilt.chrfilt.bam -b <(zcat -f {Script_Path}/{GENOME}.blacklist.bed.gz ) > $OUT_PATH/{wildcards.sample}.mapped.dupfilt.chrfilt.blkfilt.bam
-			samtools sort --threads {threads} -O bam $OUT_PATH/{wildcards.sample}.mapped.dupfilt.chrfilt.blkfilt.bam -o {output.processed_bam}
+			printf "%s\\n" "module load samtools/1.9 || exit 1" | tee >(cat >&2)
+			printf "%s\\n" "module load bedtools/2.27.1 || exit 1" | tee >(cat >&2)
+			printf "%s\\n" "module load deeptools/3.1.3 || exit 1" | tee >(cat >&2)
+			printf "%s\\n" "module load ucsc/373 || exit 1" | tee >(cat >&2)
+			printf "%s\\n" "module load fastqc/0.11.8 || exit 1" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "" | tee >(cat >&2)
+			#
+			##
+			start_time="$(date -u +%s)"
+
+			module load samtools/1.9 || exit 1
+			module load bedtools/2.27.1 || exit 1
+			module load ucsc/373 || exit 1
+			module load fastqc/0.11.8 || exit 1
+			module load deeptools/3.1.3 || exit 1
+
+			end_time="$(date -u +%s)"
+			##
+			#
+			printf "%s\\n" "" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
+			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
+			printf "%s\\n" "samtools view --threads {threads} -h -F 780 -f 2 -q 30 {input.bam} | $AWK_ALIGNMENT_FILTER | \\
+			samtools view --threads {threads} -Shb - > $RESULT_PATH/{wildcards.sample}.nomito.bam" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "" | tee >(cat >&2)
+			#
+			##
+			start_time="$(date -u +%s)"
+
+			samtools view --threads {threads} -h -F 780 -f 2 -q 30 {input.bam} | \\
+			awk 'BEGIN{{OFS=FS}}{{if ( $3 != \"chrM\" && $3 != \"chrUn\" && $3 !~ /chrUn/ && $3 !~ /random/ ) print $0}}' | \\
+			samtools view --threads {threads} -Shb - > $RESULT_PATH/{wildcards.sample}.nomito.bam
+
+			end_time="$(date -u +%s)"
+			##
+			#
+			printf "%s\\n" "" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
+			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
+			printf "%s\\n" "bedtools intersect -v -abam $RESULT_PATH/{wildcards.sample}.nomito.bam \\
+			-b <(zcat -f {Script_Path}/{GENOME}.blacklist.bed.gz ) > $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam" | tee >(cat >&2)
+			printf "%s\\n" "samtools sort --threads {threads} -O bam $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam -o {output.processed_bam}" | tee >(cat >&2)
+			printf "%s\\n" "samtools index -@ {threads} -b {output.processed_bam}" | tee >(cat >&2)
+			printf "%s\\n" "rm -rf $RESULT_PATH/{wildcards.sample}.nomito.bam $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "" | tee >(cat >&2)
+			#
+			##
+			start_time="$(date -u +%s)"
+
+			bedtools intersect -v -abam $RESULT_PATH/{wildcards.sample}.nomito.bam \\
+			-b <(zcat -f {Script_Path}/{GENOME}.blacklist.bed.gz ) > $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam
+			samtools sort --threads {threads} -O bam $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam -o {output.processed_bam}
 			samtools index -@ {threads} -b {output.processed_bam}
-			rm -rf $OUT_PATH/{wildcards.sample}.mapped.dupfilt.chrfilt.bam $OUT_PATH/{wildcards.sample}.mapped.dupfilt.chrfilt.blkfilt.bam
+			rm -rf $RESULT_PATH/{wildcards.sample}.nomito.bam $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam
+
+			end_time="$(date -u +%s)"
+			##
 			#
-			#ATAC_SEQ
-			bedtools bamtobed -i {output.processed_bam} | awk 'BEGIN {{FS=\"\\t\"; OFS=\"\\t\"}} {{if ($6 == \"+\") {{$2 = $2 + 4}} else if ($6 == \"-\") {{$3 = $3 - 5}} print $0}}' > {output.processed_bed}.tmp
+			printf "%s\\n" "" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
+			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
+			printf "%s\\n" "bedtools bamtobed -i {output.processed_bam} | $AWK_ATAC_SEQ_FILTER > {output.processed_bed}.tmp" | tee >(cat >&2)
+			printf "%s\\n" "LC_COLLATE=C sort -k1,1 -k2,2n {output.processed_bed}.tmp > {output.processed_bed}.sorted" | tee >(cat >&2)
+			printf "%s\\n" "bgzip -c {output.processed_bed}.sorted > {output.processed_bed}" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "" | tee >(cat >&2)
 			#
+			##
+			start_time="$(date -u +%s)"
+
+			bedtools bamtobed -i {output.processed_bam} | \\
+			awk 'BEGIN {{FS=\"\\t\"; OFS=\"\\t\"}} {{if ($6 == \"+\") {{$2 = $2 + 4}} else if ($6 == \"-\") {{$3 = $3 - 5}} print $0}}' > {output.processed_bed}.tmp
 			LC_COLLATE=C sort -k1,1 -k2,2n {output.processed_bed}.tmp > {output.processed_bed}.sorted
 			bgzip -c {output.processed_bed}.sorted > {output.processed_bed}
-			bedToBigBed {output.processed_bed}.sorted {config_reference_Dict[CHROM_SIZE]} {output.processed_bigbed}
 
+			end_time="$(date -u +%s)"
+			##
+			#
+			printf "%s\\n" "" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
+			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
+			printf "%s\\n" "bedToBigBed {output.processed_bed}.sorted {config_reference_Dict[CHROM_SIZE]} {output.processed_bigbed}" | tee >(cat >&2)
+			printf "%s\\n" "tabix -f -p bed {output.processed_bed}" | tee >(cat >&2)
+			printf "%s\\n" "rm -rf {output.processed_bed}.tmp {output.processed_bed}.sorted" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "" | tee >(cat >&2)
+			#
+			##
+			start_time="$(date -u +%s)"
+
+			bedToBigBed {output.processed_bed}.sorted {config_reference_Dict[CHROM_SIZE]} {output.processed_bigbed}
 			tabix -f -p bed {output.processed_bed}
 			rm -rf {output.processed_bed}.tmp {output.processed_bed}.sorted
 
-			bamCoverage --bam {output.processed_bam} --outFileName {output.processed_bigwig} --binSize 5 --normalizeUsing RPGC --extendReads 150 --outFileFormat bigwig --numberOfProcessors {threads} --effectiveGenomeSize {config_reference_Dict[EFFECTIVE_GENOME_SIZE]}
+			end_time="$(date -u +%s)"
+			##
+			#
+			printf "%s\\n" "" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
+			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
+			printf "%s\\n" "bamCoverage --bam {output.processed_bam} --outFileName {output.processed_bigwig} --binSize 5 --normalizeUsing RPGC --extendReads 200 \\
+			--outFileFormat bigwig --numberOfProcessors {threads} --effectiveGenomeSize {config_reference_Dict[EFFECTIVE_GENOME_SIZE]}" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "" | tee >(cat >&2)
+			#
+			##
+			start_time="$(date -u +%s)"
 
-			samtools flagstat --threads {threads} {output.processed_bam} > $QC_PATH/{wildcards.sample}.processed.samtools.txt
-			fastqc -o $QC_PATH -f bam --threads {threads} {output.processed_bam}
+			bamCoverage --bam {output.processed_bam} --outFileName {output.processed_bigwig} --binSize 5 --normalizeUsing RPGC --extendReads 200 \\
+			--outFileFormat bigwig --numberOfProcessors {threads} --effectiveGenomeSize {config_reference_Dict[EFFECTIVE_GENOME_SIZE]}
 
-			printf "%s\\n" "#!/bin/bash" > $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			printf "%s\\n" "" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			printf "%s\\n" "module load python/2.7" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			printf "%s\\n" "module load R/3.5" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			printf "%s\\n" "" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			printf "%s\\n" "python {Python_Script_path}/bamQC.py --infile {output.processed_bam} --outfile $QC_PATH/{wildcards.sample}_processed_PBC.txt --cores {threads}" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			printf "%s\\n" "" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			printf "%s\\n" "Rscript {R_Script_path}/run_spp_nodups.R -c={output.processed_bam} -odir=$QC_PATH/ -rf -savp > $QC_PATH/{wildcards.sample}_processed_SPP.txt" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			printf "%s\\n" "echo 'Pipeline execution successfully finished at: '$(date)" >> $QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			cd $QC_PATH
-			sbatch --mem=300G --cpus-per-task=52 --partition=largemem --time=3-00:00:00 ./$QC_PATH/{wildcards.design}_{wildcards.sample}_PBC_SPP.sh
-			
+			end_time="$(date -u +%s)"
+			##
+			#
+			printf "%s\\n" "" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
+			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
+			printf "%s\\n" "samtools flagstat --threads {threads} {output.processed_bam} > $REPORT_PATH/{wildcards.sample}.processed.samtools.flagstat.txt" | tee >(cat >&2)
+			printf "%s\\n" "samtools idxstats --threads {threads} {output.processed_bam} > $REPORT_PATH/{wildcards.sample}.processed.samtools.idxstats.txt" | tee >(cat >&2)
+			printf "%s\\n" "fastqc -o $REPORT_PATH -f bam --threads {threads} {output.processed_bam}" | tee >(cat >&2)
+			printf "%s\\n" "python {Python_Script_path}/bamQC.py --infile {output.processed_bam} --outfile $REPORT_PATH/{wildcards.sample}.processed.PBC.txt --cores {threads}" | tee >(cat >&2)
+			printf "%s\\n" "Rscript {R_Script_path}/run_spp_nodups.R -c={output.processed_bam} -odir=$REPORT_PATH/ -rf -savp > $REPORT_PATH/{wildcards.sample}.processed.SPP.txt" | tee >(cat >&2)
+			printf "%s\\n" "bash {Bash_Script}/fragment_length_distribution.sh {output.processed_bam} $REPORT_PATH/{wildcards.sample}.fragment_length_distribution.txt" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "" | tee >(cat >&2)
+			#
+			##
+			start_time="$(date -u +%s)"
+
+			samtools flagstat --threads {threads} {output.processed_bam} > $REPORT_PATH/{wildcards.sample}.processed.samtools.flagstat.txt
+			samtools idxstats --threads {threads} {output.processed_bam} > $REPORT_PATH/{wildcards.sample}.processed.samtools.idxstats.txt
+			fastqc -o $REPORT_PATH -f bam --threads {threads} {output.processed_bam}
+
+			printf "%s\\n" "#!/bin/bash" > $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "module load python/2.7" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "module load R/3.5" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "python {Python_Script_path}/bamQC.py --infile {output.processed_bam} --outfile $REPORT_PATH/{wildcards.sample}.processed.PBC.txt --cores {threads}" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "Rscript {R_Script_path}/run_spp_nodups.R -c={output.processed_bam} -odir=$REPORT_PATH/ -rf -savp > $REPORT_PATH/{wildcards.sample}.processed.SPP.txt" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "bash {Bash_Script}/fragment_length_distribution.sh {output.processed_bam} $REPORT_PATH/{wildcards.sample}.fragment_length_distribution.txt" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			printf "%s\\n" "echo 'Pipeline execution successfully finished at: '\$(date)" >> $REPORT_PATH/{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+			cd $REPORT_PATH
+			sbatch --mem=300G --cpus-per-task=52 --partition=largemem --time=1-00:00:00 ./{wildcards.design}_{wildcards.sample}_processed_PBC_SPP.sh
+
+			end_time="$(date -u +%s)"
+			##
+			#
+			printf "%s\\n" "" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
+			printf "%s\\n" "###################################- FINALIZING -#############################" | tee >(cat >&2)
+
+			total_end_time="$(date -u +%s)"
+			##
+			#
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "%s\\n" "DONE!!!!" | tee >(cat >&2)
+			printf "%s\\n" "#" | tee >(cat >&2)
+			printf "TOTAL ELAPSED TIME: %s seconds\\n" "$(($total_end_time-$total_start_time))" | tee >(cat >&2)
+			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
 		""")
+
 

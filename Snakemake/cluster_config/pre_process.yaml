@@ -1,6 +1,6 @@
 __default__:
     partition: norm
-    time: 72:00
+    time: 24:00
     jobname: "Snake.{rule}.{wildcards}"
     extra: "--gres=lscratch:500"
     output: "{rule}.{wildcards}.stdout"

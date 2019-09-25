@@ -1,12 +1,9 @@
 #!/usr/bin/env python
-# bamQC.py
-#
-# Last updated 8/4/18: Jason Smith
-#
-# Function: Script takes as input a BAM file and calculates the non-redundant
-#           fraction (NRF) and the PCR bottleneck coefficients 1 (PBC1)
-#           and 2 (PBC2). 
-#
+# ################################### INFO ###################################### #
+# Author: Amir Shams
+# Date: Mar-29-2018
+# Email: amir.shams84@gmail.com
+# Aim: Python script to calculate duplicate/distinct along of PCR bottleneck
 
 from argparse import ArgumentParser
 import os
