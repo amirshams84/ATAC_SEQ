@@ -1,0 +1,140 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	10	Alignment_Paired
+	1	End_Point
+	5	Pooling_Case_Replicates
+	16
+
+[Wed Jun  5 15:25:52 2019]
+Job 9: Alignment_Paired: CD4_CCR6high|AB3614-L1
+
+Submitted job 9 with external jobid '28137745'.
+
+[Wed Jun  5 15:25:53 2019]
+Job 8: Alignment_Paired: CD4_CCR6low|AB3613-L1
+
+Submitted job 8 with external jobid '28137746'.
+
+[Wed Jun  5 15:25:54 2019]
+Job 7: Alignment_Paired: CD4_CCR6neg|AB3612-L1
+
+Submitted job 7 with external jobid '28137748'.
+
+[Wed Jun  5 15:25:55 2019]
+Job 2: Alignment_Paired: CD4_CCR6neg|AB3607-L1
+
+Submitted job 2 with external jobid '28137749'.
+
+[Wed Jun  5 15:25:57 2019]
+Job 10: Alignment_Paired: CD4_CCR6plus_CCR2plus|AB3615-L1
+
+Submitted job 10 with external jobid '28137751'.
+
+[Wed Jun  5 15:25:58 2019]
+Job 6: Alignment_Paired: CD4_Naive|AB3611-L1
+
+Submitted job 6 with external jobid '28137752'.
+
+[Wed Jun  5 15:25:59 2019]
+Job 3: Alignment_Paired: CD4_CCR6low|AB3608-L1
+
+Submitted job 3 with external jobid '28137754'.
+
+[Wed Jun  5 15:26:00 2019]
+Job 5: Alignment_Paired: CD4_CCR6plus_CCR2plus|AB3610-L1
+
+Submitted job 5 with external jobid '28137756'.
+
+[Wed Jun  5 15:26:01 2019]
+Job 4: Alignment_Paired: CD4_CCR6high|AB3609-L1
+
+Submitted job 4 with external jobid '28137757'.
+
+[Wed Jun  5 15:26:03 2019]
+Job 1: Alignment_Paired: CD4_Naive|AB3606-L1
+
+Submitted job 1 with external jobid '28137759'.
+[Wed Jun  5 19:30:38 2019]
+Finished job 2.
+1 of 16 steps (6%) done
+[Wed Jun  5 20:38:54 2019]
+Finished job 5.
+2 of 16 steps (12%) done
+[Wed Jun  5 21:01:05 2019]
+Finished job 4.
+3 of 16 steps (19%) done
+[Wed Jun  5 21:57:18 2019]
+Finished job 9.
+4 of 16 steps (25%) done
+
+[Wed Jun  5 21:57:18 2019]
+Job 14: Pooling_Case_Replicates: CD4_CCR6high|AB3609-L1_POOLED_AB3614-L1
+
+Submitted job 14 with external jobid '28179027'.
+[Wed Jun  5 22:05:19 2019]
+Finished job 10.
+5 of 16 steps (31%) done
+
+[Wed Jun  5 22:05:19 2019]
+Job 15: Pooling_Case_Replicates: CD4_CCR6plus_CCR2plus|AB3610-L1_POOLED_AB3615-L1
+
+Submitted job 15 with external jobid '28179775'.
+[Wed Jun  5 22:07:09 2019]
+Finished job 1.
+6 of 16 steps (38%) done
+[Wed Jun  5 22:37:41 2019]
+Finished job 6.
+7 of 16 steps (44%) done
+
+[Wed Jun  5 22:37:41 2019]
+Job 11: Pooling_Case_Replicates: CD4_Naive|AB3606-L1_POOLED_AB3611-L1
+
+Submitted job 11 with external jobid '28181281'.
+[Wed Jun  5 23:46:25 2019]
+Finished job 8.
+8 of 16 steps (50%) done
+[Thu Jun  6 02:51:07 2019]
+Finished job 3.
+9 of 16 steps (56%) done
+
+[Thu Jun  6 02:51:07 2019]
+Job 13: Pooling_Case_Replicates: CD4_CCR6low|AB3608-L1_POOLED_AB3613-L1
+
+Submitted job 13 with external jobid '28196296'.
+[Thu Jun  6 05:45:47 2019]
+Finished job 7.
+10 of 16 steps (62%) done
+
+[Thu Jun  6 05:45:47 2019]
+Job 12: Pooling_Case_Replicates: CD4_CCR6neg|AB3607-L1_POOLED_AB3612-L1
+
+Submitted job 12 with external jobid '28201811'.
+[Thu Jun  6 06:26:10 2019]
+Finished job 15.
+11 of 16 steps (69%) done
+[Thu Jun  6 06:28:40 2019]
+Finished job 14.
+12 of 16 steps (75%) done
+[Thu Jun  6 08:17:06 2019]
+Finished job 11.
+13 of 16 steps (81%) done
+[Thu Jun  6 18:01:29 2019]
+Finished job 13.
+14 of 16 steps (88%) done
+[Thu Jun  6 20:12:47 2019]
+Finished job 12.
+15 of 16 steps (94%) done
+
+[Thu Jun  6 20:12:47 2019]
+localrule End_Point:
+    input: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/alignment/AB3606-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/alignment/AB3607-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/alignment/AB3608-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/alignment/AB3609-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/alignment/AB3610-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/alignment/AB3611-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/alignment/AB3612-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/alignment/AB3613-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/alignment/AB3614-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/alignment/AB3615-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/alignment/AB3606-L1_POOLED_AB3611-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/alignment/AB3607-L1_POOLED_AB3612-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/alignment/AB3608-L1_POOLED_AB3613-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/alignment/AB3609-L1_POOLED_AB3614-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/alignment/AB3610-L1_POOLED_AB3615-L1.bam
+    jobid: 0
+
+[Thu Jun  6 20:12:47 2019]
+Finished job 0.
+16 of 16 steps (100%) done
+Complete log: /gpfs/gsfs6/users/shamsaddinisha/ATAC_Seq/Snakemake/.snakemake/log/2019-06-05T152551.564393.snakemake.log

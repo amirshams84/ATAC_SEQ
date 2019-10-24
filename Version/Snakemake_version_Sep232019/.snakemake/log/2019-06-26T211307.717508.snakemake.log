@@ -1,0 +1,116 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	10	Alignment_Paired
+	1	End_Point
+	5	Pooling_Case_Replicates
+	16
+
+[Wed Jun 26 21:13:08 2019]
+Job 2: Alignment_Paired: CD8_Naive|AB2956-L1
+
+Submitted job 2 with external jobid '30208606'.
+
+[Wed Jun 26 21:13:09 2019]
+Job 9: Alignment_Paired: CD8_VA2.7+CCR6+CCR2-|AB2958-L1
+
+Submitted job 9 with external jobid '30208607'.
+
+[Wed Jun 26 21:13:10 2019]
+Job 7: Alignment_Paired: CD8_VA2.7-CCR6+|AB2970-L1
+
+Submitted job 7 with external jobid '30208608'.
+
+[Wed Jun 26 21:13:11 2019]
+Job 5: Alignment_Paired: CD8_CCR6-CCR2-|AB2957-L1
+
+Submitted job 5 with external jobid '30208609'.
+
+[Wed Jun 26 21:13:14 2019]
+Job 8: Alignment_Paired: CD8_VA2.7+CCR6+CCR2-|AB2954-L1
+
+Submitted job 8 with external jobid '30208624'.
+
+[Wed Jun 26 21:13:16 2019]
+Job 6: Alignment_Paired: CD8_VA2.7-CCR6+|AB2969-L1
+
+Submitted job 6 with external jobid '30208625'.
+
+[Wed Jun 26 21:13:19 2019]
+Job 10: Alignment_Paired: CD8_VA2.7+CCR6+CCR2+|AB2955-L1
+
+Submitted job 10 with external jobid '30208626'.
+
+[Wed Jun 26 21:13:22 2019]
+Job 1: Alignment_Paired: CD8_Naive|AB2952-L1
+
+Submitted job 1 with external jobid '30208627'.
+
+[Wed Jun 26 21:13:23 2019]
+Job 11: Alignment_Paired: CD8_VA2.7+CCR6+CCR2+|AB2959-L1
+
+Submitted job 11 with external jobid '30208628'.
+
+[Wed Jun 26 21:13:24 2019]
+Job 3: Alignment_Paired: CD8_Jurkat|AB2960-L1
+
+Submitted job 3 with external jobid '30208629'.
+[Thu Jun 27 11:18:11 2019]
+Finished job 9.
+1 of 16 steps (6%) done
+[Thu Jun 27 11:43:24 2019]
+Finished job 5.
+2 of 16 steps (12%) done
+
+[Thu Jun 27 11:43:24 2019]
+Job 13: Pooling_Case_Replicates: CD8_CCR6-CCR2-|AB2953-L1_POOLED_AB2957-L1
+
+Submitted job 13 with external jobid '30252904'.
+[Thu Jun 27 14:11:53 2019]
+Finished job 11.
+3 of 16 steps (19%) done
+[Thu Jun 27 16:46:13 2019]
+Finished job 7.
+4 of 16 steps (25%) done
+[Thu Jun 27 16:50:13 2019]
+Finished job 10.
+5 of 16 steps (31%) done
+
+[Thu Jun 27 16:50:13 2019]
+Job 16: Pooling_Case_Replicates: CD8_VA2.7+CCR6+CCR2+|AB2955-L1_POOLED_AB2959-L1
+
+Submitted job 16 with external jobid '30290029'.
+[Thu Jun 27 17:00:33 2019]
+Finished job 1.
+6 of 16 steps (38%) done
+[Thu Jun 27 18:23:38 2019]
+Finished job 8.
+7 of 16 steps (44%) done
+
+[Thu Jun 27 18:23:38 2019]
+Job 15: Pooling_Case_Replicates: CD8_VA2.7+CCR6+CCR2-|AB2954-L1_POOLED_AB2958-L1
+
+Submitted job 15 with external jobid '30304278'.
+[Thu Jun 27 18:34:29 2019]
+Finished job 6.
+8 of 16 steps (50%) done
+
+[Thu Jun 27 18:34:29 2019]
+Job 14: Pooling_Case_Replicates: CD8_VA2.7-CCR6+|AB2969-L1_POOLED_AB2970-L1
+
+Submitted job 14 with external jobid '30306084'.
+[Fri Jun 28 11:54:10 2019]
+Finished job 13.
+9 of 16 steps (56%) done
+[Fri Jun 28 21:31:05 2019]
+Finished job 16.
+10 of 16 steps (62%) done
+[Fri Jun 28 21:55:57 2019]
+Finished job 15.
+11 of 16 steps (69%) done
+[Sat Jun 29 01:18:44 2019]
+Finished job 14.
+12 of 16 steps (75%) done

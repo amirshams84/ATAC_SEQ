@@ -1,0 +1,15 @@
+__default__:
+    partition: quick
+    time: 4:00
+    jobname: "Snake.{rule}.{wildcards}"
+    extra: "--gres=lscratch:500"
+    output: "{rule}.{wildcards}.stdout"
+    error: "{rule}.{wildcards}.stderr"
+
+nucleoatac:
+  partition: norm
+  time: 24:00
+  jobname: "Snake.{rule}.{wildcards}"
+  extra: "--gres=lscratch:500"
+  output: "{rule}.{wildcards}.stdout"
+  error: "{rule}.{wildcards}.stderr"

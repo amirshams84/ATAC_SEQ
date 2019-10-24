@@ -1,0 +1,45 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	7	Alignment_Paired
+	1	End_Point
+	5	Pooling_Case_Replicates
+	13
+
+[Wed Jun 26 09:20:58 2019]
+Job 8: Alignment_Paired: CD8_VA2.7+CCR6+CCR2-|AB2954-L1
+
+Submitted job 8 with external jobid '30147296'.
+
+[Wed Jun 26 09:20:59 2019]
+Job 10: Alignment_Paired: CD8_VA2.7+CCR6+CCR2+|AB2955-L1
+
+Submitted job 10 with external jobid '30147297'.
+
+[Wed Jun 26 09:21:01 2019]
+Job 3: Alignment_Paired: CD8_Jurkat|AB2960-L1
+
+Submitted job 3 with external jobid '30147299'.
+
+[Wed Jun 26 09:21:02 2019]
+Job 5: Alignment_Paired: CD8_CCR6-CCR2-|AB2957-L1
+
+Submitted job 5 with external jobid '30147300'.
+
+[Wed Jun 26 09:21:04 2019]
+Job 2: Alignment_Paired: CD8_Naive|AB2956-L1
+
+Submitted job 2 with external jobid '30147303'.
+
+[Wed Jun 26 09:21:05 2019]
+Job 9: Alignment_Paired: CD8_VA2.7+CCR6+CCR2-|AB2958-L1
+
+Submitted job 9 with external jobid '30147304'.
+
+[Wed Jun 26 09:21:06 2019]
+Job 6: Alignment_Paired: CD8_VA2.7-CCR6+|AB2969-L1
+
+Submitted job 6 with external jobid '30147305'.

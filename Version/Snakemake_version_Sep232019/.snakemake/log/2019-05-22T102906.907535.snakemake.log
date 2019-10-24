@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 8
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	End_Point
+	16	Pre_Process_Paired
+	17
+
+[Wed May 22 10:32:07 2019]
+Job 11: Pre_Process_Paired: Ccl20-_T3|AB3833-L1
+
+Submitted job 11 with external jobid '27121623'.
+
+[Wed May 22 10:33:17 2019]
+Job 7: Pre_Process_Paired: Ccl20+_UT3|AB3829-L1
+
+Submitted job 7 with external jobid '27121651'.
+
+[Wed May 22 10:33:18 2019]
+Job 13: Pre_Process_Paired: Ccl20+_T1|AB3835-L1
+
+Submitted job 13 with external jobid '27121653'.
+
+[Wed May 22 10:33:20 2019]
+Job 14: Pre_Process_Paired: Ccl20+_T2|AB3836-L1
+
+Submitted job 14 with external jobid '27121654'.
+
+[Wed May 22 10:33:21 2019]
+Job 15: Pre_Process_Paired: Ccl20+_T3|AB3837-L1
+
+Submitted job 15 with external jobid '27121656'.
+
+[Wed May 22 10:33:22 2019]
+Job 16: Pre_Process_Paired: Ccl20+_T4|AB3838-L1
+
+Submitted job 16 with external jobid '27121658'.
+
+[Wed May 22 10:33:23 2019]
+Job 10: Pre_Process_Paired: Ccl20-_T2|AB3832-L1
+
+Submitted job 10 with external jobid '27121659'.
+
+[Wed May 22 10:33:24 2019]
+Job 8: Pre_Process_Paired: Ccl20+_UT4|AB3830-L1
+
+Submitted job 8 with external jobid '27121661'.
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Cancelling snakemake on user request.

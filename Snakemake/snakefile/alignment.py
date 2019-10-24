@@ -17,43 +17,12 @@ import utility
 # ################################### FUNCTIONS ################################## #
 
 
-def build_design_Dict(metadata_Dict):
-	#
-	design_Dict = {}
-	for sample, sample_Dict in metadata_Dict.items():
-		#
-		if sample_Dict["Design"] not in design_Dict:
-			#
-			design_Dict[sample_Dict["Design"]] = {}
-			design_Dict[sample_Dict["Design"]]["Case"] = []
-			design_Dict[sample_Dict["Design"]]["Control"] = []
-			if sample_Dict["Type"] == "CASE":
-				#
-				design_Dict[sample_Dict["Design"]]["Case"].append(sample)
-			elif sample_Dict["Type"] == "CONTROL":
-				#
-				design_Dict[sample_Dict["Design"]]["Control"].append(sample)
-			else:
-				pass
-		elif sample_Dict["Design"] in design_Dict:
-			#
-			if sample_Dict["Type"] == "CASE":
-				#
-				design_Dict[sample_Dict["Design"]]["Case"].append(sample)
-			elif sample_Dict["Type"] == "CONTROL":
-				#
-				design_Dict[sample_Dict["Design"]]["Control"].append(sample)
-			else:
-				pass
-	return design_Dict
-
-
 def get_case_bam(wildcards):
 	"""
 	"""
 	bam_List = []
-	for sample, sample_Dict in metadata_Dict.items():
-		if sample_Dict["Design"] == wildcards.design:
+	for sample, sample_Dict in sample_treatment_Dict.items():
+		if sample_Dict[TREATMENT_COLUMN] == wildcards.design:
 			if sample_Dict["Type"] == "CASE":
 				bam_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{case}.bam".format(design=wildcards.design, case=sample))
 	return bam_List
@@ -62,10 +31,10 @@ def get_case_bam(wildcards):
 
 # ++++++++++++++++++++++++++++++++++++
 #PATH
-Bash_Script = os.path.abspath(workflow.basedir + "/../Bash_Script")
-R_Script_path = os.path.abspath(workflow.basedir + "/../R_Script")
-Python_Script_path = os.path.abspath(workflow.basedir + "/../Python_Script")
-Script_Path = os.path.abspath(workflow.basedir + "/../Script")
+Bash_Script = os.path.abspath(workflow.basedir + "/../bash_script")
+R_Script_path = os.path.abspath(workflow.basedir + "/../R_script")
+Python_Script_path = os.path.abspath(workflow.basedir + "/../python_script")
+Script_Path = os.path.abspath(workflow.basedir + "/../template")
 # -----------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #GENERAL
@@ -73,9 +42,14 @@ config_general_Dict = config["GENERAL"]
 PROJECT = config_general_Dict["PROJECT"]
 EXPERIMENT = config_general_Dict["EXPERIMENT"]
 TITLE = config_general_Dict["TITLE"]
-EXECUTION_MODE = config_general_Dict["EXECUTION_MODE"]
-WORKDIR = utility.fix_path(config_general_Dict["WORKDIR"])
-# -----------------------------------
+INFOLINK = config_general_Dict["INFOLINK"]
+# ------------------------------------
+# ++++++++++++++++++++++++++++++++++++
+#DIRECTORY
+config_directory_Dict = config["DIRECTORY"]
+WORKDIR = utility.fix_path(config_directory_Dict["WORKDIR"])
+DATADIR = utility.fix_path(config_directory_Dict["DATADIR"])
+# ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #DATA
 config_data_Dict = config["DATA"]
@@ -85,16 +59,17 @@ GENOME = config_data_Dict["GENOME"].lower()
 # -----------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #CLUSTER
-config_cluster_Dict = config["CLSUTER_CONFIG"]
-PROCESSORS = config_cluster_Dict["PROCESSORS"]
-MEMORY = config_cluster_Dict["MEMORY"]
+PROCESSORS, MEMORY = utility.get_cluster_info(sys.argv)
 # ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #METADATA
 config_metadata_Dict = config["METADATA"]
 METADATA_FILE = config_metadata_Dict["METADATA_FILE"]
-metadata_Dict = utility.build_metadata_dict(METADATA_FILE)
-design_Dict = build_design_Dict(metadata_Dict)
+SAMPLE_COLUMN = config_metadata_Dict["SAMPLE_COLUMN"]
+TREATMENT_COLUMN = config_metadata_Dict["TREATMENT_COLUMN"]
+TREATMENT_LIST = list(config_metadata_Dict["TREATMENT_LIST"])
+sample_treatment_Dict = utility.build_sample_treatment_dict(METADATA_FILE, SAMPLE_COLUMN)
+metadata_Dict = utility.build_metadata_dict(sample_treatment_Dict, TREATMENT_COLUMN, TREATMENT_LIST)
 # ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #UTILITIES
@@ -111,15 +86,14 @@ config_reference_Dict = config["REFERENCE"][GENOME]
 
 pre_process_List = []
 alignment_List = []
-for sample, sample_Dict in metadata_Dict.items():
+for sample, sample_Dict in sample_treatment_Dict.items():
+	pre_process_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/pre_process/{sample}.R1.processed.fastq".format(design=sample_Dict[TREATMENT_COLUMN], sample=sample))
 	#
-	pre_process_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/pre_process/{sample}.R1.processed.fastq".format(design=sample_Dict["Design"], sample=sample))
-	#
-	alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bam".format(design=sample_Dict["Design"], sample=sample))
+	alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bam".format(design=sample_Dict[TREATMENT_COLUMN], sample=sample))
 
-for design in design_Dict:
+for design in metadata_Dict:
 	#
-	alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{pooled_case}.bam".format(design=design, pooled_case="_POOLED_".join(design_Dict[design]["Case"])))
+	alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{pooled_case}.bam".format(design=design, pooled_case="_POOLED_".join(metadata_Dict[design]["Case"])))
 
 # ################################### PIPELINE FLOW ############################ #
 
@@ -140,13 +114,11 @@ if LAYOUT == "paired":
 			processed_rev_fastq = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/pre_process/{sample}.R2.processed.fastq",
 		output:
 			bam = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bam",
-			bam_index = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bam.bai",
-			bed = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bed.gz",
-			bigwig = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bigwig",
+			bam_index = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bam.bai"
 		priority: 996
 		threads: PROCESSORS
 		resources:
-			mem_mb = 200000
+			mem_mb = MEMORY
 		message: "alignment_paired: {EXPERIMENT}|{TITLE}|{GENOME}|{wildcards.design}|{wildcards.sample}"
 		run:
 			each_fastq_basename = os.path.basename(input.processed_fwd_fastq)
@@ -177,17 +149,15 @@ if LAYOUT == "paired":
 				printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
 				printf "OUTPUT1: %s\\n" "{output.bam}" | tee >(cat >&2)
 				printf "OUTPUT2: %s\\n" "{output.bam_index}" | tee >(cat >&2)
-				printf "OUTPUT3: %s\\n" "{output.bed}" | tee >(cat >&2)
-				printf "OUTPUT4: %s\\n" "{output.bigwig}" | tee >(cat >&2)
-				printf "OUTPUT5: %s\\n" "$RESULT_PATH/{each_fastq_begining}.R1.mapped.fastq.gz" | tee >(cat >&2)
-				printf "OUTPUT6: %s\\n" "$RESULT_PATH/{each_fastq_begining}.R2.mapped.fastq.gz" | tee >(cat >&2)
-				printf "OUTPUT7: %s\\n" "$RESULT_PATH/{each_fastq_begining}.R1.unmapped.fastq.gz" | tee >(cat >&2)
-				printf "OUTPUT8: %s\\n" "$RESULT_PATH/{each_fastq_begining}.R2.unmapped.fastq.gz" | tee >(cat >&2)
-				printf "OUTPUT9: %s\\n" "$REPORT_PATH/{each_fastq_begining}.alignment.txt" | tee >(cat >&2)
-				printf "OUTPUT10: %s\\n" "$REPORT_PATH/{each_fastq_begining}.picard.txt" | tee >(cat >&2)
-				printf "OUTPUT11: %s\\n" "$REPORT_PATH/{each_fastq_begining}.samtools.flagstat.txt" | tee >(cat >&2)
-				printf "OUTPUT12: %s\\n" "$REPORT_PATH/{each_fastq_begining}.samtools.idxstats.txt" | tee >(cat >&2)
-				printf "OUTPUT13: %s\\n" "$REPORT_PATH/{each_fastq_begining}_fastqc.html" | tee >(cat >&2)
+				printf "OUTPUT3: %s\\n" "$RESULT_PATH/{each_fastq_begining}.R1.mapped.fastq.gz" | tee >(cat >&2)
+				printf "OUTPUT4: %s\\n" "$RESULT_PATH/{each_fastq_begining}.R2.mapped.fastq.gz" | tee >(cat >&2)
+				printf "OUTPUT5: %s\\n" "$RESULT_PATH/{each_fastq_begining}.R1.unmapped.fastq.gz" | tee >(cat >&2)
+				printf "OUTPUT6: %s\\n" "$RESULT_PATH/{each_fastq_begining}.R2.unmapped.fastq.gz" | tee >(cat >&2)
+				printf "OUTPUT7: %s\\n" "$REPORT_PATH/{each_fastq_begining}.alignment.txt" | tee >(cat >&2)
+				printf "OUTPUT8: %s\\n" "$REPORT_PATH/{each_fastq_begining}.picard.txt" | tee >(cat >&2)
+				printf "OUTPUT9: %s\\n" "$REPORT_PATH/{each_fastq_begining}.samtools.flagstat.txt" | tee >(cat >&2)
+				printf "OUTPUT10: %s\\n" "$REPORT_PATH/{each_fastq_begining}.samtools.idxstats.txt" | tee >(cat >&2)
+				printf "OUTPUT11: %s\\n" "$REPORT_PATH/{each_fastq_begining}_fastqc.html" | tee >(cat >&2)
 				printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
 				printf "%s\\n" "###################################- EXECUTION -##############################" | tee >(cat >&2)
 				printf "%s\\n" "module load bowtie/2-2.3.5 || exit 1" | tee >(cat >&2)
@@ -267,58 +237,6 @@ if LAYOUT == "paired":
 				OUTPUT={output.bam} TMP_DIR=$SCRATCH_PATH METRICS_FILE=$REPORT_PATH/{each_fastq_begining}.picard.txt {config_picard_Dict}
 				rm -rf {output.bam}.tmp
 				samtools index -@ {threads} -b {output.bam}
-
-				end_time="$(date -u +%s)"
-				##
-				#
-				printf "%s\\n" "" | tee >(cat >&2)
-				printf "%s\\n" "#" | tee >(cat >&2)
-				printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
-				printf "%s\\n" "#" | tee >(cat >&2)
-				printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
-				printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
-				printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
-				printf "%s\\n" "bedtools bamtobed -i {output.bam} > {output.bed}.tmp" | tee >(cat >&2)
-				printf "%s\\n" "LC_COLLATE=C sort -k1,1 -k2,2n {output.bed}.tmp > {output.bed}.sorted" | tee >(cat >&2)
-				printf "%s\\n" "bgzip -c {output.bed}.sorted > {output.bed}" | tee >(cat >&2)
-				printf "%s\\n" "tabix -f -p bed {output.bed}" | tee >(cat >&2)
-				printf "%s\\n" "rm -rf {output.bed}.tmp {output.bed}.sorted" | tee >(cat >&2)
-				printf "%s\\n" "#" | tee >(cat >&2)
-				printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
-				printf "%s\\n" "#" | tee >(cat >&2)
-				printf "%s\\n" "" | tee >(cat >&2)
-				#
-				##
-				start_time="$(date -u +%s)"
-				
-				bedtools bamtobed -i {output.bam} > {output.bed}.tmp
-				LC_COLLATE=C sort -k1,1 -k2,2n {output.bed}.tmp > {output.bed}.sorted
-				bgzip -c {output.bed}.sorted > {output.bed}
-				tabix -f -p bed {output.bed}
-				rm -rf {output.bed}.tmp {output.bed}.sorted
-
-				end_time="$(date -u +%s)"
-				##
-				#
-				printf "%s\\n" "" | tee >(cat >&2)
-				printf "%s\\n" "#" | tee >(cat >&2)
-				printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
-				printf "%s\\n" "#" | tee >(cat >&2)
-				printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
-				printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
-				printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
-				printf "%s\\n" "bamCoverage --bam {output.bam} --outFileName {output.bigwig} --binSize 5 --normalizeUsing RPGC --extendReads 200 \\
-				--outFileFormat bigwig --numberOfProcessors {threads} --effectiveGenomeSize {config_reference_Dict[EFFECTIVE_GENOME_SIZE]}" | tee >(cat >&2)
-				printf "%s\\n" "#" | tee >(cat >&2)
-				printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
-				printf "%s\\n" "#" | tee >(cat >&2)
-				printf "%s\\n" "" | tee >(cat >&2)
-				#
-				##
-				start_time="$(date -u +%s)"
-
-				bamCoverage --bam {output.bam} --outFileName {output.bigwig} --binSize 5 --normalizeUsing RPGC --extendReads 200 \\
-				--outFileFormat bigwig --numberOfProcessors {threads} --effectiveGenomeSize {config_reference_Dict[EFFECTIVE_GENOME_SIZE]}
 
 				end_time="$(date -u +%s)"
 				##
@@ -436,13 +354,11 @@ rule pooling_case_replicates:
 		bam_List = get_case_bam
 	output:
 		pooled_bam = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{pooled_case, .*_POOLED_.*}.bam",
-		pooled_bam_index = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{pooled_case, .*_POOLED_.*}.bam.bai",
-		pooled_bed = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{pooled_case, .*_POOLED_.*}.bed.gz",
-		pooled_bigwig = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{pooled_case, .*_POOLED_.*}.bigwig",
+		pooled_bam_index = WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{pooled_case, .*_POOLED_.*}.bam.bai"
 	priority: 993
 	threads: PROCESSORS
 	resources:
-		mem_mb = 200000
+		mem_mb = MEMORY
 	message: "pooling_case_replicates: {EXPERIMENT}|{TITLE}|{GENOME}|{wildcards.design}|{wildcards.pooled_case}"
 	run:
 		shell("""
@@ -472,12 +388,10 @@ rule pooling_case_replicates:
 			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
 			printf "OUTPUT1: %s\\n" "{output.pooled_bam}" | tee >(cat >&2)
 			printf "OUTPUT2: %s\\n" "{output.pooled_bam_index}" | tee >(cat >&2)
-			printf "OUTPUT3: %s\\n" "{output.pooled_bed}" | tee >(cat >&2)
-			printf "OUTPUT4: %s\\n" "{output.pooled_bigwig}" | tee >(cat >&2)
-			printf "OUTPUT5: %s\\n" "$REPORT_PATH/{wildcards.pooled_case}.picard.txt" | tee >(cat >&2)
-			printf "OUTPUT6: %s\\n" "$REPORT_PATH/{wildcards.pooled_case}.samtools.flagstat.txt" | tee >(cat >&2)
-			printf "OUTPUT7: %s\\n" "$REPORT_PATH/{wildcards.pooled_case}.samtools.idxstats.txt" | tee >(cat >&2)
-			printf "OUTPUT8: %s\\n" "$REPORT_PATH/{wildcards.pooled_case}_fastqc.html" | tee >(cat >&2)
+			printf "OUTPUT3: %s\\n" "$REPORT_PATH/{wildcards.pooled_case}.picard.txt" | tee >(cat >&2)
+			printf "OUTPUT4: %s\\n" "$REPORT_PATH/{wildcards.pooled_case}.samtools.flagstat.txt" | tee >(cat >&2)
+			printf "OUTPUT5: %s\\n" "$REPORT_PATH/{wildcards.pooled_case}.samtools.idxstats.txt" | tee >(cat >&2)
+			printf "OUTPUT6: %s\\n" "$REPORT_PATH/{wildcards.pooled_case}_fastqc.html" | tee >(cat >&2)
 			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
 			printf "%s\\n" "###################################- COMMANDLINE -############################" | tee >(cat >&2)
 			printf "%s\\n" "module load samtools/1.9 || exit 1" | tee >(cat >&2)
@@ -550,58 +464,6 @@ rule pooling_case_replicates:
 			OUTPUT={output.pooled_bam} TMP_DIR=$SCRATCH_PATH METRICS_FILE=$REPORT_PATH/{wildcards.pooled_case}.picard.txt {config_picard_Dict}
 			samtools index -@ {threads} {output.pooled_bam}
 			rm -rf {output.pooled_bam}.unsorted {output.pooled_bam}.sorted
-
-			end_time="$(date -u +%s)"
-			##
-			#
-			printf "%s\\n" "" | tee >(cat >&2)
-			printf "%s\\n" "#" | tee >(cat >&2)
-			printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
-			printf "%s\\n" "#" | tee >(cat >&2)
-			printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
-			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
-			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
-			printf "%s\\n" "bedtools bamtobed -i {output.pooled_bam} > {output.pooled_bed}.tmp" | tee >(cat >&2)
-			printf "%s\\n" "LC_COLLATE=C sort -k1,1 -k2,2n {output.pooled_bed}.tmp > {output.pooled_bed}.sorted" | tee >(cat >&2)
-			printf "%s\\n" "bgzip -c {output.pooled_bed}.sorted > {output.pooled_bed}" | tee >(cat >&2)
-			printf "%s\\n" "tabix -f -p bed {output.pooled_bed}" | tee >(cat >&2)
-			printf "%s\\n" "rm -rf {output.pooled_bed}.tmp {output.pooled_bed}.sorted" | tee >(cat >&2)
-			printf "%s\\n" "#" | tee >(cat >&2)
-			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
-			printf "%s\\n" "#" | tee >(cat >&2)
-			printf "%s\\n" "" | tee >(cat >&2)
-			#
-			##
-			start_time="$(date -u +%s)"
-
-			bedtools bamtobed -i {output.pooled_bam} > {output.pooled_bed}.tmp
-			LC_COLLATE=C sort -k1,1 -k2,2n {output.pooled_bed}.tmp > {output.pooled_bed}.sorted
-			bgzip -c {output.pooled_bed}.sorted > {output.pooled_bed}
-			tabix -f -p bed {output.pooled_bed}
-			rm -rf {output.pooled_bed}.tmp {output.pooled_bed}.sorted
-
-			end_time="$(date -u +%s)"
-			##
-			#
-			printf "%s\\n" "" | tee >(cat >&2)
-			printf "%s\\n" "#" | tee >(cat >&2)
-			printf "%s\\n" "DONE!!!!"  | tee >(cat >&2)
-			printf "%s\\n" "#" | tee >(cat >&2)
-			printf "ELAPSED TIME: %s seconds\\n" "$(($end_time-$start_time))" | tee >(cat >&2)
-			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
-			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
-			printf "%s\\n" "bamCoverage --bam {output.pooled_bam} --outFileName {output.pooled_bigwig} --binSize 5 --normalizeUsing RPGC --extendReads 200 \\
-			--outFileFormat bigwig --numberOfProcessors {threads} --effectiveGenomeSize {config_reference_Dict[EFFECTIVE_GENOME_SIZE]}" | tee >(cat >&2)
-			printf "%s\\n" "#" | tee >(cat >&2)
-			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
-			printf "%s\\n" "#" | tee >(cat >&2)
-			printf "%s\\n" "" | tee >(cat >&2)
-			#
-			##
-			start_time="$(date -u +%s)"
-
-			bamCoverage --bam {output.pooled_bam} --outFileName {output.pooled_bigwig} --binSize 5 --normalizeUsing RPGC --extendReads 200 \\
-			--outFileFormat bigwig --numberOfProcessors {threads} --effectiveGenomeSize {config_reference_Dict[EFFECTIVE_GENOME_SIZE]}
 
 			end_time="$(date -u +%s)"
 			##

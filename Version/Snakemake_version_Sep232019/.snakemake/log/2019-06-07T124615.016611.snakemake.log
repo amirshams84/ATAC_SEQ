@@ -1,0 +1,182 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	5	BroadPeak_IDR
+	5	BroadPeak_Overlap
+	1	End_Point
+	5	NarrowPeak_IDR
+	5	NarrowPeak_Overlap
+	21
+
+[Fri Jun  7 12:46:15 2019]
+Job 16: BroadPeak_IDR: CD4_CCR6high|AB3609-L1_IDR_AB3614-L1
+
+Submitted job 16 with external jobid '28338703'.
+
+[Fri Jun  7 12:46:17 2019]
+Job 1: NarrowPeak_Overlap: CD4_Naive|AB3606-L1_OVERLAPPED_AB3611-L1
+
+Submitted job 1 with external jobid '28338704'.
+
+[Fri Jun  7 12:46:18 2019]
+Job 2: BroadPeak_Overlap: CD4_Naive|AB3606-L1_OVERLAPPED_AB3611-L1
+
+Submitted job 2 with external jobid '28338705'.
+
+[Fri Jun  7 12:46:20 2019]
+Job 18: BroadPeak_Overlap: CD4_CCR6plus_CCR2plus|AB3610-L1_OVERLAPPED_AB3615-L1
+
+Submitted job 18 with external jobid '28338707'.
+
+[Fri Jun  7 12:46:21 2019]
+Job 17: NarrowPeak_Overlap: CD4_CCR6plus_CCR2plus|AB3610-L1_OVERLAPPED_AB3615-L1
+
+Submitted job 17 with external jobid '28338709'.
+
+[Fri Jun  7 12:46:22 2019]
+Job 19: NarrowPeak_IDR: CD4_CCR6plus_CCR2plus|AB3610-L1_IDR_AB3615-L1
+
+Submitted job 19 with external jobid '28338710'.
+
+[Fri Jun  7 12:46:23 2019]
+Job 15: NarrowPeak_IDR: CD4_CCR6high|AB3609-L1_IDR_AB3614-L1
+
+Submitted job 15 with external jobid '28338712'.
+
+[Fri Jun  7 12:46:25 2019]
+Job 9: NarrowPeak_Overlap: CD4_CCR6low|AB3608-L1_OVERLAPPED_AB3613-L1
+
+Submitted job 9 with external jobid '28338714'.
+
+[Fri Jun  7 12:46:26 2019]
+Job 10: BroadPeak_Overlap: CD4_CCR6low|AB3608-L1_OVERLAPPED_AB3613-L1
+
+Submitted job 10 with external jobid '28338715'.
+
+[Fri Jun  7 12:46:27 2019]
+Job 13: NarrowPeak_Overlap: CD4_CCR6high|AB3609-L1_OVERLAPPED_AB3614-L1
+
+Submitted job 13 with external jobid '28338717'.
+
+[Fri Jun  7 12:46:29 2019]
+Job 7: NarrowPeak_IDR: CD4_CCR6neg|AB3607-L1_IDR_AB3612-L1
+
+Submitted job 7 with external jobid '28338718'.
+
+[Fri Jun  7 12:46:30 2019]
+Job 3: NarrowPeak_IDR: CD4_Naive|AB3606-L1_IDR_AB3611-L1
+
+Submitted job 3 with external jobid '28338719'.
+
+[Fri Jun  7 12:46:31 2019]
+Job 11: NarrowPeak_IDR: CD4_CCR6low|AB3608-L1_IDR_AB3613-L1
+
+Submitted job 11 with external jobid '28338720'.
+
+[Fri Jun  7 12:46:32 2019]
+Job 12: BroadPeak_IDR: CD4_CCR6low|AB3608-L1_IDR_AB3613-L1
+
+Submitted job 12 with external jobid '28338721'.
+
+[Fri Jun  7 12:46:33 2019]
+Job 20: BroadPeak_IDR: CD4_CCR6plus_CCR2plus|AB3610-L1_IDR_AB3615-L1
+
+Submitted job 20 with external jobid '28338722'.
+
+[Fri Jun  7 12:46:35 2019]
+Job 8: BroadPeak_IDR: CD4_CCR6neg|AB3607-L1_IDR_AB3612-L1
+
+Submitted job 8 with external jobid '28338723'.
+
+[Fri Jun  7 12:46:37 2019]
+Job 14: BroadPeak_Overlap: CD4_CCR6high|AB3609-L1_OVERLAPPED_AB3614-L1
+
+Submitted job 14 with external jobid '28338725'.
+
+[Fri Jun  7 12:46:38 2019]
+Job 6: BroadPeak_Overlap: CD4_CCR6neg|AB3607-L1_OVERLAPPED_AB3612-L1
+
+Submitted job 6 with external jobid '28338726'.
+
+[Fri Jun  7 12:46:39 2019]
+Job 4: BroadPeak_IDR: CD4_Naive|AB3606-L1_IDR_AB3611-L1
+
+Submitted job 4 with external jobid '28338728'.
+
+[Fri Jun  7 12:46:40 2019]
+Job 5: NarrowPeak_Overlap: CD4_CCR6neg|AB3607-L1_OVERLAPPED_AB3612-L1
+
+Submitted job 5 with external jobid '28338729'.
+[Fri Jun  7 12:54:47 2019]
+Finished job 16.
+1 of 21 steps (5%) done
+[Fri Jun  7 12:59:12 2019]
+Finished job 1.
+2 of 21 steps (10%) done
+[Fri Jun  7 13:10:24 2019]
+Finished job 2.
+3 of 21 steps (14%) done
+[Fri Jun  7 13:21:14 2019]
+Finished job 18.
+4 of 21 steps (19%) done
+[Fri Jun  7 13:21:14 2019]
+Finished job 17.
+5 of 21 steps (24%) done
+[Fri Jun  7 13:33:21 2019]
+Finished job 19.
+6 of 21 steps (29%) done
+[Fri Jun  7 14:26:56 2019]
+Finished job 9.
+7 of 21 steps (33%) done
+[Fri Jun  7 14:28:24 2019]
+Finished job 15.
+8 of 21 steps (38%) done
+[Fri Jun  7 14:37:02 2019]
+Finished job 10.
+9 of 21 steps (43%) done
+[Fri Jun  7 14:37:13 2019]
+Finished job 13.
+10 of 21 steps (48%) done
+[Fri Jun  7 14:38:19 2019]
+Finished job 3.
+11 of 21 steps (52%) done
+[Fri Jun  7 14:39:20 2019]
+Finished job 7.
+12 of 21 steps (57%) done
+[Fri Jun  7 14:49:51 2019]
+Finished job 11.
+13 of 21 steps (62%) done
+[Fri Jun  7 14:58:31 2019]
+Finished job 14.
+14 of 21 steps (67%) done
+[Fri Jun  7 15:05:42 2019]
+Finished job 20.
+15 of 21 steps (71%) done
+[Fri Jun  7 15:07:22 2019]
+Finished job 12.
+16 of 21 steps (76%) done
+[Fri Jun  7 15:10:02 2019]
+Finished job 6.
+17 of 21 steps (81%) done
+[Fri Jun  7 15:24:43 2019]
+Finished job 4.
+18 of 21 steps (86%) done
+[Fri Jun  7 15:33:14 2019]
+Finished job 5.
+19 of 21 steps (90%) done
+[Fri Jun  7 15:34:24 2019]
+Finished job 8.
+20 of 21 steps (95%) done
+
+[Fri Jun  7 15:34:24 2019]
+localrule End_Point:
+    input: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_calling/narrowpeak/AB3606-L1_OVERLAPPED_AB3611-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_calling/broadpeak/AB3606-L1_OVERLAPPED_AB3611-L1.broadPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_calling/narrowpeak/AB3606-L1_IDR_AB3611-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_calling/broadpeak/AB3606-L1_IDR_AB3611-L1.broadPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_calling/narrowpeak/AB3607-L1_OVERLAPPED_AB3612-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_calling/broadpeak/AB3607-L1_OVERLAPPED_AB3612-L1.broadPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_calling/narrowpeak/AB3607-L1_IDR_AB3612-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_calling/broadpeak/AB3607-L1_IDR_AB3612-L1.broadPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_calling/narrowpeak/AB3608-L1_OVERLAPPED_AB3613-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_calling/broadpeak/AB3608-L1_OVERLAPPED_AB3613-L1.broadPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_calling/narrowpeak/AB3608-L1_IDR_AB3613-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_calling/broadpeak/AB3608-L1_IDR_AB3613-L1.broadPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_calling/narrowpeak/AB3609-L1_OVERLAPPED_AB3614-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_calling/broadpeak/AB3609-L1_OVERLAPPED_AB3614-L1.broadPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_calling/narrowpeak/AB3609-L1_IDR_AB3614-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_calling/broadpeak/AB3609-L1_IDR_AB3614-L1.broadPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_calling/narrowpeak/AB3610-L1_OVERLAPPED_AB3615-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_calling/broadpeak/AB3610-L1_OVERLAPPED_AB3615-L1.broadPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_calling/narrowpeak/AB3610-L1_IDR_AB3615-L1.narrowPeak.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_calling/broadpeak/AB3610-L1_IDR_AB3615-L1.broadPeak.gz
+    jobid: 0
+
+[Fri Jun  7 15:34:24 2019]
+Finished job 0.
+21 of 21 steps (100%) done
+Complete log: /gpfs/gsfs6/users/shamsaddinisha/ATAC_Seq/Snakemake/.snakemake/log/2019-06-07T124615.016611.snakemake.log

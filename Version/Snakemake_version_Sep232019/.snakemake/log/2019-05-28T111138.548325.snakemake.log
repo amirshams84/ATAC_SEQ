@@ -1,0 +1,18 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	End_Point
+	4	Fingerprint
+	4	Signal_Correlations
+	4	Signal_Enrichment
+	13
+
+[Tue May 28 11:11:40 2019]
+Job 8: Fingerprint: Ccl20-_T
+
+Terminating processes on user request, this might take some time.
+Cancelling snakemake on user request.

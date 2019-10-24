@@ -17,73 +17,50 @@ sys.path.append(library_path)
 import utility
 # ################################### FUNCTIONS ################################## #
 
-
-def build_design_Dict(metadata_Dict):
-	#
-	design_Dict = {}
-	for sample, sample_Dict in metadata_Dict.items():
-		#
-		if sample_Dict["Design"] not in design_Dict:
-			#
-			design_Dict[sample_Dict["Design"]] = {}
-			design_Dict[sample_Dict["Design"]]["Case"] = []
-			design_Dict[sample_Dict["Design"]]["Control"] = []
-			if sample_Dict["Type"] == "CASE":
-				#
-				design_Dict[sample_Dict["Design"]]["Case"].append(sample)
-			elif sample_Dict["Type"] == "CONTROL":
-				#
-				design_Dict[sample_Dict["Design"]]["Control"].append(sample)
-			else:
-				pass
-		elif sample_Dict["Design"] in design_Dict:
-			#
-			if sample_Dict["Type"] == "CASE":
-				#
-				design_Dict[sample_Dict["Design"]]["Case"].append(sample)
-			elif sample_Dict["Type"] == "CONTROL":
-				#
-				design_Dict[sample_Dict["Design"]]["Control"].append(sample)
-			else:
-				pass
-	return design_Dict
 # ################################### CONFIGURATION ############################## #
 
 
 # ++++++++++++++++++++++++++++++++++++
 #PATH
-Bash_Script = os.path.abspath(workflow.basedir + "/../Bash_Script")
-R_Script_path = os.path.abspath(workflow.basedir + "/../R_Script")
-Python_Script_path = os.path.abspath(workflow.basedir + "/../Python_Script")
-Script_Path = os.path.abspath(workflow.basedir + "/../Script")
+Bash_Script = os.path.abspath(workflow.basedir + "/../bash_script")
+R_Script_path = os.path.abspath(workflow.basedir + "/../R_script")
+Python_Script_path = os.path.abspath(workflow.basedir + "/../python_script")
+Template_Path = os.path.abspath(workflow.basedir + "/../template")
+# ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #GENERAL
 config_general_Dict = config["GENERAL"]
 PROJECT = config_general_Dict["PROJECT"]
 EXPERIMENT = config_general_Dict["EXPERIMENT"]
 TITLE = config_general_Dict["TITLE"]
-WORKDIR = utility.fix_path(config_general_Dict["WORKDIR"])
-# -----------------------------------
+INFOLINK = config_general_Dict["INFOLINK"]
+# ------------------------------------
+# ++++++++++++++++++++++++++++++++++++
+#DIRECTORY
+config_directory_Dict = config["DIRECTORY"]
+WORKDIR = utility.fix_path(config_directory_Dict["WORKDIR"])
+DATADIR = utility.fix_path(config_directory_Dict["DATADIR"])
+# ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #DATA
 config_data_Dict = config["DATA"]
 PLATFORM = config_data_Dict["PLATFORM"].lower()
 LAYOUT = config_data_Dict["LAYOUT"].lower()
 GENOME = config_data_Dict["GENOME"].lower()
-READ_LENGTH = config_data_Dict["READ_LENGTH"]
 # -----------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #CLUSTER
-config_cluster_Dict = config["CLSUTER_CONFIG"]
-PROCESSORS = config_cluster_Dict["PROCESSORS"]
-MEMORY = config_cluster_Dict["MEMORY"]
+PROCESSORS, MEMORY = utility.get_cluster_info(sys.argv)
 # ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #METADATA
 config_metadata_Dict = config["METADATA"]
 METADATA_FILE = config_metadata_Dict["METADATA_FILE"]
-metadata_Dict = utility.build_metadata_dict(METADATA_FILE)
-design_Dict = build_design_Dict(metadata_Dict)
+SAMPLE_COLUMN = config_metadata_Dict["SAMPLE_COLUMN"]
+TREATMENT_COLUMN = config_metadata_Dict["TREATMENT_COLUMN"]
+TREATMENT_LIST = list(config_metadata_Dict["TREATMENT_LIST"])
+sample_treatment_Dict = utility.build_sample_treatment_dict(METADATA_FILE, SAMPLE_COLUMN)
+metadata_Dict = utility.build_metadata_dict(sample_treatment_Dict, TREATMENT_COLUMN, TREATMENT_LIST)
 # ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #UTILITIES
@@ -98,28 +75,23 @@ config_reference_Dict = config["REFERENCE"][GENOME]
 # ++++++++++++++++++++++++++++++++++++
 #POST_ALIGNMENT
 config_post_alignment_Dict = config["POST_ALIGNMENT"]
-
-#AWK_CHROMOSOME_FILTER = utility.build_snakemake_awk(config_post_alignment_Dict["FILTER_CHROMOSOME"])
-#print(AWK_CHROMOSOME_FILTER)
-#AWK_ATAC_STRAND_SHIFT = utility.build_snakemake_awk(config_post_alignment_Dict["ATAC_STRAND_SHIFT"])
-#print(AWK_ATAC_STRAND_SHIFT)
 # ------------------------------------
 # ################################### WILDCARDS ################################ #
 
 alignment_List = []
 post_alignment_List = []
-for sample, sample_Dict in metadata_Dict.items():
+for sample, sample_Dict in sample_treatment_Dict.items():
 	#
-	alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bam".format(design=sample_Dict["Design"], sample=sample))
+	alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{sample}.bam".format(design=sample_Dict[TREATMENT_COLUMN], sample=sample))
 	#
 	#POST_ALIGNMENT
-	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{sample}.processed.bam".format(design=sample_Dict["Design"], sample=sample))
+	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{sample}.processed.bam".format(design=sample_Dict[TREATMENT_COLUMN], sample=sample))
 
-for design in design_Dict:
+for design in metadata_Dict:
 	#
-	alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{pooled_case}.bam".format(design=design, pooled_case="_POOLED_".join(design_Dict[design]["Case"])))
+	alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/alignment/{pooled_case}.bam".format(design=design, pooled_case="_POOLED_".join(metadata_Dict[design]["Case"])))
 	##POOLING
-	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{pooled_case}.processed.bam".format(design=design, pooled_case="_POOLED_".join(design_Dict[design]["Case"])))
+	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{pooled_case}.processed.bam".format(design=design, pooled_case="_POOLED_".join(metadata_Dict[design]["Case"])))
 # ################################### PIPELINE FLOW ############################ #
 
 
@@ -164,8 +136,8 @@ rule post_alignment:
 			SCRATCH_PATH=/lscratch/${{SLURM_JOB_ID}}
 			mkdir -p $SCRATCH_PATH
 
-			if [ ! -f {Script_Path}/{GENOME}.blacklist.bed.gz ]; then
-				wget {config_reference_Dict[BLACK_LIST]} -O {Script_Path}/{GENOME}.blacklist.bed.gz
+			if [ ! -f {Template_Path}/{GENOME}.blacklist.bed.gz ]; then
+				wget {config_reference_Dict[BLACK_LIST]} -O {Template_Path}/{GENOME}.blacklist.bed.gz
 			fi
 
 			AWK_ALIGNMENT_FILTER="awk \'BEGIN{{OFS=FS}}{{if ( \$3 != \\\"chrM\\\" && \$3 != \\\"chrUn\\\" && \$3 !~ /chrUn/ && \$3 !~ /random/ ) print \$0}}\'"
@@ -247,7 +219,7 @@ rule post_alignment:
 			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
 			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
 			printf "%s\\n" "bedtools intersect -v -abam $RESULT_PATH/{wildcards.sample}.nomito.bam \\
-			-b <(zcat -f {Script_Path}/{GENOME}.blacklist.bed.gz ) > $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam" | tee >(cat >&2)
+			-b <(zcat -f {Template_Path}/{GENOME}.blacklist.bed.gz ) > $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam" | tee >(cat >&2)
 			printf "%s\\n" "samtools sort --threads {threads} -O bam $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam -o {output.processed_bam}" | tee >(cat >&2)
 			printf "%s\\n" "samtools index -@ {threads} -b {output.processed_bam}" | tee >(cat >&2)
 			printf "%s\\n" "rm -rf $RESULT_PATH/{wildcards.sample}.nomito.bam $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam" | tee >(cat >&2)
@@ -260,7 +232,7 @@ rule post_alignment:
 			start_time="$(date -u +%s)"
 
 			bedtools intersect -v -abam $RESULT_PATH/{wildcards.sample}.nomito.bam \\
-			-b <(zcat -f {Script_Path}/{GENOME}.blacklist.bed.gz ) > $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam
+			-b <(zcat -f {Template_Path}/{GENOME}.blacklist.bed.gz ) > $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam
 			samtools sort --threads {threads} -O bam $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam -o {output.processed_bam}
 			samtools index -@ {threads} -b {output.processed_bam}
 			rm -rf $RESULT_PATH/{wildcards.sample}.nomito.bam $RESULT_PATH/{wildcards.sample}.nomito.blkfilt.bam

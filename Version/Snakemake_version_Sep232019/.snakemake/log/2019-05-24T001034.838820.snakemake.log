@@ -1,0 +1,251 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	End_Point
+	20	Post_Alignment
+	21
+
+[Fri May 24 00:10:35 2019]
+Job 6: Post_Alignment: Ccl20+_UT|AB3828-L1
+
+Submitted job 6 with external jobid '27321511'.
+
+[Fri May 24 00:10:40 2019]
+Job 3: Post_Alignment: Ccl20-_UT|AB3825-L1
+
+Submitted job 3 with external jobid '27321515'.
+
+[Fri May 24 00:10:44 2019]
+Job 12: Post_Alignment: Ccl20-_T|AB3834-L1
+
+Submitted job 12 with external jobid '27321516'.
+
+[Fri May 24 00:10:51 2019]
+Job 18: Post_Alignment: Ccl20+_UT|AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1
+
+Submitted job 18 with external jobid '27321518'.
+
+[Fri May 24 00:10:53 2019]
+Job 2: Post_Alignment: Ccl20-_UT|AB3824-L1
+
+Submitted job 2 with external jobid '27321520'.
+
+[Fri May 24 00:10:56 2019]
+Job 13: Post_Alignment: Ccl20+_T|AB3835-L1
+
+Submitted job 13 with external jobid '27321528'.
+
+[Fri May 24 00:11:00 2019]
+Job 5: Post_Alignment: Ccl20+_UT|AB3827-L1
+
+Submitted job 5 with external jobid '27321529'.
+
+[Fri May 24 00:11:02 2019]
+Job 16: Post_Alignment: Ccl20+_T|AB3838-L1
+
+Submitted job 16 with external jobid '27321530'.
+
+[Fri May 24 00:11:05 2019]
+Job 1: Post_Alignment: Ccl20-_UT|AB3823-L1
+
+Submitted job 1 with external jobid '27321532'.
+
+[Fri May 24 00:11:08 2019]
+Job 17: Post_Alignment: Ccl20-_UT|AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1
+
+Submitted job 17 with external jobid '27321533'.
+
+[Fri May 24 00:11:10 2019]
+Job 10: Post_Alignment: Ccl20-_T|AB3832-L1
+
+Submitted job 10 with external jobid '27321534'.
+
+[Fri May 24 00:11:14 2019]
+Job 9: Post_Alignment: Ccl20-_T|AB3831-L1
+
+Submitted job 9 with external jobid '27321536'.
+
+[Fri May 24 00:11:19 2019]
+Job 19: Post_Alignment: Ccl20-_T|AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1
+
+Submitted job 19 with external jobid '27321537'.
+
+[Fri May 24 00:11:22 2019]
+Job 20: Post_Alignment: Ccl20+_T|AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1
+
+Submitted job 20 with external jobid '27321539'.
+
+[Fri May 24 00:11:25 2019]
+Job 4: Post_Alignment: Ccl20-_UT|AB3826-L1
+
+Submitted job 4 with external jobid '27321540'.
+
+[Fri May 24 00:11:28 2019]
+Job 15: Post_Alignment: Ccl20+_T|AB3837-L1
+
+Submitted job 15 with external jobid '27321541'.
+
+[Fri May 24 00:11:30 2019]
+Job 11: Post_Alignment: Ccl20-_T|AB3833-L1
+
+Submitted job 11 with external jobid '27321542'.
+
+[Fri May 24 00:11:33 2019]
+Job 7: Post_Alignment: Ccl20+_UT|AB3829-L1
+
+Submitted job 7 with external jobid '27321543'.
+
+[Fri May 24 00:11:36 2019]
+Job 8: Post_Alignment: Ccl20+_UT|AB3830-L1
+
+Submitted job 8 with external jobid '27321544'.
+
+[Fri May 24 00:11:38 2019]
+Job 14: Post_Alignment: Ccl20+_T|AB3836-L1
+
+Submitted job 14 with external jobid '27321545'.
+[Fri May 24 00:44:14 2019]
+Error in rule Post_Alignment:
+    jobid: 6
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3828-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3828-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3828-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3828-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3828-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3828-L1.processed.bigwig
+    cluster_jobid: 27321511
+
+Job failed, going on with independent jobs.
+[Fri May 24 00:47:44 2019]
+Error in rule Post_Alignment:
+    jobid: 12
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3834-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3834-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3834-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3834-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3834-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3834-L1.processed.bigwig
+    cluster_jobid: 27321516
+
+Job failed, going on with independent jobs.
+[Fri May 24 00:52:09 2019]
+Error in rule Post_Alignment:
+    jobid: 2
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3824-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3824-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3824-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3824-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3824-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3824-L1.processed.bigwig
+    cluster_jobid: 27321520
+
+Job failed, going on with independent jobs.
+[Fri May 24 00:56:11 2019]
+Error in rule Post_Alignment:
+    jobid: 3
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3825-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3825-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3825-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3825-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3825-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3825-L1.processed.bigwig
+    cluster_jobid: 27321515
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:00:02 2019]
+Error in rule Post_Alignment:
+    jobid: 1
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1.processed.bigwig
+    cluster_jobid: 27321532
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:07:45 2019]
+Error in rule Post_Alignment:
+    jobid: 5
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1.processed.bigwig
+    cluster_jobid: 27321529
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:11:47 2019]
+Error in rule Post_Alignment:
+    jobid: 16
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3838-L1.processed.bigwig
+    cluster_jobid: 27321530
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:12:42 2019]
+Error in rule Post_Alignment:
+    jobid: 13
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1.processed.bigwig
+    cluster_jobid: 27321528
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:23:10 2019]
+Error in rule Post_Alignment:
+    jobid: 9
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1.processed.bigwig
+    cluster_jobid: 27321536
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:23:10 2019]
+Error in rule Post_Alignment:
+    jobid: 15
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3837-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3837-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3837-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3837-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3837-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3837-L1.processed.bigwig
+    cluster_jobid: 27321541
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:23:43 2019]
+Error in rule Post_Alignment:
+    jobid: 4
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3826-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3826-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3826-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3826-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3826-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3826-L1.processed.bigwig
+    cluster_jobid: 27321540
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:24:04 2019]
+Error in rule Post_Alignment:
+    jobid: 7
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3829-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3829-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3829-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3829-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3829-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3829-L1.processed.bigwig
+    cluster_jobid: 27321543
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:27:54 2019]
+Error in rule Post_Alignment:
+    jobid: 14
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3836-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3836-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3836-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3836-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3836-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3836-L1.processed.bigwig
+    cluster_jobid: 27321545
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:38:05 2019]
+Error in rule Post_Alignment:
+    jobid: 8
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3830-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3830-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3830-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3830-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3830-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3830-L1.processed.bigwig
+    cluster_jobid: 27321544
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:43:35 2019]
+Error in rule Post_Alignment:
+    jobid: 11
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3833-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3833-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3833-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3833-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3833-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3833-L1.processed.bigwig
+    cluster_jobid: 27321542
+
+Job failed, going on with independent jobs.
+[Fri May 24 01:44:55 2019]
+Error in rule Post_Alignment:
+    jobid: 10
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3832-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3832-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3832-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3832-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3832-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3832-L1.processed.bigwig
+    cluster_jobid: 27321534
+
+Job failed, going on with independent jobs.
+[Fri May 24 02:33:28 2019]
+Error in rule Post_Alignment:
+    jobid: 18
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/post_alignment/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.processed.bigwig
+    cluster_jobid: 27321518
+
+Job failed, going on with independent jobs.
+[Fri May 24 02:42:39 2019]
+Error in rule Post_Alignment:
+    jobid: 17
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/post_alignment/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.processed.bigwig
+    cluster_jobid: 27321533
+
+Job failed, going on with independent jobs.
+[Fri May 24 02:57:30 2019]
+Error in rule Post_Alignment:
+    jobid: 20
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/post_alignment/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1.processed.bigwig
+    cluster_jobid: 27321539
+
+Job failed, going on with independent jobs.
+[Fri May 24 03:31:22 2019]
+Error in rule Post_Alignment:
+    jobid: 19
+    output: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bam.bai, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bed.gz, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bed.gz.tbi, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bb, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/post_alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.processed.bigwig
+    cluster_jobid: 27321537
+
+Job failed, going on with independent jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs/gsfs6/users/shamsaddinisha/ATAC_Seq/Snakemake/.snakemake/log/2019-05-24T001034.838820.snakemake.log

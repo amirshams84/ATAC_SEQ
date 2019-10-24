@@ -13,41 +13,11 @@ import os
 import sys
 import re
 import glob
+from snakemake.utils import read_job_properties
 library_path = os.path.abspath(workflow.basedir + "/../library/")
 sys.path.append(library_path)
 import utility
 # ################################### FUNCTIONS ################################## #
-
-
-def build_design_Dict(metadata_Dict):
-	#
-	design_Dict = {}
-	for sample, sample_Dict in metadata_Dict.items():
-		#
-		if sample_Dict["Design"] not in design_Dict:
-			#
-			design_Dict[sample_Dict["Design"]] = {}
-			design_Dict[sample_Dict["Design"]]["Case"] = []
-			design_Dict[sample_Dict["Design"]]["Control"] = []
-			if sample_Dict["Type"] == "CASE":
-				#
-				design_Dict[sample_Dict["Design"]]["Case"].append(sample)
-			elif sample_Dict["Type"] == "CONTROL":
-				#
-				design_Dict[sample_Dict["Design"]]["Control"].append(sample)
-			else:
-				pass
-		elif sample_Dict["Design"] in design_Dict:
-			#
-			if sample_Dict["Type"] == "CASE":
-				#
-				design_Dict[sample_Dict["Design"]]["Case"].append(sample)
-			elif sample_Dict["Type"] == "CONTROL":
-				#
-				design_Dict[sample_Dict["Design"]]["Control"].append(sample)
-			else:
-				pass
-	return design_Dict
 
 
 def get_fastq(wildcards):
@@ -59,28 +29,39 @@ def get_fastq(wildcards):
 def get_forward_fastq(wildcards):
 	"""
 	"""
-	return glob.glob(DATADIR + "/**/" + wildcards.sample + SAMPLE_DELIMITER + "*" + FORWARD_DELIMITER + "*" + "." + SAMPLE_SUFFIX, recursive=True)
+	forward_fastq_List = []
+	for sample, sample_Dict in sample_treatment_Dict.items():
+		#
+		if sample_Dict[TREATMENT_COLUMN] == wildcards.design and sample == wildcards.sample:
+			#
+			forward_fastq_List.extend(glob.glob(DATADIR + "/**/" + sample + SAMPLE_DELIMITER + "*" + FORWARD_DELIMITER + "*" + "." + SAMPLE_SUFFIX, recursive=True))
+		else:
+			pass
+	return forward_fastq_List
 # ################################### CONFIGURATION ############################## #
 
 
-# ++++++++++++++++++++++++++++++++++++
+# +++++++++++++++++++++++++++++++++++++
 #MAIN PATH
-Bash_Script = os.path.abspath(workflow.basedir + "/../Bash_Script")
-R_Script_path = os.path.abspath(workflow.basedir + "/../R_Script")
-Python_Script_path = os.path.abspath(workflow.basedir + "/../Python_Script")
-Script_Path = os.path.abspath(workflow.basedir + "/../Script")
-# -----------------------------------
+Bash_Script = os.path.abspath(workflow.basedir + "/../bash_script")
+R_Script_path = os.path.abspath(workflow.basedir + "/../R_script")
+Python_Script_path = os.path.abspath(workflow.basedir + "/../python_script")
+Script_Path = os.path.abspath(workflow.basedir + "/../template")
+# ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #GENERAL
 config_general_Dict = config["GENERAL"]
 PROJECT = config_general_Dict["PROJECT"]
 EXPERIMENT = config_general_Dict["EXPERIMENT"]
-INFOLINK = config_general_Dict["INFOLINK"]
 TITLE = config_general_Dict["TITLE"]
-EXECUTION_MODE = config_general_Dict["EXECUTION_MODE"]
-WORKDIR = utility.fix_path(config_general_Dict["WORKDIR"])
-DATADIR = utility.fix_path(config_general_Dict["DATADIR"])
-# -----------------------------------
+INFOLINK = config_general_Dict["INFOLINK"]
+# ------------------------------------
+# ++++++++++++++++++++++++++++++++++++
+#DIRECTORY
+config_directory_Dict = config["DIRECTORY"]
+WORKDIR = utility.fix_path(config_directory_Dict["WORKDIR"])
+DATADIR = utility.fix_path(config_directory_Dict["DATADIR"])
+# ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #DATA
 config_data_Dict = config["DATA"]
@@ -133,16 +114,17 @@ config_utilities_Dict = config["UTILITIES"]
 # ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #CLUSTER
-config_cluster_Dict = config["CLSUTER_CONFIG"]
-PROCESSORS = config_cluster_Dict["PROCESSORS"]
-MEMORY = config_cluster_Dict["MEMORY"]
+PROCESSORS, MEMORY = utility.get_cluster_info(sys.argv)
 # ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #METADATA
 config_metadata_Dict = config["METADATA"]
 METADATA_FILE = config_metadata_Dict["METADATA_FILE"]
-metadata_Dict = utility.build_metadata_dict(METADATA_FILE)
-design_Dict = build_design_Dict(metadata_Dict)
+SAMPLE_COLUMN = config_metadata_Dict["SAMPLE_COLUMN"]
+TREATMENT_COLUMN = config_metadata_Dict["TREATMENT_COLUMN"]
+TREATMENT_LIST = list(config_metadata_Dict["TREATMENT_LIST"])
+sample_treatment_Dict = utility.build_sample_treatment_dict(METADATA_FILE, SAMPLE_COLUMN)
+metadata_Dict = utility.build_metadata_dict(sample_treatment_Dict, TREATMENT_COLUMN, TREATMENT_LIST)
 # ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #PRE_PROCESS
@@ -152,8 +134,8 @@ config_pre_process_Dict = config["PRE_PROCESS"]
 
 
 pre_process_List = []
-for sample, sample_Dict in metadata_Dict.items():
-	pre_process_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/pre_process/{sample}.R1.processed.fastq".format(design=sample_Dict["Design"], sample=sample))
+for sample, sample_Dict in sample_treatment_Dict.items():
+	pre_process_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/pre_process/{sample}.R1.processed.fastq".format(design=sample_Dict[TREATMENT_COLUMN], sample=sample))
 # ################################### PIPELINE FLOW ############################ #
 
 
@@ -344,7 +326,7 @@ if LAYOUT == "paired":
 				printf "\\t%s\\n" "" | tee >(cat >&2)
 				printf "%s\\n" "if [ {USE_SUBSAMPLE} = "TRUE" ]; then" | tee >(cat >&2)
 				printf "\\t%s\\n" "usearch -fastx_subsample {output.processed_fwd_fastq} -reverse {output.processed_rev_fastq} \\
-				-fastqout {output.processed_fwd_fastq}.tmp -output2 {output.processed_rev_fastq}.tmp -sample_pct {SUBSAMPLE_PCT}" | tee >(cat >&2)
+				-fastqout {output.processed_fwd_fastq}.tmp -output2 {output.processed_rev_fastq}.tmp -sample_pct '{SUBSAMPLE_PCT}' " | tee >(cat >&2)
 				printf "\\t%s\\n" "mv {output.processed_rev_fastq}.tmp {output.processed_fwd_fastq}" | tee >(cat >&2)
 				printf "\\t%s\\n" "mv {output.processed_fwd_fastq}.tmp {output.processed_rev_fastq}" | tee >(cat >&2)
 				printf "%s\\n" "fi" | tee >(cat >&2)
@@ -358,7 +340,7 @@ if LAYOUT == "paired":
 
 				if [ {USE_SUBSAMPLE} = "TRUE" ]; then
 
-					usearch -fastx_subsample {output.processed_fwd_fastq} -reverse {output.processed_rev_fastq} -fastqout {output.processed_fwd_fastq}.tmp -output2 {output.processed_rev_fastq}.tmp -sample_pct {SUBSAMPLE_PCT}
+					usearch -fastx_subsample {output.processed_fwd_fastq} -reverse {output.processed_rev_fastq} -fastqout {output.processed_fwd_fastq}.tmp -output2 {output.processed_rev_fastq}.tmp -sample_pct '{SUBSAMPLE_PCT}'
 					mv {output.processed_rev_fastq}.tmp {output.processed_fwd_fastq}
 					mv {output.processed_fwd_fastq}.tmp {output.processed_rev_fastq}
 					

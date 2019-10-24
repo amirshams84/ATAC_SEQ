@@ -1,0 +1,420 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	End_Point
+	25	Homer_BroadPeak_Annotate
+	25	Homer_NarrowPeak_Annotate
+	51
+
+[Fri Jun  7 15:34:35 2019]
+Job 27: Homer_NarrowPeak_Annotate: CD4_CCR6neg|AB3607-L1_POOLED_AB3612-L1
+
+Submitted job 27 with external jobid '28349252'.
+
+[Fri Jun  7 15:34:39 2019]
+Job 14: Homer_BroadPeak_Annotate: CD4_CCR6neg|AB3612-L1
+
+Submitted job 14 with external jobid '28349254'.
+
+[Fri Jun  7 15:34:41 2019]
+Job 2: Homer_BroadPeak_Annotate: CD4_Naive|AB3606-L1
+
+Submitted job 2 with external jobid '28349255'.
+
+[Fri Jun  7 15:34:43 2019]
+Job 12: Homer_BroadPeak_Annotate: CD4_Naive|AB3611-L1
+
+Submitted job 12 with external jobid '28349277'.
+
+[Fri Jun  7 15:34:49 2019]
+Job 40: Homer_BroadPeak_Annotate: CD4_CCR6high|AB3609-L1_POOLED_AB3614-L1
+
+Submitted job 40 with external jobid '28349278'.
+
+[Fri Jun  7 15:34:51 2019]
+Job 39: Homer_NarrowPeak_Annotate: CD4_CCR6high|AB3609-L1_POOLED_AB3614-L1
+
+Submitted job 39 with external jobid '28349280'.
+
+[Fri Jun  7 15:34:54 2019]
+Job 11: Homer_NarrowPeak_Annotate: CD4_Naive|AB3611-L1
+
+Submitted job 11 with external jobid '28349281'.
+
+[Fri Jun  7 15:34:56 2019]
+Job 1: Homer_NarrowPeak_Annotate: CD4_Naive|AB3606-L1
+
+Submitted job 1 with external jobid '28349282'.
+
+[Fri Jun  7 15:34:57 2019]
+Job 28: Homer_BroadPeak_Annotate: CD4_CCR6neg|AB3607-L1_POOLED_AB3612-L1
+
+Submitted job 28 with external jobid '28349283'.
+
+[Fri Jun  7 15:34:58 2019]
+Job 13: Homer_NarrowPeak_Annotate: CD4_CCR6neg|AB3612-L1
+
+Submitted job 13 with external jobid '28349284'.
+
+[Fri Jun  7 15:35:00 2019]
+Job 18: Homer_BroadPeak_Annotate: CD4_CCR6high|AB3614-L1
+
+Submitted job 18 with external jobid '28349286'.
+
+[Fri Jun  7 15:35:01 2019]
+Job 21: Homer_NarrowPeak_Annotate: CD4_Naive|AB3606-L1_POOLED_AB3611-L1
+
+Submitted job 21 with external jobid '28349288'.
+
+[Fri Jun  7 15:35:02 2019]
+Job 45: Homer_NarrowPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3610-L1_POOLED_AB3615-L1
+
+Submitted job 45 with external jobid '28349289'.
+
+[Fri Jun  7 15:35:04 2019]
+Job 4: Homer_BroadPeak_Annotate: CD4_CCR6neg|AB3607-L1
+
+Submitted job 4 with external jobid '28349290'.
+
+[Fri Jun  7 15:35:05 2019]
+Job 8: Homer_BroadPeak_Annotate: CD4_CCR6high|AB3609-L1
+
+Submitted job 8 with external jobid '28349291'.
+
+[Fri Jun  7 15:35:08 2019]
+Job 16: Homer_BroadPeak_Annotate: CD4_CCR6low|AB3613-L1
+
+Submitted job 16 with external jobid '28349293'.
+
+[Fri Jun  7 15:35:10 2019]
+Job 10: Homer_BroadPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3610-L1
+
+Submitted job 10 with external jobid '28349294'.
+
+[Fri Jun  7 15:35:11 2019]
+Job 19: Homer_NarrowPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3615-L1
+
+Submitted job 19 with external jobid '28349295'.
+
+[Fri Jun  7 15:35:12 2019]
+Job 33: Homer_NarrowPeak_Annotate: CD4_CCR6low|AB3608-L1_POOLED_AB3613-L1
+
+Submitted job 33 with external jobid '28349296'.
+
+[Fri Jun  7 15:35:13 2019]
+Job 5: Homer_NarrowPeak_Annotate: CD4_CCR6low|AB3608-L1
+
+Submitted job 5 with external jobid '28349297'.
+
+[Fri Jun  7 15:35:15 2019]
+Job 6: Homer_BroadPeak_Annotate: CD4_CCR6low|AB3608-L1
+
+Submitted job 6 with external jobid '28349298'.
+
+[Fri Jun  7 15:35:16 2019]
+Job 20: Homer_BroadPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3615-L1
+
+Submitted job 20 with external jobid '28349299'.
+
+[Fri Jun  7 15:35:17 2019]
+Job 34: Homer_BroadPeak_Annotate: CD4_CCR6low|AB3608-L1_POOLED_AB3613-L1
+
+Submitted job 34 with external jobid '28349300'.
+
+[Fri Jun  7 15:35:18 2019]
+Job 9: Homer_NarrowPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3610-L1
+
+Submitted job 9 with external jobid '28349301'.
+
+[Fri Jun  7 15:35:19 2019]
+Job 46: Homer_BroadPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3610-L1_POOLED_AB3615-L1
+
+Submitted job 46 with external jobid '28349302'.
+
+[Fri Jun  7 15:35:21 2019]
+Job 3: Homer_NarrowPeak_Annotate: CD4_CCR6neg|AB3607-L1
+
+Submitted job 3 with external jobid '28349303'.
+
+[Fri Jun  7 15:35:22 2019]
+Job 7: Homer_NarrowPeak_Annotate: CD4_CCR6high|AB3609-L1
+
+Submitted job 7 with external jobid '28349304'.
+
+[Fri Jun  7 15:35:24 2019]
+Job 15: Homer_NarrowPeak_Annotate: CD4_CCR6low|AB3613-L1
+
+Submitted job 15 with external jobid '28349305'.
+
+[Fri Jun  7 15:35:25 2019]
+Job 17: Homer_NarrowPeak_Annotate: CD4_CCR6high|AB3614-L1
+
+Submitted job 17 with external jobid '28349306'.
+
+[Fri Jun  7 15:35:26 2019]
+Job 22: Homer_BroadPeak_Annotate: CD4_Naive|AB3606-L1_POOLED_AB3611-L1
+
+Submitted job 22 with external jobid '28349308'.
+[Fri Jun  7 15:45:53 2019]
+Finished job 2.
+1 of 51 steps (2%) done
+
+[Fri Jun  7 15:45:53 2019]
+Job 30: Homer_BroadPeak_Annotate: CD4_CCR6neg|AB3607-L1_OVERLAPPED_AB3612-L1
+
+Submitted job 30 with external jobid '28350484'.
+[Fri Jun  7 15:49:08 2019]
+Finished job 14.
+2 of 51 steps (4%) done
+
+[Fri Jun  7 15:49:08 2019]
+Job 29: Homer_NarrowPeak_Annotate: CD4_CCR6neg|AB3607-L1_OVERLAPPED_AB3612-L1
+
+Submitted job 29 with external jobid '28350545'.
+[Fri Jun  7 15:49:34 2019]
+Finished job 27.
+3 of 51 steps (6%) done
+
+[Fri Jun  7 15:49:34 2019]
+Job 36: Homer_BroadPeak_Annotate: CD4_CCR6low|AB3608-L1_OVERLAPPED_AB3613-L1
+
+Submitted job 36 with external jobid '28350568'.
+[Fri Jun  7 15:56:56 2019]
+Finished job 1.
+4 of 51 steps (8%) done
+
+[Fri Jun  7 15:56:56 2019]
+Job 35: Homer_NarrowPeak_Annotate: CD4_CCR6low|AB3608-L1_OVERLAPPED_AB3613-L1
+
+[Fri Jun  7 15:56:57 2019]
+Finished job 18.
+5 of 51 steps (10%) done
+Submitted job 35 with external jobid '28351627'.
+
+[Fri Jun  7 15:56:58 2019]
+Job 47: Homer_NarrowPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3610-L1_OVERLAPPED_AB3615-L1
+
+Submitted job 47 with external jobid '28351628'.
+[Fri Jun  7 15:57:09 2019]
+Finished job 11.
+6 of 51 steps (12%) done
+
+[Fri Jun  7 15:57:09 2019]
+Job 41: Homer_NarrowPeak_Annotate: CD4_CCR6high|AB3609-L1_OVERLAPPED_AB3614-L1
+
+Submitted job 41 with external jobid '28351633'.
+[Fri Jun  7 15:57:22 2019]
+Finished job 12.
+7 of 51 steps (14%) done
+
+[Fri Jun  7 15:57:22 2019]
+Job 23: Homer_NarrowPeak_Annotate: CD4_Naive|AB3606-L1_OVERLAPPED_AB3611-L1
+
+Submitted job 23 with external jobid '28351637'.
+[Fri Jun  7 15:57:49 2019]
+Finished job 40.
+8 of 51 steps (16%) done
+
+[Fri Jun  7 15:57:49 2019]
+Job 49: Homer_NarrowPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3610-L1_IDR_AB3615-L1
+
+Submitted job 49 with external jobid '28351643'.
+[Fri Jun  7 15:58:02 2019]
+Finished job 39.
+9 of 51 steps (18%) done
+
+[Fri Jun  7 15:58:02 2019]
+Job 43: Homer_NarrowPeak_Annotate: CD4_CCR6high|AB3609-L1_IDR_AB3614-L1
+
+Submitted job 43 with external jobid '28351645'.
+[Fri Jun  7 16:00:13 2019]
+Finished job 13.
+10 of 51 steps (20%) done
+
+[Fri Jun  7 16:00:13 2019]
+Job 42: Homer_BroadPeak_Annotate: CD4_CCR6high|AB3609-L1_OVERLAPPED_AB3614-L1
+
+Submitted job 42 with external jobid '28351654'.
+[Fri Jun  7 16:00:38 2019]
+Finished job 28.
+11 of 51 steps (22%) done
+
+[Fri Jun  7 16:00:38 2019]
+Job 48: Homer_BroadPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3610-L1_OVERLAPPED_AB3615-L1
+
+Submitted job 48 with external jobid '28351659'.
+[Fri Jun  7 16:08:01 2019]
+Finished job 4.
+12 of 51 steps (24%) done
+
+[Fri Jun  7 16:08:01 2019]
+Job 24: Homer_BroadPeak_Annotate: CD4_Naive|AB3606-L1_OVERLAPPED_AB3611-L1
+
+Submitted job 24 with external jobid '28352526'.
+[Fri Jun  7 16:08:27 2019]
+Finished job 8.
+13 of 51 steps (25%) done
+
+[Fri Jun  7 16:08:27 2019]
+Job 50: Homer_BroadPeak_Annotate: CD4_CCR6plus_CCR2plus|AB3610-L1_IDR_AB3615-L1
+
+Submitted job 50 with external jobid '28352540'.
+[Fri Jun  7 16:08:39 2019]
+Finished job 20.
+14 of 51 steps (27%) done
+
+[Fri Jun  7 16:08:39 2019]
+Job 25: Homer_NarrowPeak_Annotate: CD4_Naive|AB3606-L1_IDR_AB3611-L1
+
+[Fri Jun  7 16:08:40 2019]
+Finished job 10.
+15 of 51 steps (29%) done
+[Fri Jun  7 16:08:40 2019]
+Finished job 9.
+16 of 51 steps (31%) done
+Submitted job 25 with external jobid '28352547'.
+
+[Fri Jun  7 16:08:40 2019]
+Job 44: Homer_BroadPeak_Annotate: CD4_CCR6high|AB3609-L1_IDR_AB3614-L1
+
+Submitted job 44 with external jobid '28352548'.
+
+[Fri Jun  7 16:08:42 2019]
+Job 31: Homer_NarrowPeak_Annotate: CD4_CCR6neg|AB3607-L1_IDR_AB3612-L1
+
+Submitted job 31 with external jobid '28352550'.
+[Fri Jun  7 16:08:53 2019]
+Finished job 19.
+17 of 51 steps (33%) done
+
+[Fri Jun  7 16:08:53 2019]
+Job 37: Homer_NarrowPeak_Annotate: CD4_CCR6low|AB3608-L1_IDR_AB3613-L1
+
+Submitted job 37 with external jobid '28352650'.
+[Fri Jun  7 16:09:06 2019]
+Finished job 16.
+18 of 51 steps (35%) done
+
+[Fri Jun  7 16:09:06 2019]
+Job 32: Homer_BroadPeak_Annotate: CD4_CCR6neg|AB3607-L1_IDR_AB3612-L1
+
+Submitted job 32 with external jobid '28352682'.
+[Fri Jun  7 16:09:32 2019]
+Finished job 21.
+19 of 51 steps (37%) done
+
+[Fri Jun  7 16:09:32 2019]
+Job 26: Homer_BroadPeak_Annotate: CD4_Naive|AB3606-L1_IDR_AB3611-L1
+
+Submitted job 26 with external jobid '28352696'.
+[Fri Jun  7 16:09:45 2019]
+Finished job 45.
+20 of 51 steps (39%) done
+
+[Fri Jun  7 16:09:45 2019]
+Job 38: Homer_BroadPeak_Annotate: CD4_CCR6low|AB3608-L1_IDR_AB3613-L1
+
+Submitted job 38 with external jobid '28352698'.
+[Fri Jun  7 16:10:50 2019]
+Finished job 5.
+21 of 51 steps (41%) done
+[Fri Jun  7 16:10:50 2019]
+Finished job 6.
+22 of 51 steps (43%) done
+[Fri Jun  7 16:12:04 2019]
+Finished job 33.
+23 of 51 steps (45%) done
+[Fri Jun  7 16:12:04 2019]
+Finished job 34.
+24 of 51 steps (47%) done
+[Fri Jun  7 16:18:51 2019]
+Finished job 43.
+25 of 51 steps (49%) done
+[Fri Jun  7 16:18:51 2019]
+Finished job 49.
+26 of 51 steps (51%) done
+[Fri Jun  7 16:18:51 2019]
+Finished job 36.
+27 of 51 steps (53%) done
+[Fri Jun  7 16:18:51 2019]
+Finished job 29.
+28 of 51 steps (55%) done
+[Fri Jun  7 16:19:03 2019]
+Finished job 23.
+29 of 51 steps (57%) done
+[Fri Jun  7 16:19:03 2019]
+Finished job 41.
+30 of 51 steps (59%) done
+[Fri Jun  7 16:19:03 2019]
+Finished job 35.
+31 of 51 steps (61%) done
+[Fri Jun  7 16:19:03 2019]
+Finished job 30.
+32 of 51 steps (63%) done
+[Fri Jun  7 16:19:04 2019]
+Finished job 47.
+33 of 51 steps (65%) done
+[Fri Jun  7 16:19:37 2019]
+Finished job 3.
+34 of 51 steps (67%) done
+[Fri Jun  7 16:20:10 2019]
+Finished job 7.
+35 of 51 steps (69%) done
+[Fri Jun  7 16:20:10 2019]
+Finished job 17.
+36 of 51 steps (71%) done
+[Fri Jun  7 16:20:43 2019]
+Finished job 15.
+37 of 51 steps (73%) done
+[Fri Jun  7 16:20:54 2019]
+Finished job 46.
+38 of 51 steps (75%) done
+[Fri Jun  7 16:21:05 2019]
+Finished job 22.
+39 of 51 steps (76%) done
+[Fri Jun  7 16:29:21 2019]
+Finished job 48.
+40 of 51 steps (78%) done
+[Fri Jun  7 16:29:21 2019]
+Finished job 42.
+41 of 51 steps (80%) done
+[Fri Jun  7 16:29:21 2019]
+Finished job 24.
+42 of 51 steps (82%) done
+[Fri Jun  7 16:29:32 2019]
+Finished job 50.
+43 of 51 steps (84%) done
+[Fri Jun  7 16:29:32 2019]
+Finished job 44.
+44 of 51 steps (86%) done
+[Fri Jun  7 16:29:32 2019]
+Finished job 31.
+45 of 51 steps (88%) done
+[Fri Jun  7 16:29:42 2019]
+Finished job 25.
+46 of 51 steps (90%) done
+[Fri Jun  7 16:41:53 2019]
+Finished job 32.
+47 of 51 steps (92%) done
+[Fri Jun  7 16:42:13 2019]
+Finished job 37.
+48 of 51 steps (94%) done
+[Fri Jun  7 16:42:13 2019]
+Finished job 26.
+49 of 51 steps (96%) done
+[Fri Jun  7 16:42:13 2019]
+Finished job 38.
+50 of 51 steps (98%) done
+
+[Fri Jun  7 16:42:13 2019]
+localrule End_Point:
+    input: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/narrowpeak/AB3606-L1/AB3606-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/broadpeak/AB3606-L1/AB3606-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/narrowpeak/AB3607-L1/AB3607-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/broadpeak/AB3607-L1/AB3607-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/narrowpeak/AB3608-L1/AB3608-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/broadpeak/AB3608-L1/AB3608-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/narrowpeak/AB3609-L1/AB3609-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/broadpeak/AB3609-L1/AB3609-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/narrowpeak/AB3610-L1/AB3610-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/broadpeak/AB3610-L1/AB3610-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/narrowpeak/AB3611-L1/AB3611-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/broadpeak/AB3611-L1/AB3611-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/narrowpeak/AB3612-L1/AB3612-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/broadpeak/AB3612-L1/AB3612-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/narrowpeak/AB3613-L1/AB3613-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/broadpeak/AB3613-L1/AB3613-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/narrowpeak/AB3614-L1/AB3614-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/broadpeak/AB3614-L1/AB3614-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/narrowpeak/AB3615-L1/AB3615-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/broadpeak/AB3615-L1/AB3615-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/narrowpeak/AB3606-L1_POOLED_AB3611-L1/AB3606-L1_POOLED_AB3611-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/broadpeak/AB3606-L1_POOLED_AB3611-L1/AB3606-L1_POOLED_AB3611-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/narrowpeak/AB3606-L1_OVERLAPPED_AB3611-L1/AB3606-L1_OVERLAPPED_AB3611-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/broadpeak/AB3606-L1_OVERLAPPED_AB3611-L1/AB3606-L1_OVERLAPPED_AB3611-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/narrowpeak/AB3606-L1_IDR_AB3611-L1/AB3606-L1_IDR_AB3611-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_Naive/peak_annotate/broadpeak/AB3606-L1_IDR_AB3611-L1/AB3606-L1_IDR_AB3611-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/narrowpeak/AB3607-L1_POOLED_AB3612-L1/AB3607-L1_POOLED_AB3612-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/broadpeak/AB3607-L1_POOLED_AB3612-L1/AB3607-L1_POOLED_AB3612-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/narrowpeak/AB3607-L1_OVERLAPPED_AB3612-L1/AB3607-L1_OVERLAPPED_AB3612-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/broadpeak/AB3607-L1_OVERLAPPED_AB3612-L1/AB3607-L1_OVERLAPPED_AB3612-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/narrowpeak/AB3607-L1_IDR_AB3612-L1/AB3607-L1_IDR_AB3612-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6neg/peak_annotate/broadpeak/AB3607-L1_IDR_AB3612-L1/AB3607-L1_IDR_AB3612-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/narrowpeak/AB3608-L1_POOLED_AB3613-L1/AB3608-L1_POOLED_AB3613-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/broadpeak/AB3608-L1_POOLED_AB3613-L1/AB3608-L1_POOLED_AB3613-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/narrowpeak/AB3608-L1_OVERLAPPED_AB3613-L1/AB3608-L1_OVERLAPPED_AB3613-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/broadpeak/AB3608-L1_OVERLAPPED_AB3613-L1/AB3608-L1_OVERLAPPED_AB3613-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/narrowpeak/AB3608-L1_IDR_AB3613-L1/AB3608-L1_IDR_AB3613-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6low/peak_annotate/broadpeak/AB3608-L1_IDR_AB3613-L1/AB3608-L1_IDR_AB3613-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/narrowpeak/AB3609-L1_POOLED_AB3614-L1/AB3609-L1_POOLED_AB3614-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/broadpeak/AB3609-L1_POOLED_AB3614-L1/AB3609-L1_POOLED_AB3614-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/narrowpeak/AB3609-L1_OVERLAPPED_AB3614-L1/AB3609-L1_OVERLAPPED_AB3614-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/broadpeak/AB3609-L1_OVERLAPPED_AB3614-L1/AB3609-L1_OVERLAPPED_AB3614-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/narrowpeak/AB3609-L1_IDR_AB3614-L1/AB3609-L1_IDR_AB3614-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6high/peak_annotate/broadpeak/AB3609-L1_IDR_AB3614-L1/AB3609-L1_IDR_AB3614-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/narrowpeak/AB3610-L1_POOLED_AB3615-L1/AB3610-L1_POOLED_AB3615-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/broadpeak/AB3610-L1_POOLED_AB3615-L1/AB3610-L1_POOLED_AB3615-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/narrowpeak/AB3610-L1_OVERLAPPED_AB3615-L1/AB3610-L1_OVERLAPPED_AB3615-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/broadpeak/AB3610-L1_OVERLAPPED_AB3615-L1/AB3610-L1_OVERLAPPED_AB3615-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/narrowpeak/AB3610-L1_IDR_AB3615-L1/AB3610-L1_IDR_AB3615-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20180829-E1/spsingh-20181029-D1/hg38/CD4_CCR6plus_CCR2plus/peak_annotate/broadpeak/AB3610-L1_IDR_AB3615-L1/AB3610-L1_IDR_AB3615-L1.broadPeak.homer_annotate.txt
+    jobid: 0
+
+[Fri Jun  7 16:42:13 2019]
+Finished job 0.
+51 of 51 steps (100%) done
+Complete log: /gpfs/gsfs6/users/shamsaddinisha/ATAC_Seq/Snakemake/.snakemake/log/2019-06-07T153434.716116.snakemake.log

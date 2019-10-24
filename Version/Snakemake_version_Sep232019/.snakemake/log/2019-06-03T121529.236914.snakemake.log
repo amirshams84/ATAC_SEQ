@@ -1,0 +1,292 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	End_Point
+	17	Homer_BroadPeak_Annotate
+	17	Homer_NarrowPeak_Annotate
+	35
+
+[Mon Jun  3 12:15:29 2019]
+Job 20: Homer_BroadPeak_Annotate: Encode|rep1_VS_ctl1
+
+Submitted job 20 with external jobid '27940708'.
+
+[Mon Jun  3 12:15:34 2019]
+Job 26: Homer_BroadPeak_Annotate: Encode|rep2_OVERLAPPED_rep1_VS_ctl1
+
+Submitted job 26 with external jobid '27940712'.
+
+[Mon Jun  3 12:15:36 2019]
+Job 24: Homer_BroadPeak_Annotate: Encode|rep2_POOLED_rep1_VS_ctl1
+
+Submitted job 24 with external jobid '27940883'.
+
+[Mon Jun  3 12:15:39 2019]
+Job 11: Homer_NarrowPeak_Annotate: Encode|rep2_OVERLAPPED_rep1
+
+Submitted job 11 with external jobid '27940913'.
+
+[Mon Jun  3 12:15:40 2019]
+Job 21: Homer_NarrowPeak_Annotate: Encode|rep1_VS_ctl2
+
+Submitted job 21 with external jobid '27940914'.
+
+[Mon Jun  3 12:15:41 2019]
+Job 4: Homer_BroadPeak_Annotate: Encode|ctl2
+
+Submitted job 4 with external jobid '27940915'.
+
+[Mon Jun  3 12:15:42 2019]
+Job 6: Homer_BroadPeak_Annotate: Encode|rep2
+
+Submitted job 6 with external jobid '27940916'.
+
+[Mon Jun  3 12:15:43 2019]
+Job 14: Homer_BroadPeak_Annotate: Encode|rep2_IDR_rep1
+
+Submitted job 14 with external jobid '27940917'.
+
+[Mon Jun  3 12:15:45 2019]
+Job 8: Homer_BroadPeak_Annotate: Encode|rep1
+
+Submitted job 8 with external jobid '27940918'.
+
+[Mon Jun  3 12:15:46 2019]
+Job 17: Homer_NarrowPeak_Annotate: Encode|rep2_VS_ctl2
+
+Submitted job 17 with external jobid '27940919'.
+
+[Mon Jun  3 12:15:47 2019]
+Job 10: Homer_BroadPeak_Annotate: Encode|rep2_POOLED_rep1
+
+Submitted job 10 with external jobid '27940920'.
+
+[Mon Jun  3 12:15:48 2019]
+Job 32: Homer_BroadPeak_Annotate: Encode|rep2_OVERLAPPED_rep1_VS_ctl2
+
+Submitted job 32 with external jobid '27940921'.
+
+[Mon Jun  3 12:15:49 2019]
+Job 2: Homer_BroadPeak_Annotate: Encode|ctl1
+
+Submitted job 2 with external jobid '27940922'.
+
+[Mon Jun  3 12:15:51 2019]
+Job 15: Homer_NarrowPeak_Annotate: Encode|rep2_VS_ctl1
+
+Submitted job 15 with external jobid '27940923'.
+
+[Mon Jun  3 12:15:52 2019]
+Job 28: Homer_BroadPeak_Annotate: Encode|rep2_IDR_rep1_VS_ctl1
+
+Submitted job 28 with external jobid '27940924'.
+
+[Mon Jun  3 12:15:53 2019]
+Job 30: Homer_BroadPeak_Annotate: Encode|rep2_POOLED_rep1_VS_ctl2
+
+Submitted job 30 with external jobid '27940925'.
+
+[Mon Jun  3 12:15:54 2019]
+Job 18: Homer_BroadPeak_Annotate: Encode|rep2_VS_ctl2
+
+Submitted job 18 with external jobid '27940926'.
+
+[Mon Jun  3 12:15:55 2019]
+Job 9: Homer_NarrowPeak_Annotate: Encode|rep2_POOLED_rep1
+
+Submitted job 9 with external jobid '27940927'.
+
+[Mon Jun  3 12:15:57 2019]
+Job 31: Homer_NarrowPeak_Annotate: Encode|rep2_OVERLAPPED_rep1_VS_ctl2
+
+Submitted job 31 with external jobid '27940928'.
+
+[Mon Jun  3 12:15:58 2019]
+Job 1: Homer_NarrowPeak_Annotate: Encode|ctl1
+
+Submitted job 1 with external jobid '27940929'.
+
+[Mon Jun  3 12:15:59 2019]
+Job 16: Homer_BroadPeak_Annotate: Encode|rep2_VS_ctl1
+
+Submitted job 16 with external jobid '27940931'.
+
+[Mon Jun  3 12:16:00 2019]
+Job 29: Homer_NarrowPeak_Annotate: Encode|rep2_POOLED_rep1_VS_ctl2
+
+Submitted job 29 with external jobid '27940932'.
+
+[Mon Jun  3 12:16:02 2019]
+Job 23: Homer_NarrowPeak_Annotate: Encode|rep2_POOLED_rep1_VS_ctl1
+
+Submitted job 23 with external jobid '27940933'.
+
+[Mon Jun  3 12:16:03 2019]
+Job 12: Homer_BroadPeak_Annotate: Encode|rep2_OVERLAPPED_rep1
+
+Submitted job 12 with external jobid '27940934'.
+
+[Mon Jun  3 12:16:04 2019]
+Job 3: Homer_NarrowPeak_Annotate: Encode|ctl2
+
+Submitted job 3 with external jobid '27940935'.
+
+[Mon Jun  3 12:16:06 2019]
+Job 22: Homer_BroadPeak_Annotate: Encode|rep1_VS_ctl2
+
+Submitted job 22 with external jobid '27940936'.
+
+[Mon Jun  3 12:16:07 2019]
+Job 5: Homer_NarrowPeak_Annotate: Encode|rep2
+
+Submitted job 5 with external jobid '27940937'.
+
+[Mon Jun  3 12:16:08 2019]
+Job 7: Homer_NarrowPeak_Annotate: Encode|rep1
+
+Submitted job 7 with external jobid '27940938'.
+
+[Mon Jun  3 12:16:09 2019]
+Job 19: Homer_NarrowPeak_Annotate: Encode|rep1_VS_ctl1
+
+Submitted job 19 with external jobid '27940939'.
+
+[Mon Jun  3 12:16:11 2019]
+Job 25: Homer_NarrowPeak_Annotate: Encode|rep2_OVERLAPPED_rep1_VS_ctl1
+
+Submitted job 25 with external jobid '27940940'.
+[Mon Jun  3 12:25:34 2019]
+Finished job 1.
+1 of 35 steps (3%) done
+
+[Mon Jun  3 12:25:34 2019]
+Job 34: Homer_BroadPeak_Annotate: Encode|rep2_IDR_rep1_VS_ctl2
+
+[Mon Jun  3 12:25:34 2019]
+Finished job 3.
+2 of 35 steps (6%) done
+Submitted job 34 with external jobid '27941527'.
+
+[Mon Jun  3 12:25:35 2019]
+Job 13: Homer_NarrowPeak_Annotate: Encode|rep2_IDR_rep1
+
+Submitted job 13 with external jobid '27941528'.
+[Mon Jun  3 12:26:11 2019]
+Finished job 4.
+3 of 35 steps (9%) done
+
+[Mon Jun  3 12:26:11 2019]
+Job 33: Homer_NarrowPeak_Annotate: Encode|rep2_IDR_rep1_VS_ctl2
+
+[Mon Jun  3 12:26:11 2019]
+Finished job 8.
+4 of 35 steps (11%) done
+Submitted job 33 with external jobid '27941572'.
+
+[Mon Jun  3 12:26:13 2019]
+Job 27: Homer_NarrowPeak_Annotate: Encode|rep2_IDR_rep1_VS_ctl1
+
+Submitted job 27 with external jobid '27941575'.
+[Mon Jun  3 12:26:24 2019]
+Finished job 26.
+5 of 35 steps (14%) done
+[Mon Jun  3 12:26:25 2019]
+Finished job 2.
+6 of 35 steps (17%) done
+[Mon Jun  3 12:26:37 2019]
+Finished job 24.
+7 of 35 steps (20%) done
+[Mon Jun  3 12:26:37 2019]
+Finished job 11.
+8 of 35 steps (23%) done
+[Mon Jun  3 12:26:37 2019]
+Finished job 21.
+9 of 35 steps (26%) done
+[Mon Jun  3 12:26:37 2019]
+Finished job 6.
+10 of 35 steps (29%) done
+[Mon Jun  3 12:26:37 2019]
+Finished job 14.
+11 of 35 steps (31%) done
+[Mon Jun  3 12:26:37 2019]
+Finished job 17.
+12 of 35 steps (34%) done
+[Mon Jun  3 12:26:37 2019]
+Finished job 10.
+13 of 35 steps (37%) done
+[Mon Jun  3 12:26:38 2019]
+Finished job 15.
+14 of 35 steps (40%) done
+[Mon Jun  3 12:26:38 2019]
+Finished job 28.
+15 of 35 steps (43%) done
+[Mon Jun  3 12:26:38 2019]
+Finished job 16.
+16 of 35 steps (46%) done
+[Mon Jun  3 12:26:38 2019]
+Finished job 23.
+17 of 35 steps (49%) done
+[Mon Jun  3 12:26:38 2019]
+Finished job 12.
+18 of 35 steps (51%) done
+[Mon Jun  3 12:26:38 2019]
+Finished job 22.
+19 of 35 steps (54%) done
+[Mon Jun  3 12:26:39 2019]
+Finished job 5.
+20 of 35 steps (57%) done
+[Mon Jun  3 12:26:39 2019]
+Finished job 19.
+21 of 35 steps (60%) done
+[Mon Jun  3 12:26:39 2019]
+Finished job 25.
+22 of 35 steps (63%) done
+[Mon Jun  3 12:26:49 2019]
+Finished job 29.
+23 of 35 steps (66%) done
+[Mon Jun  3 12:26:49 2019]
+Finished job 20.
+24 of 35 steps (69%) done
+[Mon Jun  3 12:26:49 2019]
+Finished job 32.
+25 of 35 steps (71%) done
+[Mon Jun  3 12:26:49 2019]
+Finished job 30.
+26 of 35 steps (74%) done
+[Mon Jun  3 12:26:49 2019]
+Finished job 18.
+27 of 35 steps (77%) done
+[Mon Jun  3 12:26:49 2019]
+Finished job 9.
+28 of 35 steps (80%) done
+[Mon Jun  3 12:26:49 2019]
+Finished job 31.
+29 of 35 steps (83%) done
+[Mon Jun  3 12:27:00 2019]
+Finished job 7.
+30 of 35 steps (86%) done
+[Mon Jun  3 12:35:41 2019]
+Finished job 34.
+31 of 35 steps (89%) done
+[Mon Jun  3 12:35:41 2019]
+Finished job 13.
+32 of 35 steps (91%) done
+[Mon Jun  3 12:35:51 2019]
+Finished job 33.
+33 of 35 steps (94%) done
+[Mon Jun  3 12:35:51 2019]
+Finished job 27.
+34 of 35 steps (97%) done
+
+[Mon Jun  3 12:35:51 2019]
+localrule End_Point:
+    input: /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/ctl1/ctl1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/ctl1/ctl1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/ctl2/ctl2.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/ctl2/ctl2.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2/rep2.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2/rep2.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep1/rep1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep1/rep1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_POOLED_rep1/rep2_POOLED_rep1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_POOLED_rep1/rep2_POOLED_rep1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_OVERLAPPED_rep1/rep2_OVERLAPPED_rep1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_OVERLAPPED_rep1/rep2_OVERLAPPED_rep1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_IDR_rep1/rep2_IDR_rep1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_IDR_rep1/rep2_IDR_rep1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_VS_ctl1/rep2_VS_ctl1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_VS_ctl1/rep2_VS_ctl1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_VS_ctl2/rep2_VS_ctl2.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_VS_ctl2/rep2_VS_ctl2.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep1_VS_ctl1/rep1_VS_ctl1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep1_VS_ctl1/rep1_VS_ctl1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep1_VS_ctl2/rep1_VS_ctl2.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep1_VS_ctl2/rep1_VS_ctl2.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_POOLED_rep1_VS_ctl1/rep2_POOLED_rep1_VS_ctl1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_POOLED_rep1_VS_ctl1/rep2_POOLED_rep1_VS_ctl1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_OVERLAPPED_rep1_VS_ctl1/rep2_OVERLAPPED_rep1_VS_ctl1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_OVERLAPPED_rep1_VS_ctl1/rep2_OVERLAPPED_rep1_VS_ctl1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_IDR_rep1_VS_ctl1/rep2_IDR_rep1_VS_ctl1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_IDR_rep1_VS_ctl1/rep2_IDR_rep1_VS_ctl1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_POOLED_rep1_VS_ctl2/rep2_POOLED_rep1_VS_ctl2.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_POOLED_rep1_VS_ctl2/rep2_POOLED_rep1_VS_ctl2.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_OVERLAPPED_rep1_VS_ctl2/rep2_OVERLAPPED_rep1_VS_ctl2.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_OVERLAPPED_rep1_VS_ctl2/rep2_OVERLAPPED_rep1_VS_ctl2.broadPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/narrowpeak/rep2_IDR_rep1_VS_ctl2/rep2_IDR_rep1_VS_ctl2.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/Test_DATA/human_Chip/Encode_Chip/Trial_Project/Trial_Experiment/ENCODE/hg38/Encode/peak_annotate/broadpeak/rep2_IDR_rep1_VS_ctl2/rep2_IDR_rep1_VS_ctl2.broadPeak.homer_annotate.txt
+    jobid: 0
+
+[Mon Jun  3 12:35:51 2019]
+Finished job 0.
+35 of 35 steps (100%) done
+Complete log: /gpfs/gsfs6/users/shamsaddinisha/ATAC_Seq/Snakemake/.snakemake/log/2019-06-03T121529.236914.snakemake.log

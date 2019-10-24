@@ -1,0 +1,95 @@
+{
+    "GENERAL":{
+        "PROJECT": "ATAC_Seq",
+        "EXPERIMENT": "pepatac_tutorial_human",
+        "TITLE": "pepatac_subset",
+        "INFOLINK":  "https://myrtb.nih.gov/Microarray/Lists/Data%20Analysis%20Requests/DispForm.aspx?ID=596"
+    },
+
+    "DIRECTORY":{
+        "WORKDIR": "/data/shamsaddinisha/testDB",
+        "DATADIR": "/data/shamsaddinisha/testDB/ATAC_Seq/pepatac_tutorial_human/data"
+    },
+
+    "DATA":{
+        "PLATFORM": "SRA",
+        "FORMAT": "fastq",
+        "LAYOUT": "paired",
+        "SAMPLE_DELIMITER": "",
+        "SAMPLE_SUFFIX": "fastq.gz",
+        "GENOME": "hg38",
+        "SPECIES": "human"
+    },
+    
+    "METADATA":{
+        "METADATA_FILE": "/data/shamsaddinisha/testDB/ATAC_Seq/pepatac_tutorial_human/metadata/pepatac_tutorial_human.txt",
+        "SAMPLE_COLUMN": "Name",
+        "TREATMENT_COLUMN": "Design",
+        "TREATMENT_LIST": ["tutorial"]
+    },
+
+    "SUBSAMPLE":{
+        "SUBSAMPLE_PCT": "25",
+        "USE_SUBSAMPLE": "FALSE"
+    },
+
+    
+    "PRE_PROCESS":{
+        "CUTADAPT_SINGLE": "--minimum-length=3 --quality-base=33 --error-rate=0.0 --trim-n -a CTGTCTCTTATA",
+        "CUTADAPT_PAIRED": "--minimum-length=3 --quality-base=33 --error-rate=0.0 --trim-n -a CTGTCTCTTATA -A CTGTCTCTTATA"
+    },
+
+    "ALIGNMENT":{
+        "BOWTIE2_SINGLE": "-k 10 --very-sensitive-local",
+        "BOWTIE2_PAIRED": "-k 10 --very-sensitive-local -X 2000"
+    },
+    
+
+    "PICARD":{
+        "illumina": "VALIDATION_STRINGENCY=LENIENT ASSUME_SORT_ORDER=coordinate REMOVE_DUPLICATES=false MAX_RECORDS_IN_RAM=2000000 OPTICAL_DUPLICATE_PIXEL_DISTANCE=2500",
+        "sra": "VALIDATION_STRINGENCY=LENIENT ASSUME_SORT_ORDER=coordinate REMOVE_DUPLICATES=false MAX_RECORDS_IN_RAM=2000000 OPTICAL_DUPLICATE_PIXEL_DISTANCE=2500 READ_NAME_REGEX=null"
+    },
+
+    "POST_ALIGNMENT":{
+        "FILTER_MAPQ_PAIRED": "-F 1804 -f 2 -q 30",
+        "FILTER_MAPQ_SINGLE": "-F 1796 -q 30",
+        "FILTER_CHROMOSOME": "{if ( $3 != \"chrM\" && $3 != \"chrUn\" && $3 != \"chrEBV\" && $3 !~ /chrUn/ && $3 !~ /random/ ) print $0}",
+        "ATAC_STRAND_SHIFT": "{if ( $6 == \"+\") {$2 = $2 + 4} else if ($6 == \"-\") {$3 = $3 - 5} print $0 }",
+        "_comment": "BEGIN{OFS=FS}{if ( $3 != \"chrM\" && $3 != \"chrUn\" && $3 !~ /chrUn/ && $3 !~ /random/ ) print $0}"
+    },
+    
+    "PEAK_CALLING":{
+        "mm10":{
+            "MACS2_NARROW": "--format BED --gsize mm --call-summits --keep-dup all -q 5.00e-02 -B --SPMR --nomodel --shift -100 --extsize 200 --verbose 3",
+            "MACS2_BROAD": "--format BED --gsize mm --broad --broad-cutoff 0.1 --keep-dup all -q 5.00e-02 -B --SPMR --nomodel --shift -100 --extsize 200 --verbose 3"
+        },
+        "hg38":{
+            "MACS2_NARROW": "--format BED --gsize hs --call-summits --keep-dup all -q 5.00e-02 -B --SPMR --nomodel --shift -100 --extsize 200 --verbose 3",
+            "MACS2_BROAD": "--format BED --gsize hs --broad --broad-cutoff 0.1 --keep-dup all -q 5.00e-02 -B --SPMR --nomodel --shift -100 --extsize 200 --verbose 3"
+        }
+    },
+
+    "UTILITIES":{
+        "SPP": "https://raw.githubusercontent.com/shenlab-sinai/chip-seq_preprocess/master/bin/run_spp_nodups.R",
+        "BigNarrowPeak": "http://genome.ucsc.edu/goldenPath/help/examples/bigNarrowPeak.as",
+        "BigBroadPeak": "https://raw.githubusercontent.com/kundajelab/chipseq_pipeline/master/etc/broadPeak.as"
+    },
+    
+    "REFERENCE":{
+        "hg38":{
+            "WG_FASTA": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa",
+            "CHROM_SIZE": "/fdb/atac_dnase_pipelines/hg38/hg38.chrom.sizes",
+            "BOWTIE2_INDEX": "/fdb/igenomes/Homo_sapiens/UCSC/hg38/Sequence/Bowtie2Index/genome",
+            "BLACK_LIST": "https://storage.googleapis.com/encode-pipeline-genome-data/hg38/hg38.blacklist.bed.gz",
+            "EFFECTIVE_GENOME_SIZE": "2913022398"
+        },
+        "mm10":{
+            "CHROM_SIZE": "/fdb/atac_dnase_pipelines/mm10/mm10.chrom.sizes",
+            "WG_FASTA": "/fdb/igenomes/Mus_musculus/UCSC/mm10/Sequence/WholeGenomeFasta/genome.fa",
+            "BOWTIE2_INDEX": "/fdb/igenomes/Mus_musculus/UCSC/mm10/Sequence/Bowtie2Index/genome",
+            "BLACK_LIST": "https://storage.googleapis.com/encode-pipeline-genome-data/mm10/mm10.blacklist.bed.gz",
+            "EFFECTIVE_GENOME_SIZE": "2150570000",
+            "2BIT": "/data/shamsaddinisha/REFERENCE/mm10/mm10.2bit"
+        }
+    }
+}

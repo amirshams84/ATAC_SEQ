@@ -1,0 +1,27 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	End_Point
+	1	Pooling_Case_Replicates
+	2
+
+[Thu May 23 09:49:54 2019]
+Job 19: Pooling_Case_Replicates: Ccl20-_T|AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1
+
+Submitted job 19 with external jobid '27242496'.
+[Thu May 23 22:40:20 2019]
+Finished job 19.
+1 of 2 steps (50%) done
+
+[Thu May 23 22:40:20 2019]
+localrule End_Point:
+    input: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/alignment/AB3823-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/alignment/AB3824-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/alignment/AB3825-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/alignment/AB3826-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/alignment/AB3827-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/alignment/AB3828-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/alignment/AB3829-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/alignment/AB3830-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/alignment/AB3831-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/alignment/AB3832-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/alignment/AB3833-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/alignment/AB3834-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/alignment/AB3835-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/alignment/AB3836-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/alignment/AB3837-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/alignment/AB3838-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/alignment/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/alignment/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/alignment/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/alignment/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1.bam
+    jobid: 0
+
+[Thu May 23 22:40:20 2019]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /gpfs/gsfs6/users/shamsaddinisha/ATAC_Seq/Snakemake/.snakemake/log/2019-05-23T094953.580373.snakemake.log

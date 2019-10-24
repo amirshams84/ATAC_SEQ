@@ -1,0 +1,147 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	16	Alignment_Paired
+	1	End_Point
+	17
+
+[Tue May 14 15:29:38 2019]
+Job 1: Alignment_Paired: Ccl20-_UT1|AB3823-L1
+
+Submitted job 1 with external jobid '26592486'.
+
+[Tue May 14 15:29:41 2019]
+Job 3: Alignment_Paired: Ccl20-_UT3|AB3825-L1
+
+Submitted job 3 with external jobid '26592487'.
+
+[Tue May 14 15:29:46 2019]
+Job 2: Alignment_Paired: Ccl20-_UT2|AB3824-L1
+
+Submitted job 2 with external jobid '26592488'.
+
+[Tue May 14 15:29:47 2019]
+Job 9: Alignment_Paired: Ccl20-_T1|AB3831-L1
+
+Submitted job 9 with external jobid '26592489'.
+
+[Tue May 14 15:29:50 2019]
+Job 4: Alignment_Paired: Ccl20-_UT4|AB3826-L1
+
+Submitted job 4 with external jobid '26592490'.
+
+[Tue May 14 15:29:52 2019]
+Job 14: Alignment_Paired: Ccl20+_T2|AB3836-L1
+
+Submitted job 14 with external jobid '26592491'.
+
+[Tue May 14 15:29:55 2019]
+Job 15: Alignment_Paired: Ccl20+_T3|AB3837-L1
+
+Submitted job 15 with external jobid '26592492'.
+
+[Tue May 14 15:29:57 2019]
+Job 6: Alignment_Paired: Ccl20+_UT2|AB3828-L1
+
+Submitted job 6 with external jobid '26592495'.
+
+[Tue May 14 15:30:00 2019]
+Job 16: Alignment_Paired: Ccl20+_T4|AB3838-L1
+
+Submitted job 16 with external jobid '26592496'.
+
+[Tue May 14 15:30:03 2019]
+Job 12: Alignment_Paired: Ccl20-_T4|AB3834-L1
+
+Submitted job 12 with external jobid '26592497'.
+
+[Tue May 14 15:30:06 2019]
+Job 13: Alignment_Paired: Ccl20+_T1|AB3835-L1
+
+Submitted job 13 with external jobid '26592498'.
+
+[Tue May 14 15:30:08 2019]
+Job 11: Alignment_Paired: Ccl20-_T3|AB3833-L1
+
+Submitted job 11 with external jobid '26592499'.
+
+[Tue May 14 15:30:11 2019]
+Job 10: Alignment_Paired: Ccl20-_T2|AB3832-L1
+
+Submitted job 10 with external jobid '26592500'.
+
+[Tue May 14 15:30:13 2019]
+Job 7: Alignment_Paired: Ccl20+_UT3|AB3829-L1
+
+Submitted job 7 with external jobid '26592503'.
+
+[Tue May 14 15:30:17 2019]
+Job 8: Alignment_Paired: Ccl20+_UT4|AB3830-L1
+
+Submitted job 8 with external jobid '26592504'.
+
+[Tue May 14 15:30:19 2019]
+Job 5: Alignment_Paired: Ccl20+_UT1|AB3827-L1
+
+Submitted job 5 with external jobid '26592505'.
+[Tue May 14 16:02:59 2019]
+Finished job 1.
+1 of 17 steps (6%) done
+[Tue May 14 16:06:06 2019]
+Finished job 6.
+2 of 17 steps (12%) done
+[Tue May 14 16:07:12 2019]
+Finished job 12.
+3 of 17 steps (18%) done
+[Tue May 14 16:09:02 2019]
+Finished job 4.
+4 of 17 steps (24%) done
+[Tue May 14 16:09:24 2019]
+Finished job 2.
+5 of 17 steps (29%) done
+[Tue May 14 16:13:49 2019]
+Finished job 3.
+6 of 17 steps (35%) done
+[Tue May 14 16:19:41 2019]
+Finished job 9.
+7 of 17 steps (41%) done
+[Tue May 14 16:20:32 2019]
+Finished job 15.
+8 of 17 steps (47%) done
+[Tue May 14 16:22:12 2019]
+Finished job 7.
+9 of 17 steps (53%) done
+[Tue May 14 16:23:32 2019]
+Finished job 16.
+10 of 17 steps (59%) done
+[Tue May 14 16:24:52 2019]
+Finished job 5.
+11 of 17 steps (65%) done
+[Tue May 14 16:26:03 2019]
+Finished job 13.
+12 of 17 steps (71%) done
+[Tue May 14 16:26:23 2019]
+Finished job 14.
+13 of 17 steps (76%) done
+[Tue May 14 16:45:54 2019]
+Finished job 8.
+14 of 17 steps (82%) done
+[Tue May 14 16:50:34 2019]
+Finished job 10.
+15 of 17 steps (88%) done
+[Tue May 14 16:50:54 2019]
+Finished job 11.
+16 of 17 steps (94%) done
+
+[Tue May 14 16:50:54 2019]
+localrule End_Point:
+    input: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_UT1/alignment/AB3823-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_UT2/alignment/AB3824-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_UT3/alignment/AB3825-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_UT4/alignment/AB3826-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_UT1/alignment/AB3827-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_UT2/alignment/AB3828-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_UT3/alignment/AB3829-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_UT4/alignment/AB3830-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_T1/alignment/AB3831-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_T2/alignment/AB3832-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_T3/alignment/AB3833-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_T4/alignment/AB3834-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_T1/alignment/AB3835-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_T2/alignment/AB3836-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_T3/alignment/AB3837-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_T4/alignment/AB3838-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_UT1/alignment/AB3823-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_UT2/alignment/AB3824-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_UT3/alignment/AB3825-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_UT4/alignment/AB3826-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_UT1/alignment/AB3827-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_UT2/alignment/AB3828-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_UT3/alignment/AB3829-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_UT4/alignment/AB3830-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_T1/alignment/AB3831-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_T2/alignment/AB3832-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_T3/alignment/AB3833-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20-_T4/alignment/AB3834-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_T1/alignment/AB3835-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_T2/alignment/AB3836-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_T3/alignment/AB3837-L1.bam, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190513-D4/mm10/Ccl20+_T4/alignment/AB3838-L1.bam
+    jobid: 0
+
+[Tue May 14 16:50:54 2019]
+Finished job 0.
+17 of 17 steps (100%) done
+Complete log: /gpfs/gsfs6/users/shamsaddinisha/ATAC_Seq/Snakemake/.snakemake/log/2019-05-14T152937.503363.snakemake.log

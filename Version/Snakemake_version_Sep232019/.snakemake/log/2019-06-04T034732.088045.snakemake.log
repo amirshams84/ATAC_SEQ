@@ -1,0 +1,468 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	End_Point
+	28	Homer_BroadPeak_Annotate
+	28	Homer_NarrowPeak_Annotate
+	57
+
+[Tue Jun  4 03:47:32 2019]
+Job 52: Homer_BroadPeak_Annotate: Ccl20+_T|AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1
+
+Submitted job 52 with external jobid '27992379'.
+
+[Tue Jun  4 03:47:34 2019]
+Job 40: Homer_BroadPeak_Annotate: Ccl20+_UT|AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1
+
+Submitted job 40 with external jobid '27992380'.
+
+[Tue Jun  4 03:47:35 2019]
+Job 21: Homer_NarrowPeak_Annotate: Ccl20-_T|AB3833-L1
+
+Submitted job 21 with external jobid '27992381'.
+
+[Tue Jun  4 03:47:36 2019]
+Job 4: Homer_BroadPeak_Annotate: Ccl20-_UT|AB3824-L1
+
+Submitted job 4 with external jobid '27992382'.
+
+[Tue Jun  4 03:47:37 2019]
+Job 18: Homer_BroadPeak_Annotate: Ccl20-_T|AB3831-L1
+
+Submitted job 18 with external jobid '27992383'.
+
+[Tue Jun  4 03:47:38 2019]
+Job 27: Homer_NarrowPeak_Annotate: Ccl20+_T|AB3836-L1
+
+Submitted job 27 with external jobid '27992384'.
+
+[Tue Jun  4 03:47:40 2019]
+Job 30: Homer_BroadPeak_Annotate: Ccl20+_T|AB3837-L1
+
+Submitted job 30 with external jobid '27992385'.
+
+[Tue Jun  4 03:47:41 2019]
+Job 51: Homer_NarrowPeak_Annotate: Ccl20+_T|AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1
+
+Submitted job 51 with external jobid '27992386'.
+
+[Tue Jun  4 03:47:42 2019]
+Job 22: Homer_BroadPeak_Annotate: Ccl20-_T|AB3833-L1
+
+Submitted job 22 with external jobid '27992387'.
+
+[Tue Jun  4 03:47:43 2019]
+Job 39: Homer_NarrowPeak_Annotate: Ccl20+_UT|AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1
+
+Submitted job 39 with external jobid '27992388'.
+
+[Tue Jun  4 03:47:44 2019]
+Job 10: Homer_BroadPeak_Annotate: Ccl20+_UT|AB3827-L1
+
+Submitted job 10 with external jobid '27992389'.
+
+[Tue Jun  4 03:47:46 2019]
+Job 17: Homer_NarrowPeak_Annotate: Ccl20-_T|AB3831-L1
+
+Submitted job 17 with external jobid '27992390'.
+
+[Tue Jun  4 03:47:47 2019]
+Job 28: Homer_BroadPeak_Annotate: Ccl20+_T|AB3836-L1
+
+Submitted job 28 with external jobid '27992391'.
+
+[Tue Jun  4 03:47:48 2019]
+Job 20: Homer_BroadPeak_Annotate: Ccl20-_T|AB3832-L1
+
+Submitted job 20 with external jobid '27992392'.
+
+[Tue Jun  4 03:47:49 2019]
+Job 45: Homer_NarrowPeak_Annotate: Ccl20-_T|AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1
+
+Submitted job 45 with external jobid '27992393'.
+
+[Tue Jun  4 03:47:50 2019]
+Job 32: Homer_BroadPeak_Annotate: Ccl20+_T|AB3838-L1
+
+Submitted job 32 with external jobid '27992394'.
+
+[Tue Jun  4 03:47:52 2019]
+Job 25: Homer_NarrowPeak_Annotate: Ccl20+_T|AB3835-L1
+
+Submitted job 25 with external jobid '27992395'.
+
+[Tue Jun  4 03:47:53 2019]
+Job 8: Homer_BroadPeak_Annotate: Ccl20-_UT|AB3826-L1
+
+Submitted job 8 with external jobid '27992396'.
+
+[Tue Jun  4 03:47:54 2019]
+Job 34: Homer_BroadPeak_Annotate: Ccl20-_UT|AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1
+
+Submitted job 34 with external jobid '27992397'.
+
+[Tue Jun  4 03:47:55 2019]
+Job 16: Homer_BroadPeak_Annotate: Ccl20+_UT|AB3830-L1
+
+Submitted job 16 with external jobid '27992398'.
+
+[Tue Jun  4 03:47:56 2019]
+Job 14: Homer_BroadPeak_Annotate: Ccl20+_UT|AB3829-L1
+
+Submitted job 14 with external jobid '27992399'.
+
+[Tue Jun  4 03:47:58 2019]
+Job 6: Homer_BroadPeak_Annotate: Ccl20-_UT|AB3825-L1
+
+Submitted job 6 with external jobid '27992400'.
+
+[Tue Jun  4 03:47:59 2019]
+Job 19: Homer_NarrowPeak_Annotate: Ccl20-_T|AB3832-L1
+
+Submitted job 19 with external jobid '27992401'.
+
+[Tue Jun  4 03:48:00 2019]
+Job 46: Homer_BroadPeak_Annotate: Ccl20-_T|AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1
+
+Submitted job 46 with external jobid '27992402'.
+
+[Tue Jun  4 03:48:01 2019]
+Job 31: Homer_NarrowPeak_Annotate: Ccl20+_T|AB3838-L1
+
+Submitted job 31 with external jobid '27992403'.
+
+[Tue Jun  4 03:48:02 2019]
+Job 7: Homer_NarrowPeak_Annotate: Ccl20-_UT|AB3826-L1
+
+Submitted job 7 with external jobid '27992404'.
+
+[Tue Jun  4 03:48:03 2019]
+Job 26: Homer_BroadPeak_Annotate: Ccl20+_T|AB3835-L1
+
+Submitted job 26 with external jobid '27992405'.
+
+[Tue Jun  4 03:48:05 2019]
+Job 15: Homer_NarrowPeak_Annotate: Ccl20+_UT|AB3830-L1
+
+Submitted job 15 with external jobid '27992406'.
+
+[Tue Jun  4 03:48:06 2019]
+Job 33: Homer_NarrowPeak_Annotate: Ccl20-_UT|AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1
+
+Submitted job 33 with external jobid '27992407'.
+
+[Tue Jun  4 03:48:07 2019]
+Job 5: Homer_NarrowPeak_Annotate: Ccl20-_UT|AB3825-L1
+
+Submitted job 5 with external jobid '27992408'.
+[Tue Jun  4 03:54:33 2019]
+Finished job 4.
+1 of 57 steps (2%) done
+
+[Tue Jun  4 03:54:33 2019]
+Job 3: Homer_NarrowPeak_Annotate: Ccl20-_UT|AB3824-L1
+
+Submitted job 3 with external jobid '27992630'.
+[Tue Jun  4 03:54:47 2019]
+Finished job 10.
+2 of 57 steps (4%) done
+
+[Tue Jun  4 03:54:47 2019]
+Job 9: Homer_NarrowPeak_Annotate: Ccl20+_UT|AB3827-L1
+
+[Tue Jun  4 03:54:47 2019]
+Finished job 28.
+3 of 57 steps (5%) done
+Submitted job 9 with external jobid '27992635'.
+
+[Tue Jun  4 03:54:49 2019]
+Job 13: Homer_NarrowPeak_Annotate: Ccl20+_UT|AB3829-L1
+
+Submitted job 13 with external jobid '27992636'.
+[Tue Jun  4 03:54:59 2019]
+Finished job 18.
+4 of 57 steps (7%) done
+
+[Tue Jun  4 03:54:59 2019]
+Job 29: Homer_NarrowPeak_Annotate: Ccl20+_T|AB3837-L1
+
+[Tue Jun  4 03:54:59 2019]
+Finished job 27.
+5 of 57 steps (9%) done
+[Tue Jun  4 03:54:59 2019]
+Finished job 30.
+6 of 57 steps (11%) done
+[Tue Jun  4 03:55:00 2019]
+Finished job 17.
+7 of 57 steps (12%) done
+Submitted job 29 with external jobid '27992638'.
+
+[Tue Jun  4 03:55:00 2019]
+Job 23: Homer_NarrowPeak_Annotate: Ccl20-_T|AB3834-L1
+
+Submitted job 23 with external jobid '27992639'.
+
+[Tue Jun  4 03:55:03 2019]
+Job 2: Homer_BroadPeak_Annotate: Ccl20-_UT|AB3823-L1
+
+Submitted job 2 with external jobid '27992640'.
+
+[Tue Jun  4 03:55:06 2019]
+Job 24: Homer_BroadPeak_Annotate: Ccl20-_T|AB3834-L1
+
+Submitted job 24 with external jobid '27992641'.
+[Tue Jun  4 03:55:38 2019]
+Finished job 21.
+8 of 57 steps (14%) done
+
+[Tue Jun  4 03:55:38 2019]
+Job 1: Homer_NarrowPeak_Annotate: Ccl20-_UT|AB3823-L1
+
+[Tue Jun  4 03:55:38 2019]
+Finished job 22.
+9 of 57 steps (16%) done
+[Tue Jun  4 03:55:39 2019]
+Finished job 20.
+10 of 57 steps (18%) done
+[Tue Jun  4 03:55:39 2019]
+Finished job 32.
+11 of 57 steps (19%) done
+Submitted job 1 with external jobid '27992642'.
+
+[Tue Jun  4 03:55:40 2019]
+Job 47: Homer_NarrowPeak_Annotate: Ccl20-_T|AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1
+
+Submitted job 47 with external jobid '27992643'.
+
+[Tue Jun  4 03:55:43 2019]
+Job 12: Homer_BroadPeak_Annotate: Ccl20+_UT|AB3828-L1
+
+Submitted job 12 with external jobid '27992644'.
+
+[Tue Jun  4 03:55:45 2019]
+Job 11: Homer_NarrowPeak_Annotate: Ccl20+_UT|AB3828-L1
+
+Submitted job 11 with external jobid '27992645'.
+[Tue Jun  4 03:55:51 2019]
+Finished job 25.
+12 of 57 steps (21%) done
+
+[Tue Jun  4 03:55:51 2019]
+Job 53: Homer_NarrowPeak_Annotate: Ccl20+_T|AB3835-L1_OVERLAPPED_AB3836-L1_OVERLAPPED_AB3837-L1_OVERLAPPED_AB3838-L1
+
+Submitted job 53 with external jobid '27992647'.
+[Tue Jun  4 03:56:44 2019]
+Finished job 8.
+13 of 57 steps (23%) done
+
+[Tue Jun  4 03:56:44 2019]
+Job 41: Homer_NarrowPeak_Annotate: Ccl20+_UT|AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1
+
+Submitted job 41 with external jobid '27992658'.
+[Tue Jun  4 03:57:22 2019]
+Finished job 52.
+14 of 57 steps (25%) done
+
+[Tue Jun  4 03:57:22 2019]
+Job 48: Homer_BroadPeak_Annotate: Ccl20-_T|AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1
+
+[Tue Jun  4 03:57:22 2019]
+Finished job 40.
+15 of 57 steps (26%) done
+Submitted job 48 with external jobid '27992659'.
+
+[Tue Jun  4 03:57:23 2019]
+Job 54: Homer_BroadPeak_Annotate: Ccl20+_T|AB3835-L1_OVERLAPPED_AB3836-L1_OVERLAPPED_AB3837-L1_OVERLAPPED_AB3838-L1
+
+Submitted job 54 with external jobid '27992660'.
+[Tue Jun  4 03:58:01 2019]
+Finished job 39.
+16 of 57 steps (28%) done
+
+[Tue Jun  4 03:58:01 2019]
+Job 55: Homer_NarrowPeak_Annotate: Ccl20+_T|AB3835-L1_IDR_AB3836-L1_IDR_AB3837-L1_IDR_AB3838-L1
+
+Submitted job 55 with external jobid '27992662'.
+[Tue Jun  4 03:58:14 2019]
+Finished job 51.
+17 of 57 steps (30%) done
+
+[Tue Jun  4 03:58:14 2019]
+Job 35: Homer_NarrowPeak_Annotate: Ccl20-_UT|AB3823-L1_OVERLAPPED_AB3824-L1_OVERLAPPED_AB3825-L1_OVERLAPPED_AB3826-L1
+
+Submitted job 35 with external jobid '27992668'.
+[Tue Jun  4 03:58:41 2019]
+Finished job 14.
+18 of 57 steps (32%) done
+
+[Tue Jun  4 03:58:41 2019]
+Job 42: Homer_BroadPeak_Annotate: Ccl20+_UT|AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1
+
+Submitted job 42 with external jobid '27992679'.
+[Tue Jun  4 03:58:53 2019]
+Finished job 7.
+19 of 57 steps (33%) done
+
+[Tue Jun  4 03:58:53 2019]
+Job 50: Homer_BroadPeak_Annotate: Ccl20-_T|AB3831-L1_IDR_AB3832-L1_IDR_AB3833-L1_IDR_AB3834-L1
+
+[Tue Jun  4 03:58:53 2019]
+Finished job 26.
+20 of 57 steps (35%) done
+[Tue Jun  4 03:58:54 2019]
+Finished job 6.
+21 of 57 steps (37%) done
+Submitted job 50 with external jobid '27992680'.
+
+[Tue Jun  4 03:58:56 2019]
+Job 49: Homer_NarrowPeak_Annotate: Ccl20-_T|AB3831-L1_IDR_AB3832-L1_IDR_AB3833-L1_IDR_AB3834-L1
+
+Submitted job 49 with external jobid '27992681'.
+
+[Tue Jun  4 03:58:58 2019]
+Job 56: Homer_BroadPeak_Annotate: Ccl20+_T|AB3835-L1_IDR_AB3836-L1_IDR_AB3837-L1_IDR_AB3838-L1
+
+Submitted job 56 with external jobid '27992682'.
+[Tue Jun  4 03:59:06 2019]
+Finished job 16.
+22 of 57 steps (39%) done
+
+[Tue Jun  4 03:59:06 2019]
+Job 36: Homer_BroadPeak_Annotate: Ccl20-_UT|AB3823-L1_OVERLAPPED_AB3824-L1_OVERLAPPED_AB3825-L1_OVERLAPPED_AB3826-L1
+
+[Tue Jun  4 03:59:07 2019]
+Finished job 31.
+23 of 57 steps (40%) done
+Submitted job 36 with external jobid '27992684'.
+
+[Tue Jun  4 03:59:07 2019]
+Job 43: Homer_NarrowPeak_Annotate: Ccl20+_UT|AB3827-L1_IDR_AB3828-L1_IDR_AB3829-L1_IDR_AB3830-L1
+
+Submitted job 43 with external jobid '27992685'.
+[Tue Jun  4 03:59:20 2019]
+Finished job 15.
+24 of 57 steps (42%) done
+
+[Tue Jun  4 03:59:20 2019]
+Job 44: Homer_BroadPeak_Annotate: Ccl20+_UT|AB3827-L1_IDR_AB3828-L1_IDR_AB3829-L1_IDR_AB3830-L1
+
+Submitted job 44 with external jobid '27992688'.
+[Tue Jun  4 03:59:45 2019]
+Finished job 45.
+25 of 57 steps (44%) done
+
+[Tue Jun  4 03:59:45 2019]
+Job 38: Homer_BroadPeak_Annotate: Ccl20-_UT|AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1
+
+Submitted job 38 with external jobid '27992690'.
+[Tue Jun  4 03:59:58 2019]
+Finished job 19.
+26 of 57 steps (46%) done
+
+[Tue Jun  4 03:59:58 2019]
+Job 37: Homer_NarrowPeak_Annotate: Ccl20-_UT|AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1
+
+Submitted job 37 with external jobid '27992694'.
+[Tue Jun  4 04:01:16 2019]
+Finished job 34.
+27 of 57 steps (47%) done
+[Tue Jun  4 04:01:31 2019]
+Finished job 54.
+28 of 57 steps (49%) done
+[Tue Jun  4 04:01:41 2019]
+Finished job 55.
+29 of 57 steps (51%) done
+[Tue Jun  4 04:01:41 2019]
+Finished job 48.
+30 of 57 steps (53%) done
+[Tue Jun  4 04:01:43 2019]
+Finished job 41.
+31 of 57 steps (54%) done
+[Tue Jun  4 04:01:53 2019]
+Finished job 53.
+32 of 57 steps (56%) done
+[Tue Jun  4 04:01:53 2019]
+Finished job 33.
+33 of 57 steps (58%) done
+[Tue Jun  4 04:02:07 2019]
+Finished job 47.
+34 of 57 steps (60%) done
+[Tue Jun  4 04:02:30 2019]
+Finished job 2.
+35 of 57 steps (61%) done
+[Tue Jun  4 04:02:31 2019]
+Finished job 12.
+36 of 57 steps (63%) done
+[Tue Jun  4 04:02:31 2019]
+Finished job 11.
+37 of 57 steps (65%) done
+[Tue Jun  4 04:02:42 2019]
+Finished job 46.
+38 of 57 steps (67%) done
+[Tue Jun  4 04:02:42 2019]
+Finished job 13.
+39 of 57 steps (68%) done
+[Tue Jun  4 04:02:43 2019]
+Finished job 23.
+40 of 57 steps (70%) done
+[Tue Jun  4 04:02:43 2019]
+Finished job 24.
+41 of 57 steps (72%) done
+[Tue Jun  4 04:02:43 2019]
+Finished job 1.
+42 of 57 steps (74%) done
+[Tue Jun  4 04:02:53 2019]
+Finished job 35.
+43 of 57 steps (75%) done
+[Tue Jun  4 04:02:53 2019]
+Finished job 3.
+44 of 57 steps (77%) done
+[Tue Jun  4 04:02:53 2019]
+Finished job 5.
+45 of 57 steps (79%) done
+[Tue Jun  4 04:02:53 2019]
+Finished job 9.
+46 of 57 steps (81%) done
+[Tue Jun  4 04:03:04 2019]
+Finished job 29.
+47 of 57 steps (82%) done
+[Tue Jun  4 04:03:25 2019]
+Finished job 36.
+48 of 57 steps (84%) done
+[Tue Jun  4 04:03:25 2019]
+Finished job 42.
+49 of 57 steps (86%) done
+[Tue Jun  4 04:03:25 2019]
+Finished job 50.
+50 of 57 steps (88%) done
+[Tue Jun  4 04:03:25 2019]
+Finished job 56.
+51 of 57 steps (89%) done
+[Tue Jun  4 04:03:25 2019]
+Finished job 44.
+52 of 57 steps (91%) done
+[Tue Jun  4 04:03:35 2019]
+Finished job 49.
+53 of 57 steps (93%) done
+[Tue Jun  4 04:03:35 2019]
+Finished job 43.
+54 of 57 steps (95%) done
+[Tue Jun  4 04:05:25 2019]
+Finished job 38.
+55 of 57 steps (96%) done
+[Tue Jun  4 04:05:35 2019]
+Finished job 37.
+56 of 57 steps (98%) done
+
+[Tue Jun  4 04:05:35 2019]
+localrule End_Point:
+    input: /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/narrowpeak/AB3823-L1/AB3823-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/broadpeak/AB3823-L1/AB3823-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/narrowpeak/AB3824-L1/AB3824-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/broadpeak/AB3824-L1/AB3824-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/narrowpeak/AB3825-L1/AB3825-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/broadpeak/AB3825-L1/AB3825-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/narrowpeak/AB3826-L1/AB3826-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/broadpeak/AB3826-L1/AB3826-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/narrowpeak/AB3827-L1/AB3827-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/broadpeak/AB3827-L1/AB3827-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/narrowpeak/AB3828-L1/AB3828-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/broadpeak/AB3828-L1/AB3828-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/narrowpeak/AB3829-L1/AB3829-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/broadpeak/AB3829-L1/AB3829-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/narrowpeak/AB3830-L1/AB3830-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/broadpeak/AB3830-L1/AB3830-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3831-L1/AB3831-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1/AB3831-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3832-L1/AB3832-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3832-L1/AB3832-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3833-L1/AB3833-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3833-L1/AB3833-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3834-L1/AB3834-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3834-L1/AB3834-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/narrowpeak/AB3835-L1/AB3835-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/broadpeak/AB3835-L1/AB3835-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/narrowpeak/AB3836-L1/AB3836-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/broadpeak/AB3836-L1/AB3836-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/narrowpeak/AB3837-L1/AB3837-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/broadpeak/AB3837-L1/AB3837-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/narrowpeak/AB3838-L1/AB3838-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/broadpeak/AB3838-L1/AB3838-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/narrowpeak/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/broadpeak/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1/AB3823-L1_POOLED_AB3824-L1_POOLED_AB3825-L1_POOLED_AB3826-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/narrowpeak/AB3823-L1_OVERLAPPED_AB3824-L1_OVERLAPPED_AB3825-L1_OVERLAPPED_AB3826-L1/AB3823-L1_OVERLAPPED_AB3824-L1_OVERLAPPED_AB3825-L1_OVERLAPPED_AB3826-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/broadpeak/AB3823-L1_OVERLAPPED_AB3824-L1_OVERLAPPED_AB3825-L1_OVERLAPPED_AB3826-L1/AB3823-L1_OVERLAPPED_AB3824-L1_OVERLAPPED_AB3825-L1_OVERLAPPED_AB3826-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/narrowpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_UT/peak_annotate/broadpeak/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1/AB3823-L1_IDR_AB3824-L1_IDR_AB3825-L1_IDR_AB3826-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/narrowpeak/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/broadpeak/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1/AB3827-L1_POOLED_AB3828-L1_POOLED_AB3829-L1_POOLED_AB3830-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/narrowpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/broadpeak/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1/AB3827-L1_OVERLAPPED_AB3828-L1_OVERLAPPED_AB3829-L1_OVERLAPPED_AB3830-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/narrowpeak/AB3827-L1_IDR_AB3828-L1_IDR_AB3829-L1_IDR_AB3830-L1/AB3827-L1_IDR_AB3828-L1_IDR_AB3829-L1_IDR_AB3830-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_UT/peak_annotate/broadpeak/AB3827-L1_IDR_AB3828-L1_IDR_AB3829-L1_IDR_AB3830-L1/AB3827-L1_IDR_AB3828-L1_IDR_AB3829-L1_IDR_AB3830-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1/AB3831-L1_POOLED_AB3832-L1_POOLED_AB3833-L1_POOLED_AB3834-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1/AB3831-L1_OVERLAPPED_AB3832-L1_OVERLAPPED_AB3833-L1_OVERLAPPED_AB3834-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/narrowpeak/AB3831-L1_IDR_AB3832-L1_IDR_AB3833-L1_IDR_AB3834-L1/AB3831-L1_IDR_AB3832-L1_IDR_AB3833-L1_IDR_AB3834-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20-_T/peak_annotate/broadpeak/AB3831-L1_IDR_AB3832-L1_IDR_AB3833-L1_IDR_AB3834-L1/AB3831-L1_IDR_AB3832-L1_IDR_AB3833-L1_IDR_AB3834-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/narrowpeak/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/broadpeak/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1/AB3835-L1_POOLED_AB3836-L1_POOLED_AB3837-L1_POOLED_AB3838-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/narrowpeak/AB3835-L1_OVERLAPPED_AB3836-L1_OVERLAPPED_AB3837-L1_OVERLAPPED_AB3838-L1/AB3835-L1_OVERLAPPED_AB3836-L1_OVERLAPPED_AB3837-L1_OVERLAPPED_AB3838-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/broadpeak/AB3835-L1_OVERLAPPED_AB3836-L1_OVERLAPPED_AB3837-L1_OVERLAPPED_AB3838-L1/AB3835-L1_OVERLAPPED_AB3836-L1_OVERLAPPED_AB3837-L1_OVERLAPPED_AB3838-L1.broadPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/narrowpeak/AB3835-L1_IDR_AB3836-L1_IDR_AB3837-L1_IDR_AB3838-L1/AB3835-L1_IDR_AB3836-L1_IDR_AB3837-L1_IDR_AB3838-L1.narrowPeak.homer_annotate.txt, /data/shamsaddinisha/jfarber-20160119-P1/spsingh-20190308-E1/spsingh-20190521-D1/mm10/Ccl20+_T/peak_annotate/broadpeak/AB3835-L1_IDR_AB3836-L1_IDR_AB3837-L1_IDR_AB3838-L1/AB3835-L1_IDR_AB3836-L1_IDR_AB3837-L1_IDR_AB3838-L1.broadPeak.homer_annotate.txt
+    jobid: 0
+
+[Tue Jun  4 04:05:35 2019]
+Finished job 0.
+57 of 57 steps (100%) done
+Complete log: /gpfs/gsfs6/users/shamsaddinisha/ATAC_Seq/Snakemake/.snakemake/log/2019-06-04T034732.088045.snakemake.log

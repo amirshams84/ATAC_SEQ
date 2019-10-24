@@ -1,0 +1,21 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 8
+Unlimited resources: mem_mb
+Job counts:
+	count	jobs
+	1	End_Point
+	4	Pre_Process_Paired
+	5
+
+[Tue May 14 13:41:13 2019]
+Job 1: Pre_Process_Paired: Encode|ctl1
+
+Submitted job 1 with external jobid '26574415'.
+
+[Tue May 14 13:41:16 2019]
+Job 4: Pre_Process_Paired: Encode|rep1
+
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Cancelling snakemake on user request.

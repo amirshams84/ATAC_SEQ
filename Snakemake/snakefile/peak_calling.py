@@ -17,45 +17,15 @@ sys.path.append(library_path)
 import utility
 # ################################### FUNCTIONS ################################## #
 
-
-def build_design_Dict(metadata_Dict):
-	#
-	design_Dict = {}
-	for sample, sample_Dict in metadata_Dict.items():
-		#
-		if sample_Dict["Design"] not in design_Dict:
-			#
-			design_Dict[sample_Dict["Design"]] = {}
-			design_Dict[sample_Dict["Design"]]["Case"] = []
-			design_Dict[sample_Dict["Design"]]["Control"] = []
-			if sample_Dict["Type"] == "CASE":
-				#
-				design_Dict[sample_Dict["Design"]]["Case"].append(sample)
-			elif sample_Dict["Type"] == "CONTROL":
-				#
-				design_Dict[sample_Dict["Design"]]["Control"].append(sample)
-			else:
-				pass
-		elif sample_Dict["Design"] in design_Dict:
-			#
-			if sample_Dict["Type"] == "CASE":
-				#
-				design_Dict[sample_Dict["Design"]]["Case"].append(sample)
-			elif sample_Dict["Type"] == "CONTROL":
-				#
-				design_Dict[sample_Dict["Design"]]["Control"].append(sample)
-			else:
-				pass
-	return design_Dict
 # ################################### CONFIGURATION ############################## #
 
 
 # ++++++++++++++++++++++++++++++++++++
 #PATH
-Bash_Script = os.path.abspath(workflow.basedir + "/../Bash_Script")
-R_Script_path = os.path.abspath(workflow.basedir + "/../R_Script")
-Python_Script_path = os.path.abspath(workflow.basedir + "/../Python_Script")
-Script_Path = os.path.abspath(workflow.basedir + "/../Script")
+Bash_Script = os.path.abspath(workflow.basedir + "/../bash_script")
+R_Script_path = os.path.abspath(workflow.basedir + "/../R_script")
+Python_Script_path = os.path.abspath(workflow.basedir + "/../python_script")
+Template_Path = os.path.abspath(workflow.basedir + "/../template")
 # -----------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #GENERAL
@@ -63,8 +33,14 @@ config_general_Dict = config["GENERAL"]
 PROJECT = config_general_Dict["PROJECT"]
 EXPERIMENT = config_general_Dict["EXPERIMENT"]
 TITLE = config_general_Dict["TITLE"]
-WORKDIR = utility.fix_path(config_general_Dict["WORKDIR"])
-# -----------------------------------
+INFOLINK = config_general_Dict["INFOLINK"]
+# ------------------------------------
+# ++++++++++++++++++++++++++++++++++++
+#DIRECTORY
+config_directory_Dict = config["DIRECTORY"]
+WORKDIR = utility.fix_path(config_directory_Dict["WORKDIR"])
+DATADIR = utility.fix_path(config_directory_Dict["DATADIR"])
+# ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #DATA
 config_data_Dict = config["DATA"]
@@ -73,16 +49,17 @@ GENOME = config_data_Dict["GENOME"].lower()
 # -----------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #CLUSTER
-config_cluster_Dict = config["CLSUTER_CONFIG"]
-PROCESSORS = config_cluster_Dict["PROCESSORS"]
-MEMORY = config_cluster_Dict["MEMORY"]
+PROCESSORS, MEMORY = utility.get_cluster_info(sys.argv)
 # ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #METADATA
 config_metadata_Dict = config["METADATA"]
 METADATA_FILE = config_metadata_Dict["METADATA_FILE"]
-metadata_Dict = utility.build_metadata_dict(METADATA_FILE)
-design_Dict = build_design_Dict(metadata_Dict)
+SAMPLE_COLUMN = config_metadata_Dict["SAMPLE_COLUMN"]
+TREATMENT_COLUMN = config_metadata_Dict["TREATMENT_COLUMN"]
+TREATMENT_LIST = list(config_metadata_Dict["TREATMENT_LIST"])
+sample_treatment_Dict = utility.build_sample_treatment_dict(METADATA_FILE, SAMPLE_COLUMN)
+metadata_Dict = utility.build_metadata_dict(sample_treatment_Dict, TREATMENT_COLUMN, TREATMENT_LIST)
 # ------------------------------------
 # ++++++++++++++++++++++++++++++++++++
 #UTILITIES
@@ -98,7 +75,6 @@ config_reference_Dict = config["REFERENCE"][GENOME]
 config_peak_calling_Dict = config["PEAK_CALLING"][GENOME]
 MACS2_NARROW_PARAMETERS = config_peak_calling_Dict["MACS2_NARROW"]
 MACS2_BROAD_PARAMETERS = config_peak_calling_Dict["MACS2_BROAD"]
-
 # ------------------------------------
 # ################################### WILDCARDS ################################ #
 
@@ -106,33 +82,33 @@ MACS2_BROAD_PARAMETERS = config_peak_calling_Dict["MACS2_BROAD"]
 post_alignment_List = []
 peak_calling_List = []
 overlap_peak_List = []
-for sample, sample_Dict in metadata_Dict.items():
+for sample, sample_Dict in sample_treatment_Dict.items():
 	#
 	#POST_ALIGNMENT
-	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{sample}.processed.bam".format(design=sample_Dict["Design"], sample=sample))
-	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{sample}.processed.bed.gz".format(design=sample_Dict["Design"], sample=sample))
+	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{sample}.processed.bam".format(design=sample_Dict[TREATMENT_COLUMN], sample=sample))
+	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{sample}.processed.bed.gz".format(design=sample_Dict[TREATMENT_COLUMN], sample=sample))
 	##PEAK_CALLING
-	peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/narrowpeak/{sample}.narrowPeak.gz".format(design=sample_Dict["Design"], sample=sample))
-	peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/broadpeak/{sample}.broadPeak.gz".format(design=sample_Dict["Design"], sample=sample))
+	peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/narrowpeak/{sample}.narrowPeak.gz".format(design=sample_Dict[TREATMENT_COLUMN], sample=sample))
+	peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/broadpeak/{sample}.broadPeak.gz".format(design=sample_Dict[TREATMENT_COLUMN], sample=sample))
 
-for design in design_Dict:
+for design in metadata_Dict:
 	##POOLING
-	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{pooled_case}.processed.bam".format(design=design, pooled_case="_POOLED_".join(design_Dict[design]["Case"])))
-	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{pooled_case}.processed.bed.gz".format(design=design, pooled_case="_POOLED_".join(design_Dict[design]["Case"])))
+	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{pooled_case}.processed.bam".format(design=design, pooled_case="_POOLED_".join(metadata_Dict[design]["Case"])))
+	post_alignment_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/post_alignment/{pooled_case}.processed.bed.gz".format(design=design, pooled_case="_POOLED_".join(metadata_Dict[design]["Case"])))
 	##PEAK_CALLING
-	peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/narrowpeak/{pooled_case}.narrowPeak.gz".format(design=design, pooled_case="_POOLED_".join(design_Dict[design]["Case"])))
-	peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/broadpeak/{pooled_case}.broadPeak.gz".format(design=design, pooled_case="_POOLED_".join(design_Dict[design]["Case"])))
+	peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/narrowpeak/{pooled_case}.narrowPeak.gz".format(design=design, pooled_case="_POOLED_".join(metadata_Dict[design]["Case"])))
+	peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/broadpeak/{pooled_case}.broadPeak.gz".format(design=design, pooled_case="_POOLED_".join(metadata_Dict[design]["Case"])))
 	##
-	for case in design_Dict[design]["Case"]:
-		for control in design_Dict[design]["Control"]:
+	for case in metadata_Dict[design]["Case"]:
+		for control in metadata_Dict[design]["Control"]:
 			#
 			peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/narrowpeak/{case}_VS_{control}.narrowPeak.gz".format(design=design, case=case, control=control))
 			peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/broadpeak/{case}_VS_{control}.broadPeak.gz".format(design=design, case=case, control=control))
 	##
-	for control in design_Dict[design]["Control"]:
+	for control in metadata_Dict[design]["Control"]:
 		#
-		peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/narrowpeak/{pooled_case}_VS_{control}.narrowPeak.gz".format(design=design, pooled_case="_POOLED_".join(design_Dict[design]["Case"]), control=control))
-		peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/broadpeak/{pooled_case}_VS_{control}.broadPeak.gz".format(design=design, pooled_case="_POOLED_".join(design_Dict[design]["Case"]), control=control))
+		peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/narrowpeak/{pooled_case}_VS_{control}.narrowPeak.gz".format(design=design, pooled_case="_POOLED_".join(metadata_Dict[design]["Case"]), control=control))
+		peak_calling_List.append(WORKDIR + "/" + PROJECT + "/" + EXPERIMENT + "/" + TITLE + "/" + GENOME + "/{design}/peak_calling/broadpeak/{pooled_case}_VS_{control}.broadPeak.gz".format(design=design, pooled_case="_POOLED_".join(metadata_Dict[design]["Case"]), control=control))
 		
 
 # ################################### PIPELINE FLOW ############################ #
@@ -182,8 +158,8 @@ rule peak_calling_narrow:
 			SCRATCH_PATH=/lscratch/${{SLURM_JOB_ID}}
 			mkdir -p $SCRATCH_PATH
 
-			if [ ! -f {Script_Path}/bigNarrowPeak.as ]; then
-				wget {config_utilities_Dict[BigNarrowPeak]} -O {Script_Path}/bigNarrowPeak.as
+			if [ ! -f {Template_Path}/bigNarrowPeak.as ]; then
+				wget {config_utilities_Dict[BigNarrowPeak]} -O {Template_Path}/bigNarrowPeak.as
 			fi
 			
 			sample_Name=$(basename {input.processed_bed})
@@ -287,7 +263,7 @@ rule peak_calling_narrow:
 			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
 			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
 			printf "%s\\n" "$AWK_BED_MAX_BED_SIGNAL_FILTER {output.narrowpeak_bed}.sorted > {output.narrowpeak_bed}.tmp" | tee >(cat >&2)
-			printf "%s\\n" "bedToBigBed -as={Script_Path}/bigNarrowPeak.as -type=bed6+4 {output.narrowpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.narrowpeak_bigbed}" | tee >(cat >&2)
+			printf "%s\\n" "bedToBigBed -as={Template_Path}/bigNarrowPeak.as -type=bed6+4 {output.narrowpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.narrowpeak_bigbed}" | tee >(cat >&2)
 			printf "%s\\n" "#" | tee >(cat >&2)
 			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
 			printf "%s\\n" "#" | tee >(cat >&2)
@@ -297,7 +273,7 @@ rule peak_calling_narrow:
 			start_time="$(date -u +%s)"
 
 			awk 'BEGIN{{OFS=FS}} {{if ($5>1000) $5=1000; print $0}}' {output.narrowpeak_bed}.sorted > {output.narrowpeak_bed}.tmp
-			bedToBigBed -as={Script_Path}/bigNarrowPeak.as -type=bed6+4 {output.narrowpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.narrowpeak_bigbed}
+			bedToBigBed -as={Template_Path}/bigNarrowPeak.as -type=bed6+4 {output.narrowpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.narrowpeak_bigbed}
 
 			end_time="$(date -u +%s)"
 			##
@@ -483,8 +459,8 @@ rule peak_calling_narrow_controlled:
 			SCRATCH_PATH=/lscratch/${{SLURM_JOB_ID}}
 			mkdir -p $SCRATCH_PATH
 
-			if [ ! -f {Script_Path}/bigNarrowPeak.as ]; then
-				wget {config_utilities_Dict[BigNarrowPeak]} -O {Script_Path}/bigNarrowPeak.as
+			if [ ! -f {Template_Path}/bigNarrowPeak.as ]; then
+				wget {config_utilities_Dict[BigNarrowPeak]} -O {Template_Path}/bigNarrowPeak.as
 			fi
 
 			sample_Name=$(basename {output.narrowpeak_bed})
@@ -592,7 +568,7 @@ rule peak_calling_narrow_controlled:
 			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
 			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
 			printf "%s\\n" "$AWK_BED_MAX_BED_SIGNAL_FILTER {output.narrowpeak_bed}.sorted > {output.narrowpeak_bed}.tmp" | tee >(cat >&2)
-			printf "%s\\n" "bedToBigBed -as={Script_Path}/bigNarrowPeak.as -type=bed6+4 {output.narrowpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.narrowpeak_bigbed}" | tee >(cat >&2)
+			printf "%s\\n" "bedToBigBed -as={Template_Path}/bigNarrowPeak.as -type=bed6+4 {output.narrowpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.narrowpeak_bigbed}" | tee >(cat >&2)
 			printf "%s\\n" "#" | tee >(cat >&2)
 			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
 			printf "%s\\n" "#" | tee >(cat >&2)
@@ -602,7 +578,7 @@ rule peak_calling_narrow_controlled:
 			start_time="$(date -u +%s)"
 
 			awk 'BEGIN{{OFS=FS}} {{if ($5>1000) $5=1000; print $0}}' {output.narrowpeak_bed}.sorted > {output.narrowpeak_bed}.tmp
-			bedToBigBed -as={Script_Path}/bigNarrowPeak.as -type=bed6+4 {output.narrowpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.narrowpeak_bigbed}
+			bedToBigBed -as={Template_Path}/bigNarrowPeak.as -type=bed6+4 {output.narrowpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.narrowpeak_bigbed}
 
 			end_time="$(date -u +%s)"
 			##
@@ -783,8 +759,8 @@ rule peak_calling_broad:
 			SCRATCH_PATH=/lscratch/${{SLURM_JOB_ID}}
 			mkdir -p $SCRATCH_PATH
 
-			if [ ! -f {Script_Path}/bigBroadPeak.as ]; then
-				wget {config_utilities_Dict[BigBroadPeak]} -O {Script_Path}/bigBroadPeak.as
+			if [ ! -f {Template_Path}/bigBroadPeak.as ]; then
+				wget {config_utilities_Dict[BigBroadPeak]} -O {Template_Path}/bigBroadPeak.as
 			fi
 
 			sample_Name=$(basename {input.processed_bed})
@@ -891,7 +867,7 @@ rule peak_calling_broad:
 			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
 			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
 			printf "%s\\n" "$AWK_BED_MAX_BED_SIGNAL_FILTER {output.broadpeak_bed}.sorted > {output.broadpeak_bed}.tmp" | tee >(cat >&2)
-			printf "%s\\n" "bedToBigBed -as={Script_Path}/bigBroadPeak.as -type=bed6+3 {output.broadpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.broadpeak_bigbed}" | tee >(cat >&2)
+			printf "%s\\n" "bedToBigBed -as={Template_Path}/bigBroadPeak.as -type=bed6+3 {output.broadpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.broadpeak_bigbed}" | tee >(cat >&2)
 			printf "%s\\n" "#" | tee >(cat >&2)
 			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
 			printf "%s\\n" "#" | tee >(cat >&2)
@@ -901,7 +877,7 @@ rule peak_calling_broad:
 			start_time="$(date -u +%s)"
 
 			awk 'BEGIN{{OFS=FS}} {{if ($5>1000) $5=1000; print $0}}' {output.broadpeak_bed}.sorted > {output.broadpeak_bed}.tmp
-			bedToBigBed -as={Script_Path}/bigBroadPeak.as -type=bed6+3 {output.broadpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.broadpeak_bigbed}
+			bedToBigBed -as={Template_Path}/bigBroadPeak.as -type=bed6+3 {output.broadpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.broadpeak_bigbed}
 
 			end_time="$(date -u +%s)"
 			##
@@ -1088,8 +1064,8 @@ rule peak_calling_broad_controlled:
 			SCRATCH_PATH=/lscratch/${{SLURM_JOB_ID}}
 			mkdir -p $SCRATCH_PATH
 
-			if [ ! -f {Script_Path}/bigBroadPeak.as ]; then
-				wget {config_utilities_Dict[BigBroadPeak]} -O {Script_Path}/bigBroadPeak.as
+			if [ ! -f {Template_Path}/bigBroadPeak.as ]; then
+				wget {config_utilities_Dict[BigBroadPeak]} -O {Template_Path}/bigBroadPeak.as
 			fi
 
 			sample_Name=$(basename {output.broadpeak_bed})
@@ -1197,7 +1173,7 @@ rule peak_calling_broad_controlled:
 			printf "%s\\n" "------------------------------------------------------------------------------" | tee >(cat >&2)
 			printf "%s\\n" "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" | tee >(cat >&2)
 			printf "%s\\n" "$AWK_BED_MAX_BED_SIGNAL_FILTER {output.broadpeak_bed}.sorted > {output.broadpeak_bed}.tmp" | tee >(cat >&2)
-			printf "%s\\n" "bedToBigBed -as={Script_Path}/bigBroadPeak.as -type=bed6+3 {output.broadpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.broadpeak_bigbed}" | tee >(cat >&2)
+			printf "%s\\n" "bedToBigBed -as={Template_Path}/bigBroadPeak.as -type=bed6+3 {output.broadpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.broadpeak_bigbed}" | tee >(cat >&2)
 			printf "%s\\n" "#" | tee >(cat >&2)
 			printf "%s\\n" "EXECUTING...." | tee >(cat >&2)
 			printf "%s\\n" "#" | tee >(cat >&2)
@@ -1207,7 +1183,7 @@ rule peak_calling_broad_controlled:
 			start_time="$(date -u +%s)"
 
 			awk 'BEGIN{{OFS=FS}} {{if ($5>1000) $5=1000; print $0}}' {output.broadpeak_bed}.sorted > {output.broadpeak_bed}.tmp
-			bedToBigBed -as={Script_Path}/bigBroadPeak.as -type=bed6+3 {output.broadpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.broadpeak_bigbed}
+			bedToBigBed -as={Template_Path}/bigBroadPeak.as -type=bed6+3 {output.broadpeak_bed}.tmp {config_reference_Dict[CHROM_SIZE]} {output.broadpeak_bigbed}
 
 			end_time="$(date -u +%s)"
 			##
